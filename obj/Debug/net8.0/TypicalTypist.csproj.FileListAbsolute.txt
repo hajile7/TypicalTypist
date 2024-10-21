@@ -615,6 +615,7 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.AssemblyInfo.cs
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.csproj.CoreCompileInputs.cache
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.sourcelink.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Authorization.wasm
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.wasm
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\webcil\Microsoft.AspNetCore.Components.Forms.wasm
@@ -1029,3 +1030,4 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\refint\TypicalTypist.dll
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.pdb
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\ref\TypicalTypist.dll
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css

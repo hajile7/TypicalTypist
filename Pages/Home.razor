@@ -9,41 +9,107 @@
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div class="typing-container">
 
-Welcome to your new app.
+    <div class="row-100 g-0" style="text-align: center;">
+        <h3>[Timer and such here]</h3>
+    </div>
 
-<h3>Random Test Words: </h3>
 
-@if(testInstance == null)
-{
-    <p>Loading...</p>
-}
-else
-{
-    <ul>
-        @foreach(var tuple in testInstance.Select((word, index) => (word, index)))
-        {
-            @foreach(var tuple2 in tuple.word.Chars.Select((Chars, index) => (Chars, index)))
+    <div class="row-100 g-0" style="text-align: center; font-size: 2rem;">
+        <div class="text-wrapper">
+            <div class="col-8 offset-2">
+                <div @ref="textInput"
+                tabindex="0"
+                @* @onkeyup="OnInput"
+                @onfocus="OnFocus"
+                @onblur="OnBlur"
+                class="@(!isFocused ? "blurred" : "")" *@
+                >
+             
+            @foreach (var tuple in testInstance.Select((word, index) => (word, index)))
             {
-                <li>@tuple2.Chars</li>
-            }
-            <span>&#8901;</span>
-        }
-    </ul>
+                <span class="word">
+                    @foreach (var tuple2 in tuple.word.Chars.Select((Chars, index) => (Chars, index)))
+                    {
+                        @if ((tuple2.index + tuple.word.StartIndex == currIndex) && isFocused)
+                        {
+                            <span class="cursor"></span>
+                        }
 
-}
+                        <span style="display: inline-block;"
+                              class="@(correctStatus[tuple2.index + tuple.word.StartIndex] ? "correct" : 
+                                      (correctStatus[tuple2.index + tuple.word.StartIndex] == false ? "incorrect" : ""))">
+                            @tuple2.Chars
+                        </span>
+                    }
+                </span>
+
+                @if (tuple.index < testInstance.Count() - 1)
+                {
+                    <span style="font-size: 1.25rem;"
+                          class="@(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] ? "correct" : 
+                                  (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : ""))">
+                        
+                        @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
+                        {
+                            <span class="cursor"></span>
+                        }
+
+                        &#8901;
+                    </span>
+                }
+            }
+        </div>
+
+        @if (!isFocused)
+        {
+            <div class="focusText">
+                Click Here or Push Any Key to Focus
+            </div>
+        }
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+
 
 
 @code 
 {
     //Variables
-    private List<WordTestObject>? testInstance;
+    private ElementReference textInput;
+    private List<WordTestObject> testInstance = new();
+    
+    private List<string> checkTestInstance = new();
     
     //Lifecycle Methods
     protected override async Task OnInitializedAsync()
     {
         testInstance = await wordService.GetRandomTest();
+
+        if(testInstance.Any())
+        {
+            ProcessCheckTestInstance();
+        }
+
+        StateHasChanged();
+        
     } 
+
+    private void ProcessCheckTestInstance() 
+    {
+        foreach(WordTestObject testObj in testInstance) 
+        {
+            foreach(string word in testObj.Chars) 
+            {
+                checkTestInstance.Add(word);
+            }
+            checkTestInstance.Add("1");
+        }
+        Console.WriteLine(string.Join(", ", checkTestInstance));
+    }
 
 }
