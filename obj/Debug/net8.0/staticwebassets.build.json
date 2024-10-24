@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TcEGu1qDBYYr/XnHFgYvQkhjSu924ewpBarJJpSsH8Y=",
+  "Hash": "sMKHM0VNMvHGJQkmObAxAvhOgCfjGuwiMFZrCiHmMjs=",
   "Source": "TypicalTypist",
   "BasePath": "/",
   "Mode": "Root",
@@ -7919,6 +7919,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\index.html"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\wwwroot\\jshelpers.js",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "jshelpers.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\jshelpers.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\wwwroot\\sample-data\\weather.json",

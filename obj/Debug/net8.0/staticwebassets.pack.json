@@ -37,6 +37,10 @@
       "PackagePath": "staticwebassets\\index.html"
     },
     {
+      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\wwwroot\\jshelpers.js",
+      "PackagePath": "staticwebassets\\jshelpers.js"
+    },
+    {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
     },

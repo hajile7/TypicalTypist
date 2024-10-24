@@ -13,3 +13,31 @@
 .word {
     display: inline-block;
 }
+
+.correct {
+    color: green;
+}
+
+.incorrect {
+    color: red
+}
+
+.cursor {
+    display: inline-block;
+    width: 1px; 
+    background-color: white;
+    height: 1em;
+    animation: blink 1s step-end infinite;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 1px;
+}
+
+@keyframes blink {
+    0%, 100% {
+      opacity: 1;   /* Cursor visible */
+    }
+    50% {
+      opacity: 0;   /* Cursor hidden */
+    }
+  }

@@ -819,6 +819,7 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\staticwebasset
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\staticwebassets.pack.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Layout\MainLayout.razor.rz.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Layout\NavMenu.razor.rz.scp.css
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\bundle\TypicalTypist.styles.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\projectbundle\TypicalTypist.bundle.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\compressed\27b6u4w195.gz
@@ -1030,4 +1031,3 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\refint\TypicalTypist.dll
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\TypicalTypist.pdb
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\ref\TypicalTypist.dll
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
