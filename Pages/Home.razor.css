@@ -14,18 +14,26 @@
     display: inline-block;
 }
 
+.neutral {
+    color: lightgray;
+}
+
 .correct {
     color: green;
 }
 
 .incorrect {
-    color: red
+    color: red;
+}
+
+.noFocusVisible:focus-visible {
+    outline: none;
 }
 
 .cursor {
     display: inline-block;
     width: 1px; 
-    background-color: black;
+    background-color: white;
     height: 1em;
     animation: blink 1s step-end infinite;
     position: relative;

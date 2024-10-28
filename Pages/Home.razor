@@ -24,7 +24,7 @@
                 <div @ref="textInput"
                 tabindex="0"
                 @onkeyup="OnInput"
-                class="@(!isFocused ? "blurred" : "")"
+                class="@(!isFocused ? "blurred" : "") noFocusVisible"
                 >
             @if (testInstance?.Any() == true && correctStatus.Count > 0)
             {
@@ -38,10 +38,10 @@
                                 <span class="cursor"></span>
                             }
                             <span style="display: inline-block;"
-                                class="@(tuple2.index + tuple.word.StartIndex < correctStatus.Count 
-                                        ? (correctStatus[tuple2.index + tuple.word.StartIndex] ? "correct" : 
-                                            (correctStatus[tuple2.index + tuple.word.StartIndex] == false ? "incorrect" : "")) 
-                                        : "")">
+                                class="@(tuple2.index + tuple.word.StartIndex < correctStatus.Count
+                                ? (correctStatus[tuple2.index + tuple.word.StartIndex] == true ? "correct"
+                                    : (correctStatus[tuple2.index + tuple.word.StartIndex] == false ? "incorrect" : "neutral"))
+                                : "neutral")">
                                 @tuple2.Chars
                             </span>
                         }
@@ -49,8 +49,8 @@
                     @if (tuple.index < testInstance.Count() - 1)
                     {
                         <span style="font-size: 1.25rem;"
-                            class="@(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] ? "correct" : 
-                                    (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : ""))">
+                            class="@(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
+                            : (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : "neutral"))">
                             @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
                             {
                                 <span class="cursor"></span>
@@ -83,7 +83,7 @@
     private List<WordTestObject> testInstance = new();
     private List<CharChecker> charsTypedList = new();
     private List<char> checkTestInstance = new();
-    private List<bool> correctStatus = new List<bool>();
+    private List<bool?> correctStatus = new List<bool?>();
     private bool correct = false;
     private int currIndex = 0;
     private bool isFocused = true;
@@ -222,7 +222,7 @@
             checkTestInstance.Add('1');
             totalLength++;
         }
-        correctStatus = new List<bool>(Enumerable.Repeat(false, totalLength));
+        correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
         //Check Test Instance
         Console.WriteLine(String.Join(',',checkTestInstance));
         //Set currChar
