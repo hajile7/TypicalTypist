@@ -25,7 +25,7 @@
 .cursor[b-1shve68b2a] {
     display: inline-block;
     width: 1px; 
-    background-color: white;
+    background-color: black;
     height: 1em;
     animation: blink-b-1shve68b2a 1s step-end infinite;
     position: relative;

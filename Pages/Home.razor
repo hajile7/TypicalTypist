@@ -24,8 +24,6 @@
                 <div @ref="textInput"
                 tabindex="0"
                 @onkeyup="OnInput"
-                @onfocus="OnFocus"
-                @onblur="OnBlur"
                 class="@(!isFocused ? "blurred" : "")"
                 >
             @if (testInstance?.Any() == true && correctStatus.Count > 0)
@@ -81,65 +79,33 @@
 @code 
 {
     //Variables
-    private DotNetObjectReference<Home>? dotNetRef;
     private ElementReference textInput;
     private List<WordTestObject> testInstance = new();
-    private List<string> checkTestInstance = new();
+    private List<CharChecker> charsTypedList = new();
+    private List<char> checkTestInstance = new();
     private List<bool> correctStatus = new List<bool>();
     private bool correct = false;
     private int currIndex = 0;
     private bool isFocused = true;
-    private string userLetter;
+    private char userLetter;
     private int excludedKeysPressed = 0;
     private int includedKeysPressed = 0;
     private char currChar;
+    private char prevChar;
     private int correctKeys = 0;
     private HashSet<char> letters = new() {'a', 'b', 'c', 'd','e', 'f', 'g', 'h','i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's','t','u','v','w','x','y','z'};
     
     //Lifecycle Methods
     protected override async Task OnInitializedAsync()
     {
-        dotNetRef = DotNetObjectReference.Create(this);
-        await JSRuntime.InvokeVoidAsync("globalKeyListener.add", dotNetRef);
         testInstance = await wordService.GetRandomTest();
 
         if(testInstance.Any())
         {
             ProcessCheckTestInstance();
         }
-
         StateHasChanged();
-        
     } 
-
-    private async Task OnBlur()
-    {
-        isFocused = false;
-        await AddGlobalKeyListener();
-    }
-
-    private async Task OnFocus()
-    {
-        isFocused = true;
-        await RemoveGlobalKeyListener();
-    }
-
-     private async Task AddGlobalKeyListener()
-    {
-        if (dotNetRef != null)
-        {
-            await JSRuntime.InvokeVoidAsync("globalKeyListener.add", dotNetRef);
-        }
-    }
-
-    private async Task RemoveGlobalKeyListener()
-    {
-        if (dotNetRef != null)
-        {
-            await JSRuntime.InvokeVoidAsync("globalKeyListener.remove");
-        }
-    }
-
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender) {
@@ -147,10 +113,12 @@
         }
     }
 
+    //Methods
     private void OnInput(KeyboardEventArgs e)
     {
         char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
-        userLetter = lastTypedChar.ToString();
+        userLetter = lastTypedChar;
+        Console.WriteLine(userLetter);
 
         if (!letters.Contains(lastTypedChar) && lastTypedChar != '\b' && lastTypedChar != ' ' && !e.ShiftKey)
         {
@@ -166,28 +134,78 @@
                 currIndex++;
             }
 
+            Console.WriteLine(currIndex);
+            Console.WriteLine(currChar);
+
             if (currIndex < correctStatus.Count)
             {
                 if (currChar == '1' && lastTypedChar == ' ')
                 {
                     correct = true;
                     correctKeys++;
-                    correctStatus.Add(true);
+                    correctStatus[currIndex - 1] = true;
                 }
                 else if (currChar == lastTypedChar)
                 {
                     correct = true;
                     correctKeys++;
-                    correctStatus.Add(true);
+                    correctStatus[currIndex - 1] = true;
                 }
                 else
                 {
                     correct = false;
-                    correctStatus.Add(false);
+                    correctStatus[currIndex - 1] = false;
                 }
             }
 
         }
+        Console.WriteLine(correct);
+        GetNextChar();
+
+    }
+
+    private void GetNextChar()
+    {
+        if(letters.Contains(userLetter) || userLetter == ' ') 
+        {
+            charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
+        }
+        foreach(CharChecker check in charsTypedList)
+        {
+            Console.WriteLine("Check Info: ");
+            Console.WriteLine(check.Letter);
+            Console.WriteLine("Letter pushed: ");
+            Console.WriteLine(check.PushedLetter);
+            Console.WriteLine("Le correct status: ");
+            Console.WriteLine(check.Correct);
+        }
+        prevChar = currChar;
+        currChar = checkTestInstance[includedKeysPressed];
+        if(includedKeysPressed == checkTestInstance.Count - 1)
+        {
+            StartNewTestInstance();
+        }
+    }
+
+    private async void StartNewTestInstance() 
+    {
+        checkTestInstance = new();
+        charsTypedList = new();
+        correctStatus = new();
+        includedKeysPressed = 0;
+        excludedKeysPressed = 0;
+        correctKeys = 0;
+        currIndex = 0;
+        testInstance = new();
+
+        testInstance = await wordService.GetRandomTest();
+
+        if(testInstance.Any())
+        {
+            ProcessCheckTestInstance();
+            StateHasChanged();
+        }
+
 
     }
 
@@ -196,17 +214,20 @@
         int totalLength = 0;
         foreach(WordTestObject testObj in testInstance) 
         {
-            foreach(string word in testObj.Chars) 
+            foreach(char word in testObj.Chars) 
             {
                 checkTestInstance.Add(word);
                 totalLength++;
             }
-            checkTestInstance.Add("1");
+            checkTestInstance.Add('1');
             totalLength++;
         }
         correctStatus = new List<bool>(Enumerable.Repeat(false, totalLength));
+        //Check Test Instance
+        Console.WriteLine(String.Join(',',checkTestInstance));
+        //Set currChar
+        currChar = checkTestInstance[0];
 
-        Console.WriteLine(string.Join(", ", checkTestInstance));
     }
 
 

@@ -25,7 +25,7 @@
 .cursor {
     display: inline-block;
     width: 1px; 
-    background-color: white;
+    background-color: black;
     height: 1em;
     animation: blink 1s step-end infinite;
     position: relative;
@@ -35,9 +35,9 @@
 
 @keyframes blink {
     0%, 100% {
-      opacity: 1;   /* Cursor visible */
+      opacity: 1;
     }
     50% {
-      opacity: 0;   /* Cursor hidden */
+      opacity: 0;  
     }
   }
