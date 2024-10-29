@@ -57,12 +57,14 @@
 {
     // Variables
     // Word Lists
-    private HashSet<char> letters = new() {'a', 'b', 'c', 'd','e', 'f', 'g', 'h','i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's','t','u','v','w','x','y','z'};
+    private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
+                                              'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+                                              '1','2','3','4','5','6','7','8','9'};
     private List<WordTestObject> testInstance = new List<WordTestObject>
     {
-        new WordTestObject{Chars = ['f','l','i','g','h','t'], StartIndex = 0},
-        new WordTestObject{Chars = ['s','i','n','k'], StartIndex = 7},
-        new WordTestObject{Chars = ['a','d','v','a','n','c','e','d'], StartIndex = 12},
+        new WordTestObject{Chars = ['1','1','7','1','1','1'], StartIndex = 0},
+        new WordTestObject{Chars = ['s','i','4','k'], StartIndex = 7},
+        new WordTestObject{Chars = ['A','d','v','a','n','c','e','d'], StartIndex = 12},
         new WordTestObject{Chars = ['b','u','i','l','d','i','n','g','s'], StartIndex = 21},
         new WordTestObject{Chars = ['s','u','m','m','e','r'], StartIndex = 31},
         new WordTestObject{Chars = ['d','a','t','e'], StartIndex = 38},
@@ -109,12 +111,14 @@
     {
         ProcessCheckTestInstance();
     }
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender) {
             await textInput.FocusAsync();
         }
     }
+
     private void OnInput(KeyboardEventArgs e)
     {
         @* Console.WriteLine("Current index: " + currIndex); 
@@ -130,25 +134,21 @@
 
         Console.WriteLine("You just typed: " + lastTypedChar);
 
-        // Keep count of non-alphabetical characters outside of shift and backspace
-        if (!letters.Contains(lastTypedChar) && e.Key != "Backspace" && e.Key != "Shift" && lastTypedChar != ' ')
-        {
-            excludedKeysPressed++;
-            Console.WriteLine("Excluded keys count: " + excludedKeysPressed);
-        }
-
         // Handle backspace
         if(e.Key == "Backspace")
         {
-            currIndex--;
+            if(currIndex > 0)
+            {
+                currIndex--;
+                backspaceCounter++;
+            }
             correctStatus[currIndex] = null;
             backspacePush = true;
-            backspaceCounter++;
             Console.WriteLine("Current index is: " + currIndex);
         }
 
         // Handle alphabetical keys & space
-        else if(letters.Contains(lastTypedChar) || lastTypedChar == ' ')
+        else if(legalChars.Contains(lastTypedChar) || lastTypedChar == ' ')
         {
             includedKeysPressed++;
             Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
@@ -160,13 +160,7 @@
 
             if (currIndex < correctStatus.Count)
             {
-                if (currChar == '1' && lastTypedChar == ' ')
-                {
-                    correct = true;
-                    correctKeys++;
-                    correctStatus[currIndex - 1] = true;
-                }
-                else if (currChar == lastTypedChar)
+                if (currChar == lastTypedChar)
                 {
                     correct = true;
                     correctKeys++;
@@ -180,13 +174,10 @@
             }
             includedKeysPressed = includedKeysPressed - backspaceCounter;
             backspaceCounter = 0;
-
-
         }
-        
         GetNextChar();
-
     }
+
     private void GetNextChar()
     {
         if(backspacePush)
@@ -196,7 +187,7 @@
         }
         else
         {
-            if(letters.Contains(userLetter) || userLetter == ' ') 
+            if(legalChars.Contains(userLetter) || userLetter == ' ') 
             {
                 charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
             }
@@ -216,7 +207,7 @@
                 checkTestInstance.Add(word);
                 totalLength++;
             }
-            checkTestInstance.Add('1');
+            checkTestInstance.Add(' ');
             totalLength++;
         }
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
@@ -224,7 +215,6 @@
         //Console.WriteLine(String.Join(',',checkTestInstance));
         //Set currChar
         currChar = checkTestInstance[0];
-
     }
 
 }
