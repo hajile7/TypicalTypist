@@ -101,6 +101,8 @@
     private char currChar;
     private char prevChar;
     private ElementReference textInput;
+    private bool backspacePush = false;
+    private int backspaceCounter = 0;
 
     //Methods
     protected override void OnInitialized() 
@@ -115,22 +117,41 @@
     }
     private void OnInput(KeyboardEventArgs e)
     {
-        Console.WriteLine("Current index: " + currIndex); 
-        Console.WriteLine("Current character: " + currChar); 
+        @* Console.WriteLine("Current index: " + currIndex); 
+        Console.WriteLine("Current character: " + currChar);  *@
+
+        if(backspacePush == true)
+        {
+            backspacePush = false;
+        }
 
         char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
         userLetter = lastTypedChar;
 
-        // Keep count of non-alphabetical characters outside of space, shift, and backspace
-        if (!letters.Contains(lastTypedChar) && lastTypedChar != '\b' && lastTypedChar != ' ' && !e.ShiftKey)
+        Console.WriteLine("You just typed: " + lastTypedChar);
+
+        // Keep count of non-alphabetical characters outside of shift and backspace
+        if (!letters.Contains(lastTypedChar) && e.Key != "Backspace" && e.Key != "Shift" && lastTypedChar != ' ')
         {
             excludedKeysPressed++;
+            Console.WriteLine("Excluded keys count: " + excludedKeysPressed);
+        }
+
+        // Handle backspace
+        if(e.Key == "Backspace")
+        {
+            currIndex--;
+            correctStatus[currIndex] = null;
+            backspacePush = true;
+            backspaceCounter++;
+            Console.WriteLine("Current index is: " + currIndex);
         }
 
         // Handle alphabetical keys & space
         else if(letters.Contains(lastTypedChar) || lastTypedChar == ' ')
         {
             includedKeysPressed++;
+            Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
 
             if (currIndex < checkTestInstance.Count - 1)
             {
@@ -157,6 +178,9 @@
                     correctStatus[currIndex - 1] = false;
                 }
             }
+            includedKeysPressed = includedKeysPressed - backspaceCounter;
+            backspaceCounter = 0;
+
 
         }
         
@@ -165,12 +189,21 @@
     }
     private void GetNextChar()
     {
-        if(letters.Contains(userLetter) || userLetter == ' ') 
+        if(backspacePush)
         {
-            charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
+            currChar = checkTestInstance[includedKeysPressed - backspaceCounter];
+            Console.WriteLine("After the backspace, the new currChar is: " + currChar); 
         }
-        prevChar = currChar;
-        currChar = checkTestInstance[includedKeysPressed];
+        else
+        {
+            if(letters.Contains(userLetter) || userLetter == ' ') 
+            {
+                charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
+            }
+            prevChar = currChar;
+            currChar = checkTestInstance[includedKeysPressed];
+            Console.WriteLine("Without backspace, the new currChar is: " + currChar);
+        }
     }
 
     private void ProcessCheckTestInstance() 
