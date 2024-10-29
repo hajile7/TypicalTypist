@@ -1,22 +1,8 @@
-﻿@using TypicalTypist.Models
-@using TypicalTypist.Services
+@using TypicalTypist.Models;
 
-@page "/"
-
-@inject WordService wordService
-@inject IJSRuntime JSRuntime
-
-
-@* Start HTML *@
-
-<PageTitle>Home</PageTitle>
+@page "/test";
 
 <div class="typing-container">
-
-    <div class="row-100 g-0" style="text-align: center;">
-        <h3>[Timer and such here]</h3>
-    </div>
-
 
     <div class="row-100 g-0" style="text-align: center; font-size: 2rem;">
         <div class="text-wrapper">
@@ -61,25 +47,41 @@
                 }
             }
         </div>
-        @if (!isFocused)
-        {
-            <div class="focusText">
-                Click Here or Push Any Key to Focus
-            </div>
-        }
             </div>
         </div>
     </div>
     
 </div>
 
-
-@code 
+@code
 {
     // Variables
     // Word Lists
     private HashSet<char> letters = new() {'a', 'b', 'c', 'd','e', 'f', 'g', 'h','i', 'j', 'k', 'l','m', 'n', 'o', 'p', 'q', 'r', 's','t','u','v','w','x','y','z'};
-    private List<WordTestObject> testInstance = new();
+    private List<WordTestObject> testInstance = new List<WordTestObject>
+    {
+        new WordTestObject{Chars = ['f','l','i','g','h','t'], StartIndex = 0},
+        new WordTestObject{Chars = ['s','i','n','k'], StartIndex = 7},
+        new WordTestObject{Chars = ['a','d','v','a','n','c','e','d'], StartIndex = 12},
+        new WordTestObject{Chars = ['b','u','i','l','d','i','n','g','s'], StartIndex = 21},
+        new WordTestObject{Chars = ['s','u','m','m','e','r'], StartIndex = 31},
+        new WordTestObject{Chars = ['d','a','t','e'], StartIndex = 38},
+        new WordTestObject{Chars = ['r','e','m','o','v','e'], StartIndex = 43},
+        new WordTestObject{Chars = ['p','a','y'], StartIndex = 50},
+        new WordTestObject{Chars = ['f','e','l','l','o','w'], StartIndex = 54},
+        new WordTestObject{Chars = ['g','e','n','d','e','r'], StartIndex = 61},
+        new WordTestObject{Chars = ['v','a','l','l','e','y'], StartIndex = 68},
+        new WordTestObject{Chars = ['c','o','r','n','e','r'], StartIndex = 75},
+        new WordTestObject{Chars = ['c','a','s','t','l','e'], StartIndex = 82},
+        new WordTestObject{Chars = ['n','o','t'], StartIndex = 89},
+        new WordTestObject{Chars = ['w','o','w'], StartIndex = 93},
+        new WordTestObject{Chars = ['r','a','b','b','i','t'], StartIndex = 97},
+        new WordTestObject{Chars = ['t','i','c','k','e','t'], StartIndex = 104},
+        new WordTestObject{Chars = ['t','h','o','u','g','h'], StartIndex = 111},
+        new WordTestObject{Chars = ['a','p','p','r','o','v','e'], StartIndex = 118},
+        new WordTestObject{Chars = ['i','n','t','r','o','d','u','c','e'], StartIndex = 126},
+        new WordTestObject{Chars = ['m','a','k','e'], StartIndex = 136}
+    };
     private List<CharChecker> charsTypedList = new();
     private List<char> checkTestInstance = new();
 
@@ -99,28 +101,18 @@
     private char currChar;
     private char prevChar;
     private ElementReference textInput;
-    
-    //Lifecycle Methods
-    protected override async Task OnInitializedAsync()
+
+    //Methods
+    protected override void OnInitialized() 
     {
-        // Get first test instance and instantiate our checkTestInstance var
-        testInstance = await wordService.GetRandomTest();
-
-        if(testInstance.Any())
-        {
-            ProcessCheckTestInstance();
-        }
-
-        StateHasChanged();
-    } 
+        ProcessCheckTestInstance();
+    }
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender) {
             await textInput.FocusAsync();
         }
     }
-
-    //Methods
     private void OnInput(KeyboardEventArgs e)
     {
         Console.WriteLine("Current index: " + currIndex); 
@@ -167,10 +159,10 @@
             }
 
         }
+        
         GetNextChar();
 
     }
-
     private void GetNextChar()
     {
         if(letters.Contains(userLetter) || userLetter == ' ') 
@@ -179,31 +171,6 @@
         }
         prevChar = currChar;
         currChar = checkTestInstance[includedKeysPressed];
-        if(includedKeysPressed == checkTestInstance.Count - 1)
-        {
-            StartNewTestInstance();
-        }   
-    }
-
-    private async void StartNewTestInstance() 
-    {
-        checkTestInstance = new();
-        charsTypedList = new();
-        correctStatus = new();
-        includedKeysPressed = 0;
-        excludedKeysPressed = 0;
-        correctKeys = 0;
-        currIndex = 0;
-        testInstance = new();
-
-        testInstance = await wordService.GetRandomTest();
-
-        if(testInstance.Any())
-        {
-            ProcessCheckTestInstance();
-            StateHasChanged();
-        }
-
     }
 
     private void ProcessCheckTestInstance() 
@@ -226,6 +193,5 @@
         currChar = checkTestInstance[0];
 
     }
-
 
 }

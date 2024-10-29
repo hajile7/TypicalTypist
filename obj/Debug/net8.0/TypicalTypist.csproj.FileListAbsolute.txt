@@ -820,6 +820,7 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\staticwebasset
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Layout\MainLayout.razor.rz.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Layout\NavMenu.razor.rz.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Pages\Home.razor.rz.scp.css
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\Pages\Test.razor.rz.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\bundle\TypicalTypist.styles.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\scopedcss\projectbundle\TypicalTypist.bundle.scp.css
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\obj\Debug\net8.0\compressed\27b6u4w195.gz
