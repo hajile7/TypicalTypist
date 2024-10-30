@@ -13,35 +13,35 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = browser
 build_property.RootNamespace = TypicalTypist
 build_property.RootNamespace = TypicalTypist
-build_property.ProjectDir = C:\Users\Eli\source\repos\My stuff\TypicalTypist\
+build_property.ProjectDir = C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\
 build_property.EnableComHosting = 
 build_property.EnableGeneratedComInterfaceComImportInterop = false
 build_property.RazorLangVersion = 8.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\Eli\source\repos\My stuff\TypicalTypist
+build_property.MSBuildProjectDirectory = C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/App.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/App.razor]
 build_metadata.AdditionalFiles.TargetPath = QXBwLnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/_Imports.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/_Imports.razor]
 build_metadata.AdditionalFiles.TargetPath = X0ltcG9ydHMucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/Layout/MainLayout.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/Layout/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE1haW5MYXlvdXQucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-g5qp50siej
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/Layout/NavMenu.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = TGF5b3V0XE5hdk1lbnUucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = b-hwz9jhzxxh
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/Pages/Home.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/Pages/Home.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSG9tZS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-1shve68b2a
 
-[C:/Users/Eli/source/repos/My stuff/TypicalTypist/Pages/Test.razor]
+[C:/Users/Eli/source/repos/My stuff/TypicalTypist/TypicalTypistFrontend/Pages/Test.razor]
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVGVzdC5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-699tyklcfu

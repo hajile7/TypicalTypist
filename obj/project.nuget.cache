@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "tQAXuZyn3Ic=",
+  "dgSpecHash": "jiaPoUDRz0g=",
   "success": true,
-  "projectFilePath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypist.csproj",
+  "projectFilePath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\TypicalTypist.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Eli\\.nuget\\packages\\microsoft.aspnetcore.authorization\\8.0.10\\microsoft.aspnetcore.authorization.8.0.10.nupkg.sha512",
     "C:\\Users\\Eli\\.nuget\\packages\\microsoft.aspnetcore.components\\8.0.10\\microsoft.aspnetcore.components.8.0.10.nupkg.sha512",

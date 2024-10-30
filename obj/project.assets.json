@@ -1878,11 +1878,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypist.csproj",
+      "projectUniqueName": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\TypicalTypist.csproj",
       "projectName": "TypicalTypist",
-      "projectPath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypist.csproj",
+      "projectPath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\TypicalTypist.csproj",
       "packagesPath": "C:\\Users\\Eli\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\obj\\",
+      "outputPath": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\Eli\\AppData\\Roaming\\NuGet\\NuGet.Config",
