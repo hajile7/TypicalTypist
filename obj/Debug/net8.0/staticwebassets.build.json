@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bRklib9VXLc0tJYbntc0Qbv1RKvmzpM3yRsqvA0bzxs=",
+  "Hash": "DfsW7gLV1Ou0Xk5na5M/MIule9rj2kn2+G18KG4TsUY=",
   "Source": "TypicalTypist",
   "BasePath": "/",
   "Mode": "Root",
@@ -71,7 +71,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
@@ -90,15 +90,15 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.js.map"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.ky0au8keou.js",
+      "RelativePath": "_framework/dotnet.native.8.0.10.dttvpwtuld.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -109,7 +109,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
@@ -128,15 +128,15 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.native.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.1xntewaa5z.js",
+      "RelativePath": "_framework/dotnet.runtime.8.0.10.39apnb5yx8.js",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -147,7 +147,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
@@ -166,7 +166,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
@@ -185,7 +185,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
@@ -204,7 +204,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
@@ -223,7 +223,7 @@
       "AssetTraitValue": "native",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\.nuget\\packages\\microsoft.netcore.app.runtime.mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
+      "OriginalItemSpec": "C:\\Program Files\\dotnet\\packs\\Microsoft.NETCore.App.Runtime.Mono.browser-wasm\\8.0.10\\runtimes\\browser-wasm\\native\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Authorization.wasm",
@@ -4178,25 +4178,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Windows.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\1xntewaa5z.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.8.0.10.1xntewaa5z.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.1xntewaa5z.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\1y7mcocula.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -4387,6 +4368,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.AspNetCore.Components.WebAssembly.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\39apnb5yx8.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.8.0.10.39apnb5yx8.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.8.0.10.39apnb5yx8.js"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\3dq4ysd12c.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -4520,25 +4520,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Emit.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\4pjghfhxl5.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.wasm.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\58rbjptdzm.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -4594,25 +4575,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Dynamic.Runtime.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\5ugi3f7gi7.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\5ylyy6y7bi.gz",
@@ -4957,23 +4919,23 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Xml.XDocument.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\8ze6ughh3e.gz",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\8jqm1bzm7c.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
       "BasePath": "/",
-      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "RelativePath": "_framework/dotnet.native.wasm.gz",
       "AssetKind": "Build",
       "AssetMode": "All",
       "AssetRole": "Alternative",
       "AssetMergeBehavior": "",
       "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.wasm"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\95jozrwj34.gz",
@@ -5280,6 +5242,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Formats.Tar.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\d3b5uaod4t.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\d6881y2pbj.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -5356,6 +5337,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Numerics.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\dttvpwtuld.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.native.8.0.10.dttvpwtuld.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.dttvpwtuld.js"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\dx9su2b5lr.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -5430,6 +5430,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Net.WebProxy.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\e9fk0wvknf.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\ec3fu0eodm.gz",
@@ -5660,25 +5679,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Drawing.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\gkigijs5wv.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/icudt_EFIGS.dat.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_EFIGS.dat"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\gkz09eqyu4.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -5696,6 +5696,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Diagnostics.TraceSource.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\gsqam1bzs6.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\gugfnfegdd.gz",
@@ -6040,25 +6059,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.Loader.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\ky0au8keou.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.native.8.0.10.ky0au8keou.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.native.8.0.10.ky0au8keou.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\l469k4v9f8.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -6228,25 +6228,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Runtime.InteropServices.JavaScript.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\ml1y5nt4g8.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.runtime.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.runtime.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\mtny6f210c.gz",
@@ -6515,6 +6496,25 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.FileProviders.Abstractions.wasm"
     },
     {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\q4f82dkrg3.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_no_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_no_CJK.dat"
+    },
+    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\q9tuvroehb.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -6551,6 +6551,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.IO.Pipes.AccessControl.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\qc5pkvggmj.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/icudt_CJK.dat.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\icudt_CJK.dat"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\qhtxjfn1ts.gz",
@@ -6703,25 +6722,6 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Threading.Timer.wasm"
-    },
-    {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\rckl9da07a.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.map.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\ren1er3u0i.gz",
@@ -7484,25 +7484,6 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xflkvy7d6j.gz",
-      "SourceId": "TypicalTypist",
-      "SourceType": "Computed",
-      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
-      "BasePath": "/",
-      "RelativePath": "_framework/dotnet.js.gz",
-      "AssetKind": "Build",
-      "AssetMode": "All",
-      "AssetRole": "Alternative",
-      "AssetMergeBehavior": "",
-      "AssetMergeSource": "",
-      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js",
-      "AssetTraitName": "Content-Encoding",
-      "AssetTraitValue": "gzip",
-      "CopyToOutputDirectory": "PreserveNewest",
-      "CopyToPublishDirectory": "Never",
-      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js"
-    },
-    {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xnufoy6b0c.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
@@ -7672,6 +7653,25 @@
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.Extensions.Configuration.Binder.wasm"
+    },
+    {
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\yrpojpvlag.gz",
+      "SourceId": "TypicalTypist",
+      "SourceType": "Computed",
+      "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\",
+      "BasePath": "/",
+      "RelativePath": "_framework/dotnet.js.map.gz",
+      "AssetKind": "Build",
+      "AssetMode": "All",
+      "AssetRole": "Alternative",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map",
+      "AssetTraitName": "Content-Encoding",
+      "AssetTraitValue": "gzip",
+      "CopyToOutputDirectory": "PreserveNewest",
+      "CopyToPublishDirectory": "Never",
+      "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\dotnet.js.map"
     },
     {
       "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\z0unzehl84.gz",

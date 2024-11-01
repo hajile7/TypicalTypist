@@ -1,12 +1,12 @@
 {
   "mainAssemblyName": "TypicalTypist",
   "resources": {
-    "hash": "sha256-fvcpZ2Poizhz+x4e0gtGOK1g4wR4fU+LAyqcLTfBY5I=",
+    "hash": "sha256-4OGFGZ22HwbcRnXvF9DYvtTgYMyxNOo3T2uc+/j9ko0=",
     "jsModuleNative": {
-      "dotnet.native.8.0.10.ky0au8keou.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
+      "dotnet.native.8.0.10.dttvpwtuld.js": "sha256-QVxMlY7ohmjgde/bZMA0dlWDAeuUP+tEfkiSdg4DFcE="
     },
     "jsModuleRuntime": {
-      "dotnet.runtime.8.0.10.1xntewaa5z.js": "sha256-FjrgL9dY6dc2yUoXDWowSfachSgM8O29qUMWDQOJKRI="
+      "dotnet.runtime.8.0.10.39apnb5yx8.js": "sha256-FjrgL9dY6dc2yUoXDWowSfachSgM8O29qUMWDQOJKRI="
     },
     "wasmNative": {
       "dotnet.native.wasm": "sha256-4ymhDbG5daKbi9yL1L574jRRiFFQhiOrDJU5YAYALU4="
@@ -208,10 +208,10 @@
       "mscorlib.wasm": "sha256-KvqZaNpjwhrOuzE4b4aMFsI+VUTyiWfoDI4zn4l9BM8=",
       "netstandard.wasm": "sha256-v+s7sWxtOM6bnOvC0jFrtnm6uMfbDymwl2nHNgbS2LM=",
       "System.Private.CoreLib.wasm": "sha256-pklll63uFQoY6vaD3vbluS9osYiJWLLLmob1yHFgepI=",
-      "TypicalTypist.wasm": "sha256-ogrcsbjiQbrT/0E+BOI/oFS/RinTfBxPuCk7YRUEu80="
+      "TypicalTypist.wasm": "sha256-ccHeEp9iLdCwtLFwC9QsiyP0OlT65Fh1ZrZVwiSo2k0="
     },
     "pdb": {
-      "TypicalTypist.pdb": "sha256-328S9pUt49CYGVNQQydOROmxyx1Sdbh1ZsLAqwc44WE="
+      "TypicalTypist.pdb": "sha256-0OJSvEKanY88LVP0qpo3uRlC70e1xDf3qUYnsQE6Oxk="
     }
   },
   "cacheBootResources": true,

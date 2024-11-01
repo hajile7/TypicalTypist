@@ -1,0 +1,52 @@
+.text-wrapper[b-1shve68b2a] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.timer-container[b-1shve68b2a] {
+    text-align: center;
+}
+
+.word[b-1shve68b2a] {
+    display: inline-block;
+}
+
+.neutral[b-1shve68b2a] {
+    color: lightgray;
+}
+
+.correct[b-1shve68b2a] {
+    color: green;
+}
+
+.incorrect[b-1shve68b2a] {
+    color: red;
+}
+
+.noFocusVisible:focus-visible[b-1shve68b2a] {
+    outline: none;
+}
+
+.cursor[b-1shve68b2a] {
+    display: inline-block;
+    width: 1px; 
+    background-color: white;
+    height: 1em;
+    animation: blink-b-1shve68b2a 1s step-end infinite;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+
+@keyframes blink-b-1shve68b2a {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;  
+    }
+  }

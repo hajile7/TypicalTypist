@@ -1,0 +1,52 @@
+.text-wrapper[b-699tyklcfu] {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.timer-container[b-699tyklcfu] {
+    text-align: center;
+}
+
+.word[b-699tyklcfu] {
+    display: inline-block;
+}
+
+.neutral[b-699tyklcfu] {
+    color: lightgray;
+}
+
+.correct[b-699tyklcfu] {
+    color: green;
+}
+
+.incorrect[b-699tyklcfu] {
+    color: red;
+}
+
+.noFocusVisible:focus-visible[b-699tyklcfu] {
+    outline: none;
+}
+
+.cursor[b-699tyklcfu] {
+    display: inline-block;
+    width: 1px; 
+    background-color: white;
+    height: 1em;
+    animation: blink-b-699tyklcfu 1s step-end infinite;
+    position: relative;
+    vertical-align: middle;
+    margin-left: 1px;
+    margin-bottom: 5px;
+}
+
+@keyframes blink-b-699tyklcfu {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0;  
+    }
+  }
