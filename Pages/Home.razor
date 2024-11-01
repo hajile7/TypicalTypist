@@ -107,7 +107,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our checkTestInstance var
-        testInstance = await wordService.GetRandomTest();
+        testInstance = await wordService.GetRandomWordsAndNumbersTest();
 
         if(testInstance.Count > 0)
         {
@@ -215,7 +215,7 @@
         currIndex = 0;
         testInstance = new();
 
-        testInstance = await wordService.GetRandomTest();
+        testInstance = await wordService.GetRandomWordsAndNumbersTest();
 
         if(testInstance.Any())
         {
