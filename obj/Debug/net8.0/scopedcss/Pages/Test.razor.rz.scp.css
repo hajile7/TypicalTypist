@@ -1,9 +1,12 @@
-.text-wrapper[b-699tyklcfu] {
-    width: 100%;
-    height: 100%;
+.typing-container[b-699tyklcfu] {
+    width: 80%;
+    height: 150px;
     display: flex;
-    align-items: center;
-    position: relative;
+    justify-self: center;
+    font-size: 2rem;
+    overflow-y: clip;
+    align-content: flex-start;
+    font-family: monospace;
 }
 
 .timer-container[b-699tyklcfu] {

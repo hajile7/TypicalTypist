@@ -18,9 +18,9 @@
     </div>
 
 
-    <div class="row-100 g-0" style="text-align: center; font-size: 2rem;">
+    <div class="row-100 g-0" style="text-align: left; font-size: 2rem;">
         <div class="text-wrapper">
-            <div class="col-8 offset-2">
+            <div class="col-10 offset-1">
                 <div @ref="textInput"
                 tabindex="0"
                 @onkeyup="OnInput"
@@ -80,7 +80,7 @@
     // Word Lists
     private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                                               'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                              '1','2','3','4','5','6','7','8','9'};    private List<WordTestObject> testInstance = new();
+                                              '0', '1','2','3','4','5','6','7','8','9'};    private List<WordTestObject> testInstance = new();
     private List<CharChecker> charsTypedList = new();
     private List<char> checkTestInstance = new();
 
@@ -239,9 +239,6 @@
             totalLength++;
         }
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
-        //Check Test Instance
-        //Console.WriteLine(String.Join(',',checkTestInstance));
-        //Set currChar
         currChar = checkTestInstance[0];
 
     }
