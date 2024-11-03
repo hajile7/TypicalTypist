@@ -57,15 +57,16 @@
     // Word Lists
     private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                                               'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                              '1','2','3','4','5','6','7','8','9'};
+                                              '1','2','3','4','5','6','7','8','9', '.', ',', '\'', '"', '?', '!', '*', '=', '+', '-', '/', '\\', '<', 
+                                              '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};
     private List<WordTestObject> testInstance = new List<WordTestObject>
     {
-        new WordTestObject{Chars = ['1','1','7','1','1','1'], StartIndex = 0},
-        new WordTestObject{Chars = ['s','i','4','k'], StartIndex = 7},
-        new WordTestObject{Chars = ['A','d','v','a','n','c','e','d'], StartIndex = 12},
-        new WordTestObject{Chars = ['b','u','i','l','d','i','n','g','s'], StartIndex = 21},
-        new WordTestObject{Chars = ['s','u','m','m','e','r'], StartIndex = 31},
-        new WordTestObject{Chars = ['d','a','t','e'], StartIndex = 38},
+        new WordTestObject{Chars = ['@', '`', '&', '|','o','!'], StartIndex = 0},
+        new WordTestObject{Chars = ['t','r','y',','], StartIndex = 7},
+        new WordTestObject{Chars = ['.','\'','"','!','?','d','i','d'], StartIndex = 12},
+        new WordTestObject{Chars = ['*', '=', '+', '-', '/', '\\', '<', '>', '('], StartIndex = 21},
+        new WordTestObject{Chars = [')', '{', '}', '[', ']', '^'], StartIndex = 31},
+        new WordTestObject{Chars = ['~', '%', '$', '#'], StartIndex = 38},
         new WordTestObject{Chars = ['r','e','m','o','v','e'], StartIndex = 43},
         new WordTestObject{Chars = ['p','a','y'], StartIndex = 50},
         new WordTestObject{Chars = ['f','e','l','l','o','w'], StartIndex = 54},
