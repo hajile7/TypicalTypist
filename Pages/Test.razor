@@ -1,4 +1,5 @@
 @using TypicalTypist.Models;
+@inject IJSRuntime JSRuntime;
 
 @page "/test";
 
@@ -61,12 +62,12 @@
                                               '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};
     private List<WordTestObject> testInstance = new List<WordTestObject>
     {
-        new WordTestObject{Chars = ['@', '`', '&', '|','o','!'], StartIndex = 0},
+        new WordTestObject{Chars = ['H', 'e', 'l', 'l','o','!'], StartIndex = 0},
         new WordTestObject{Chars = ['t','r','y',','], StartIndex = 7},
-        new WordTestObject{Chars = ['.','\'','"','!','?','d','i','d'], StartIndex = 12},
-        new WordTestObject{Chars = ['*', '=', '+', '-', '/', '\\', '<', '>', '('], StartIndex = 21},
-        new WordTestObject{Chars = [')', '{', '}', '[', ']', '^'], StartIndex = 31},
-        new WordTestObject{Chars = ['~', '%', '$', '#'], StartIndex = 38},
+        new WordTestObject{Chars = ['e','l','m','a','i','d','i','d'], StartIndex = 12},
+        new WordTestObject{Chars = ['e', 'x', 'a', 'm', 'i', 'n', 'e', 'e', 'r'], StartIndex = 21},
+        new WordTestObject{Chars = ['c', 'l', 'e', 'a', 'r', 's'], StartIndex = 31},
+        new WordTestObject{Chars = ['m', 'a', 'r', 'k'], StartIndex = 38},
         new WordTestObject{Chars = ['r','e','m','o','v','e'], StartIndex = 43},
         new WordTestObject{Chars = ['p','a','y'], StartIndex = 50},
         new WordTestObject{Chars = ['f','e','l','l','o','w'], StartIndex = 54},
@@ -108,12 +109,14 @@
     //Methods
     protected override void OnInitialized() 
     {
+        JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         ProcessCheckTestInstance();
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender) {
+            await JSRuntime.InvokeVoidAsync("addSpacePreventListener");
             await textInput.FocusAsync();
         }
     }
@@ -131,7 +134,7 @@
         char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
         userLetter = lastTypedChar;
 
-        Console.WriteLine("You just typed: " + lastTypedChar);
+        @* Console.WriteLine("You just typed: " + lastTypedChar); *@
 
         // Handle backspace
         if(e.Key == "Backspace")
@@ -143,14 +146,14 @@
             }
             correctStatus[currIndex] = null;
             backspacePush = true;
-            Console.WriteLine("Current index is: " + currIndex);
+            @* Console.WriteLine("Current index is: " + currIndex); *@
         }
 
         // Handle alphabetical keys & space
         else if(legalChars.Contains(lastTypedChar) || lastTypedChar == ' ')
         {
             includedKeysPressed++;
-            Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
+            @* Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed); *@
 
             if (currIndex < checkTestInstance.Count - 1)
             {
@@ -174,6 +177,14 @@
             includedKeysPressed = includedKeysPressed - backspaceCounter;
             backspaceCounter = 0;
         }
+        try
+        {
+            JSRuntime.InvokeVoidAsync("scrollTypingContainer");
+        }
+        catch(Exception ex)
+        {
+            Console.WriteLine($"Error invoking Javascript: {ex.Message}");
+        }
         GetNextChar();
     }
 
@@ -182,7 +193,7 @@
         if(backspacePush)
         {
             currChar = checkTestInstance[includedKeysPressed - backspaceCounter];
-            Console.WriteLine("After the backspace, the new currChar is: " + currChar); 
+            @* Console.WriteLine("After the backspace, the new currChar is: " + currChar);  *@
         }
         else
         {
@@ -192,7 +203,7 @@
             }
             prevChar = currChar;
             currChar = checkTestInstance[includedKeysPressed];
-            Console.WriteLine("Without backspace, the new currChar is: " + currChar);
+            @* Console.WriteLine("Without backspace, the new currChar is: " + currChar); *@
         }
     }
 

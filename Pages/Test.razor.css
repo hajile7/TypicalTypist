@@ -4,9 +4,16 @@
     display: flex;
     justify-self: center;
     font-size: 2rem;
-    overflow-y: clip;
+    overflow-y: scroll;
+    overflow-x: visible;
     align-content: flex-start;
     font-family: monospace;
+    scrollbar-width: none;
+
+}
+
+.typing-container pre::-webkit-scrollbar {
+    display: none;
 }
 
 .timer-container {
@@ -15,6 +22,7 @@
 
 .word {
     display: inline-block;
+
 }
 
 .neutral {

@@ -4,9 +4,16 @@
     display: flex;
     justify-self: center;
     font-size: 2rem;
-    overflow-y: clip;
+    overflow-y: scroll;
+    overflow-x: visible;
     align-content: flex-start;
     font-family: monospace;
+    scrollbar-width: none;
+
+}
+
+.typing-container pre[b-699tyklcfu]::-webkit-scrollbar {
+    display: none;
 }
 
 .timer-container[b-699tyklcfu] {
@@ -15,6 +22,7 @@
 
 .word[b-699tyklcfu] {
     display: inline-block;
+
 }
 
 .neutral[b-699tyklcfu] {
