@@ -9,7 +9,7 @@
     align-content: flex-start;
     font-family: monospace;
     scrollbar-width: none;
-
+    position: relative;
 }
 
 .typing-container pre::-webkit-scrollbar {
@@ -18,6 +18,14 @@
 
 .word {
     display: inline-block;
+    position: relative;
+}
+
+.space {
+    display: inline-block;
+    position: relative;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .neutral {
@@ -42,10 +50,9 @@
     background-color: white;
     height: 1em;
     animation: blink 1s step-end infinite;
-    position: relative;
-    vertical-align: middle;
-    margin-left: 1px;
-    margin-bottom: 5px;
+    position: absolute;
+    margin: 0;
+    top: 7px;
 }
 
 @keyframes blink {
@@ -55,4 +62,4 @@
     50% {
       opacity: 0;  
     }
-  }
+}

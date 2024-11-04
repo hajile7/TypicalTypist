@@ -6,12 +6,9 @@
 @inject WordService wordService
 @inject IJSRuntime JSRuntime
 
-
 @* Start HTML *@
 
 <PageTitle>Home</PageTitle>
-
-
 
 <div class="typing-container">
     <div @ref="textInput"
@@ -42,7 +39,7 @@
             @if (tuple.index < testInstance.Count() - 1)
             {
                 <span
-                    class="@(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
+                    class="space @(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
                     : (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : "neutral"))">
                     @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
                     {
@@ -98,7 +95,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our checkTestInstance var
-        testInstance = await wordService.GetRandomWordsAndNumbersTest();
+        testInstance = await wordService.GetRandomWordsTest();
 
         if(testInstance.Count > 0)
         {
@@ -208,7 +205,7 @@
         currIndex = 0;
         testInstance = new();
 
-        testInstance = await wordService.GetRandomWordsAndNumbersTest();
+        testInstance = await wordService.GetRandomWordsTest();
 
         if(testInstance.Any())
         {

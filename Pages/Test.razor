@@ -33,7 +33,7 @@
             @if (tuple.index < testInstance.Count() - 1)
             {
                 <span
-                    class="@(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
+                    class="space @(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
                     : (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : "neutral"))">
                     @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
                     {

@@ -1,6 +1,7 @@
 .typing-container[b-1shve68b2a] {
     width: 80%;
     height: 150px;
+    position: relative;
     display: flex;
     justify-self: center;
     font-size: 2rem;
@@ -17,6 +18,16 @@
 
 .word[b-1shve68b2a] {
     display: inline-block;
+    position: relative;
+    height: 50px;
+}
+
+.space[b-1shve68b2a] {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .neutral[b-1shve68b2a] {
@@ -41,10 +52,9 @@
     background-color: white;
     height: 1em;
     animation: blink-b-1shve68b2a 1s step-end infinite;
-    position: relative;
-    vertical-align: middle;
-    margin-left: 1px;
-    margin-bottom: 5px;
+    position: absolute;
+    margin: 0;
+    top: 7px;
 }
 
 @keyframes blink-b-1shve68b2a {

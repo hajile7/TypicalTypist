@@ -1,6 +1,7 @@
 .typing-container {
     width: 80%;
     height: 150px;
+    position: relative;
     display: flex;
     justify-self: center;
     font-size: 2rem;
@@ -17,6 +18,16 @@
 
 .word {
     display: inline-block;
+    position: relative;
+    height: 50px;
+}
+
+.space {
+    display: inline-block;
+    position: relative;
+    height: 50px;
+    padding-left: .5rem;
+    padding-right: .5rem;
 }
 
 .neutral {
@@ -41,10 +52,9 @@
     background-color: white;
     height: 1em;
     animation: blink 1s step-end infinite;
-    position: relative;
-    vertical-align: middle;
-    margin-left: 1px;
-    margin-bottom: 5px;
+    position: absolute;
+    margin: 0;
+    top: 7px;
 }
 
 @keyframes blink {

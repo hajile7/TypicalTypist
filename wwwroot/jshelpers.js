@@ -26,7 +26,7 @@ function scrollTypingContainer() {
                 typingContainer.scrollTop -= 50;
             }
         }
-    }, 10);
+    }, 1);
 }
 
 function addSpacePreventListener() {
