@@ -9,6 +9,8 @@
     <div @ref="textInput"
     tabindex="0"
     @onkeyup="OnInput"
+    @onfocus="OnFocus"
+    @onblur="OnBlur"
     class="@(!isFocused ? "blurred" : "") no-focus-visible"
     >
     @if (testInstance?.Any() == true && correctStatus.Count > 0)
@@ -46,6 +48,11 @@
         }
     }
     </div>
+    @if(!isFocused){
+        <div class="focusText">
+            Click Here or Push Any Key to Focus
+        </div>
+    }
 </div>
 
 @code
@@ -96,6 +103,7 @@
     // Other
     private int currIndex = 0;
     private bool isFocused = true;
+    private bool isActiveSession = false;
     private char userLetter;
     private char currChar;
     private char prevChar;
@@ -109,11 +117,13 @@
     private CancellationTokenSource? cancellationTokenSource;
     private double accurateTime;
     private int elapsedTime;
+    private DotNetObjectReference<Test>? dotNetRef;
 
     //Methods
     protected override void OnInitialized() 
     {
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
+        dotNetRef = DotNetObjectReference.Create(this);
         ProcessCheckTestInstance();
     }
 
@@ -125,11 +135,46 @@
         }
     }
 
+    public void Dispose()
+    {
+        DisposeAsync().AsTask().GetAwaiter().GetResult();
+    }
+    private async Task OnBlur()
+    {
+        PauseTimer();
+        isFocused = false;
+        await JSRuntime.InvokeVoidAsync("addGlobalKeyListener", dotNetRef);
+    }
+
+    private async Task OnFocus()
+    {
+        isFocused = true;
+        if(isActiveSession)
+        {
+            ResumeTimer();
+        }
+        await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener", dotNetRef);
+    }
+    [JSInvokable("OnKeyUp")]
+    public void OnKeyUp()
+    {
+        textInput.FocusAsync();
+    }
+    public async ValueTask DisposeAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener");
+        dotNetRef?.Dispose();
+    }
+
     private void OnInput(KeyboardEventArgs e)
     {
         @* Console.WriteLine("Current index: " + currIndex); 
         Console.WriteLine("Current character: " + currChar);  *@
         StartTimer();
+        if(!isActiveSession)
+        {
+            isActiveSession = true;
+        }
         if(backspacePush == true)
         {
             backspacePush = false;
@@ -200,6 +245,10 @@
             }
             prevChar = currChar;
             currChar = checkTestInstance[includedKeysPressed];
+            if(includedKeysPressed == checkTestInstance.Count - 1)
+            {
+                PauseTimer();
+            }
             @* Console.WriteLine("Without backspace, the new currChar is: " + currChar); *@
         }
     }
@@ -244,10 +293,8 @@
                 accurateTime = stopwatch.Elapsed.TotalSeconds;
                 elapsedTime = (int)stopwatch.Elapsed.TotalSeconds;
 
-                // Trigger UI update
                 await InvokeAsync(StateHasChanged);
 
-                // Delay for 60 FPS, roughly 16.67 ms
                 await Task.Delay(1000 / 60, cancellationToken);
             }
 
@@ -258,7 +305,7 @@
     {
         if (stopwatch.IsRunning)
         {
-            cancellationTokenSource.Cancel();
+            cancellationTokenSource?.Cancel();
             stopwatch.Stop();
         }
     }

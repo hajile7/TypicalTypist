@@ -1,11 +1,16 @@
-window.globalKeyListener = {
-    add: function (dotNetHelper) {
-        document.addEventListener('keydown', function (event) {
-            dotNetHelper.invokeMethodAsync('HandleKeydown', event.key);
-        });
-    },
-    remove: function () {
-        document.removeEventListener('keydown', () => {});
+window.addGlobalKeyListener = function (dotNetObject) {
+    if (!window.globalKeyListener) {
+        window.globalKeyListener = (event) => {
+            dotNetObject.invokeMethodAsync('OnKeyUp');
+        };
+        window.addEventListener('keyup', window.globalKeyListener);
+    }
+};
+
+window.removeGlobalKeyListener = function () {
+    if (window.globalKeyListener) {
+        window.removeEventListener('keyup', window.globalKeyListener);
+        window.globalKeyListener = null;
     }
 };
 

@@ -275,6 +275,22 @@ main[b-g5qp50siej] {
     outline: none;
 }
 
+.blurred[b-699tyklcfu] {
+    filter: blur(.35rem);
+}
+
+.focusText[b-699tyklcfu] {
+    /* think about changing this around on Home page... works for now */
+    font-size: 1rem;
+    position: absolute;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: white;
+}
+
 .cursor[b-699tyklcfu] {
     display: inline-block;
     width: 1px; 
