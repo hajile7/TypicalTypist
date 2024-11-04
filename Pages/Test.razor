@@ -1,9 +1,10 @@
+@using System.Diagnostics
 @using TypicalTypist.Models;
 @inject IJSRuntime JSRuntime;
 
 @page "/test";
 
-
+<p>@elapsedTime</p>
 <div class="typing-container">
     <div @ref="textInput"
     tabindex="0"
@@ -51,8 +52,6 @@
 {
     // Variables
     // Responsiveness
-    private int currentRow = 0;
-    private const int rowHeight = 50;
 
     // Word Lists
     private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
@@ -91,7 +90,6 @@
     private bool correct = false;
 
     // Key Counters
-    private int excludedKeysPressed = 0;
     private int includedKeysPressed = 0;
     private int correctKeys = 0;
 
@@ -104,6 +102,13 @@
     private ElementReference textInput;
     private bool backspacePush = false;
     private int backspaceCounter = 0;
+
+    //Timer 
+    private Stopwatch stopwatch = new Stopwatch();
+    private Task? timerTask;
+    private CancellationTokenSource? cancellationTokenSource;
+    private double accurateTime;
+    private int elapsedTime;
 
     //Methods
     protected override void OnInitialized() 
@@ -124,7 +129,7 @@
     {
         @* Console.WriteLine("Current index: " + currIndex); 
         Console.WriteLine("Current character: " + currChar);  *@
-
+        StartTimer();
         if(backspacePush == true)
         {
             backspacePush = false;
@@ -219,4 +224,52 @@
         currChar = checkTestInstance[0];
     }
 
+    //Timer 
+    private void StartTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
+
+    private async Task UpdateTimerAsync(CancellationToken cancellationToken)
+    {
+        while (!cancellationToken.IsCancellationRequested)
+        {
+           while (!cancellationToken.IsCancellationRequested)
+            {
+                accurateTime = stopwatch.Elapsed.TotalSeconds;
+                elapsedTime = (int)stopwatch.Elapsed.TotalSeconds;
+
+                // Trigger UI update
+                await InvokeAsync(StateHasChanged);
+
+                // Delay for 60 FPS, roughly 16.67 ms
+                await Task.Delay(1000 / 60, cancellationToken);
+            }
+
+        }
+    }
+
+    private void PauseTimer()
+    {
+        if (stopwatch.IsRunning)
+        {
+            cancellationTokenSource.Cancel();
+            stopwatch.Stop();
+        }
+    }
+
+    private void ResumeTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
 }

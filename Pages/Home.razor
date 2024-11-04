@@ -66,16 +66,17 @@
                                               '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};    
     private List<WordTestObject> testInstance = new();
     private List<CharChecker> charsTypedList = new();
-    private List<char> checkTestInstance = new();
+    private List<char> currTestKey = new();
 
     // Correct Status
     private List<bool?> correctStatus = new List<bool?>();
     private bool correct = false;
 
     // Key Counters
-    private int excludedKeysPressed = 0;
     private int includedKeysPressed = 0;
     private int correctKeys = 0;
+
+    //Timer
 
     // Other
     private int currIndex = 0;
@@ -87,14 +88,14 @@
     private bool backspacePush = false;
     private int backspaceCounter = 0;
     
-    //Lifecycle Methods
+    // Lifecycle Methods
     protected override void OnInitialized() 
     {
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
     }
     protected override async Task OnInitializedAsync()
     {
-        // Get first test instance and instantiate our checkTestInstance var
+        // Get first test instance and instantiate our currTestKey var
         testInstance = await wordService.GetRandomWordsTest();
 
         if(testInstance.Count > 0)
@@ -112,7 +113,8 @@
         }
     }
 
-    //Methods
+    // Methods
+    // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
         Console.WriteLine("Current index: " + currIndex); 
@@ -145,7 +147,7 @@
             includedKeysPressed++;
             Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
 
-            if (currIndex < checkTestInstance.Count - 1)
+            if (currIndex < currTestKey.Count - 1)
             {
                 currIndex++;
             }
@@ -175,7 +177,7 @@
     {
         if(backspacePush)
         {
-            currChar = checkTestInstance[includedKeysPressed - backspaceCounter];
+            currChar = currTestKey[includedKeysPressed - backspaceCounter];
             Console.WriteLine("After the backspace, the new currChar is: " + currChar); 
         }
         else
@@ -185,8 +187,8 @@
                 charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
             }
             prevChar = currChar;
-            currChar = checkTestInstance[includedKeysPressed];
-            if(includedKeysPressed == checkTestInstance.Count - 1)
+            currChar = currTestKey[includedKeysPressed];
+            if(includedKeysPressed == currTestKey.Count - 1)
             {
                 StartNewTestInstance();
             }   
@@ -196,11 +198,10 @@
 
     private async void StartNewTestInstance() 
     {
-        checkTestInstance = new();
+        currTestKey = new();
         charsTypedList = new();
         correctStatus = new();
         includedKeysPressed = 0;
-        excludedKeysPressed = 0;
         correctKeys = 0;
         currIndex = 0;
         testInstance = new();
@@ -215,21 +216,26 @@
 
     }
 
+    // Timer
+
+    // Calculations
     private void ProcessCheckTestInstance() 
     {
         int totalLength = 0;
+
         foreach(WordTestObject testObj in testInstance) 
         {
             foreach(char word in testObj.Chars) 
             {
-                checkTestInstance.Add(word);
+                currTestKey.Add(word);
                 totalLength++;
             }
-            checkTestInstance.Add(' ');
+            currTestKey.Add(' ');
             totalLength++;
         }
+
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
-        currChar = checkTestInstance[0];
+        currChar = currTestKey[0];
 
     }
 
