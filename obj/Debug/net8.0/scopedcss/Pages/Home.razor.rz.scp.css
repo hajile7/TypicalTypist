@@ -1,14 +1,18 @@
-.text-wrapper[b-1shve68b2a] {
-    width: 100%;
-    height: 100%;
+.typing-container[b-1shve68b2a] {
+    width: 80%;
+    height: 150px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
+    justify-self: center;
+    font-size: 2rem;
+    overflow-x: visible;
+    overflow-y: scroll;
+    align-content: flex-start;
+    font-family: monospace;
+    scrollbar-width: none;
 }
 
-.timer-container[b-1shve68b2a] {
-    text-align: center;
+.typing-container pre[b-1shve68b2a]::-webkit-scrollbar {
+    display: none;
 }
 
 .word[b-1shve68b2a] {
@@ -27,7 +31,7 @@
     color: red;
 }
 
-.noFocusVisible:focus-visible[b-1shve68b2a] {
+.no-focus-visible:focus-visible[b-1shve68b2a] {
     outline: none;
 }
 

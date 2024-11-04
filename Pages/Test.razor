@@ -4,11 +4,11 @@
 @page "/test";
 
 
-<div  @ref="typingContainer" class="typing-container">
+<div class="typing-container">
     <div @ref="textInput"
     tabindex="0"
     @onkeyup="OnInput"
-    class="@(!isFocused ? "blurred" : "") noFocusVisible"
+    class="@(!isFocused ? "blurred" : "") no-focus-visible"
     >
     @if (testInstance?.Any() == true && correctStatus.Count > 0)
     {
@@ -51,7 +51,6 @@
 {
     // Variables
     // Responsiveness
-    private ElementReference typingContainer;
     private int currentRow = 0;
     private const int rowHeight = 50;
 
@@ -62,9 +61,9 @@
                                               '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};
     private List<WordTestObject> testInstance = new List<WordTestObject>
     {
-        new WordTestObject{Chars = ['H', 'e', 'l', 'l','o','!'], StartIndex = 0},
-        new WordTestObject{Chars = ['t','r','y',','], StartIndex = 7},
-        new WordTestObject{Chars = ['e','l','m','a','i','d','i','d'], StartIndex = 12},
+        new WordTestObject{Chars = ['t', 'i', 'g', 'e','r','s'], StartIndex = 0},
+        new WordTestObject{Chars = ['t','r','a','y'], StartIndex = 7},
+        new WordTestObject{Chars = ['e','l','e','m','e','n','t','s'], StartIndex = 12},
         new WordTestObject{Chars = ['e', 'x', 'a', 'm', 'i', 'n', 'e', 'e', 'r'], StartIndex = 21},
         new WordTestObject{Chars = ['c', 'l', 'e', 'a', 'r', 's'], StartIndex = 31},
         new WordTestObject{Chars = ['m', 'a', 'r', 'k'], StartIndex = 38},
@@ -177,14 +176,7 @@
             includedKeysPressed = includedKeysPressed - backspaceCounter;
             backspaceCounter = 0;
         }
-        try
-        {
-            JSRuntime.InvokeVoidAsync("scrollTypingContainer");
-        }
-        catch(Exception ex)
-        {
-            Console.WriteLine($"Error invoking Javascript: {ex.Message}");
-        }
+        JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         GetNextChar();
     }
 

@@ -10,25 +10,28 @@ window.globalKeyListener = {
 };
 
 function scrollTypingContainer() {
-    if (event.key === ' ' && document.activeElement === document.querySelector('.noFocusVisible')) {
-        event.preventDefault();
-    }
-    const typingContainer = document.querySelector('.typing-container');
-    const cursor = document.querySelector('.cursor');
+    setTimeout(() => {
+        const typingContainer = document.querySelector('.typing-container');
+        const cursor = document.querySelector('.cursor');
 
-    if (cursor) {
-        const cursorRect = cursor.getBoundingClientRect();
-        const containerRect = typingContainer.getBoundingClientRect();
+        if (cursor) {
+            const cursorRect = cursor.getBoundingClientRect();
+            const containerRect = typingContainer.getBoundingClientRect();
 
-        if (cursorRect.bottom > containerRect.bottom - 50) {
-            typingContainer.scrollTop += 50; 
-            console.log('I scrolled!')
+            if (cursorRect.bottom > containerRect.bottom - 50) {
+                typingContainer.scrollTop += 50; 
+            }
+
+            if (cursorRect.top < containerRect.top + 50) {
+                typingContainer.scrollTop -= 50;
+            }
         }
-    }
+    }, 10);
 }
+
 function addSpacePreventListener() {
     document.addEventListener('keydown', function(event) {
-        if (event.key === ' ' && document.activeElement === document.querySelector('.noFocusVisible')) {
+        if (event.key === ' ' && document.activeElement === document.querySelector('.no-focus-visible')) {
             console.log('Space scroll prevented');
             event.preventDefault();
             event.stopPropagation();

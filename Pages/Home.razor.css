@@ -1,14 +1,18 @@
-.text-wrapper {
-    width: 100%;
-    height: 100%;
+.typing-container {
+    width: 80%;
+    height: 150px;
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    position: relative;
+    justify-self: center;
+    font-size: 2rem;
+    overflow-x: visible;
+    overflow-y: scroll;
+    align-content: flex-start;
+    font-family: monospace;
+    scrollbar-width: none;
 }
 
-.timer-container {
-    text-align: center;
+.typing-container pre::-webkit-scrollbar {
+    display: none;
 }
 
 .word {
@@ -27,7 +31,7 @@
     color: red;
 }
 
-.noFocusVisible:focus-visible {
+.no-focus-visible:focus-visible {
     outline: none;
 }
 

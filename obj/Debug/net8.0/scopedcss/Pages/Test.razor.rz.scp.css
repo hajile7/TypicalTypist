@@ -4,8 +4,8 @@
     display: flex;
     justify-self: center;
     font-size: 2rem;
-    overflow-y: scroll;
     overflow-x: visible;
+    overflow-y: scroll;
     align-content: flex-start;
     font-family: monospace;
     scrollbar-width: none;
@@ -16,13 +16,8 @@
     display: none;
 }
 
-.timer-container[b-699tyklcfu] {
-    text-align: center;
-}
-
 .word[b-699tyklcfu] {
     display: inline-block;
-
 }
 
 .neutral[b-699tyklcfu] {
@@ -37,7 +32,7 @@
     color: red;
 }
 
-.noFocusVisible:focus-visible[b-699tyklcfu] {
+.no-focus-visible:focus-visible[b-699tyklcfu] {
     outline: none;
 }
 
