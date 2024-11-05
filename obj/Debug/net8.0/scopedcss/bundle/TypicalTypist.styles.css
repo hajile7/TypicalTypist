@@ -209,6 +209,21 @@ main[b-g5qp50siej] {
     outline: none;
 }
 
+.blurred[b-1shve68b2a] {
+    filter: blur(.35rem);
+}
+
+.focus-text[b-1shve68b2a] {
+    font-size: 1rem;
+    position: absolute;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: white;
+}
+
 .cursor[b-1shve68b2a] {
     display: inline-block;
     width: 1px; 
@@ -227,11 +242,12 @@ main[b-g5qp50siej] {
     50% {
       opacity: 0;  
     }
-  }
+}
 /* /Pages/Test.razor.rz.scp.css */
 .typing-container[b-699tyklcfu] {
     width: 80%;
     height: 150px;
+    position: relative;
     display: flex;
     justify-self: center;
     font-size: 2rem;
@@ -240,7 +256,6 @@ main[b-g5qp50siej] {
     align-content: flex-start;
     font-family: monospace;
     scrollbar-width: none;
-    position: relative;
 }
 
 .typing-container pre[b-699tyklcfu]::-webkit-scrollbar {
@@ -250,11 +265,13 @@ main[b-g5qp50siej] {
 .word[b-699tyklcfu] {
     display: inline-block;
     position: relative;
+    height: 50px;
 }
 
 .space[b-699tyklcfu] {
     display: inline-block;
     position: relative;
+    height: 50px;
     padding-left: .5rem;
     padding-right: .5rem;
 }
@@ -279,8 +296,7 @@ main[b-g5qp50siej] {
     filter: blur(.35rem);
 }
 
-.focusText[b-699tyklcfu] {
-    /* think about changing this around on Home page... works for now */
+.focus-text[b-699tyklcfu] {
     font-size: 1rem;
     position: absolute;
     background: none;

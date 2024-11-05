@@ -1,6 +1,7 @@
 .typing-container {
     width: 80%;
     height: 150px;
+    position: relative;
     display: flex;
     justify-self: center;
     font-size: 2rem;
@@ -9,7 +10,6 @@
     align-content: flex-start;
     font-family: monospace;
     scrollbar-width: none;
-    position: relative;
 }
 
 .typing-container pre::-webkit-scrollbar {
@@ -19,11 +19,13 @@
 .word {
     display: inline-block;
     position: relative;
+    height: 50px;
 }
 
 .space {
     display: inline-block;
     position: relative;
+    height: 50px;
     padding-left: .5rem;
     padding-right: .5rem;
 }
@@ -48,8 +50,7 @@
     filter: blur(.35rem);
 }
 
-.focusText {
-    /* think about changing this around on Home page... works for now */
+.focus-text {
     font-size: 1rem;
     position: absolute;
     background: none;

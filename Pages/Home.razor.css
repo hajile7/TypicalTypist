@@ -46,6 +46,21 @@
     outline: none;
 }
 
+.blurred {
+    filter: blur(.35rem);
+}
+
+.focus-text {
+    font-size: 1rem;
+    position: absolute;
+    background: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    color: white;
+}
+
 .cursor {
     display: inline-block;
     width: 1px; 
@@ -64,4 +79,4 @@
     50% {
       opacity: 0;  
     }
-  }
+}

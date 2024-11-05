@@ -1,10 +1,17 @@
 @using System.Diagnostics
-@using TypicalTypist.Models;
-@inject IJSRuntime JSRuntime;
+@using TypicalTypist.Models
+@using TypicalTypist.Services
 
-@page "/test";
+@page "/test"
 
-<p>@elapsedTime</p>
+@inject WordService wordService
+@inject IJSRuntime JSRuntime
+
+@* Start HTML *@
+
+<PageTitle>Home</PageTitle>
+<p>Time: @elapsedTime | Speed: @speed | Accuracy: @accuracy</p>
+
 <div class="typing-container">
     <div @ref="textInput"
     tabindex="0"
@@ -49,48 +56,32 @@
     }
     </div>
     @if(!isFocused){
-        <div class="focusText">
+        <div class="focus-text">
             Click Here or Push Any Key to Focus
         </div>
     }
 </div>
-
-@code
+<p>
+    Prev tests: @foreach(double spd in speedList) {
+        <span>@speedList.Count: @spd</span> 
+    }
+</p>
+<p>
+    Prev tests: @foreach(double acc in accuracyList) {
+        <span>@accuracyList.Count: @acc</span> 
+    }
+</p>
+@code 
 {
     // Variables
-    // Responsiveness
-
     // Word Lists
     private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                                               'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
-                                              '1','2','3','4','5','6','7','8','9', '.', ',', '\'', '"', '?', '!', '*', '=', '+', '-', '/', '\\', '<', 
-                                              '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};
-    private List<WordTestObject> testInstance = new List<WordTestObject>
-    {
-        new WordTestObject{Chars = ['t', 'i', 'g', 'e','r','s'], StartIndex = 0},
-        new WordTestObject{Chars = ['t','r','a','y'], StartIndex = 7},
-        new WordTestObject{Chars = ['e','l','e','m','e','n','t','s'], StartIndex = 12},
-        new WordTestObject{Chars = ['e', 'x', 'a', 'm', 'i', 'n', 'e', 'e', 'r'], StartIndex = 21},
-        new WordTestObject{Chars = ['c', 'l', 'e', 'a', 'r', 's'], StartIndex = 31},
-        new WordTestObject{Chars = ['m', 'a', 'r', 'k'], StartIndex = 38},
-        new WordTestObject{Chars = ['r','e','m','o','v','e'], StartIndex = 43},
-        new WordTestObject{Chars = ['p','a','y'], StartIndex = 50},
-        new WordTestObject{Chars = ['f','e','l','l','o','w'], StartIndex = 54},
-        new WordTestObject{Chars = ['g','e','n','d','e','r'], StartIndex = 61},
-        new WordTestObject{Chars = ['v','a','l','l','e','y'], StartIndex = 68},
-        new WordTestObject{Chars = ['c','o','r','n','e','r'], StartIndex = 75},
-        new WordTestObject{Chars = ['c','a','s','t','l','e'], StartIndex = 82},
-        new WordTestObject{Chars = ['n','o','t'], StartIndex = 89},
-        new WordTestObject{Chars = ['w','o','w'], StartIndex = 93},
-        new WordTestObject{Chars = ['r','a','b','b','i','t'], StartIndex = 97},
-        new WordTestObject{Chars = ['t','i','c','k','e','t'], StartIndex = 104},
-        new WordTestObject{Chars = ['t','h','o','u','g','h'], StartIndex = 111},
-        new WordTestObject{Chars = ['a','p','p','r','o','v','e'], StartIndex = 118},
-        new WordTestObject{Chars = ['i','n','t','r','o','d','u','c','e'], StartIndex = 126},
-        new WordTestObject{Chars = ['m','a','k','e'], StartIndex = 136}
-    };
+                                              '1','2','3','4','5','6','7','8','9', '0', '.', ',', '\'', '"', '?', '!', '*', '=', '+', '-', '/', '\\', '<', 
+                                              '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};    
+    private List<WordTestObject> testInstance = new();
     private List<CharChecker> charsTypedList = new();
-    private List<char> checkTestInstance = new();
+    private List<char> currTestKey = new();
 
     // Correct Status
     private List<bool?> correctStatus = new List<bool?>();
@@ -99,33 +90,58 @@
     // Key Counters
     private int includedKeysPressed = 0;
     private int correctKeys = 0;
+    private int totalKeysPressed = 0;
 
-    // Other
-    private int currIndex = 0;
-    private bool isFocused = true;
-    private bool isActiveSession = false;
-    private char userLetter;
-    private char currChar;
-    private char prevChar;
-    private ElementReference textInput;
-    private bool backspacePush = false;
-    private int backspaceCounter = 0;
-
-    //Timer 
+    // Timer
     private Stopwatch stopwatch = new Stopwatch();
     private Task? timerTask;
     private CancellationTokenSource? cancellationTokenSource;
     private double accurateTime;
     private int elapsedTime;
-    private DotNetObjectReference<Test>? dotNetRef;
 
-    //Methods
+    // Calcs
+    List<double> accuracyList = [];
+    List<double> speedList = [];
+    double speed = 0;
+    double accuracy = 0;
+    double prevAccuracy = 0;
+    double prevSpeed = 0;
+    double totalAccuracy = 0;
+    double totalSpeed = 0;
+    int rountCount = 0;
+
+    // Other
+    private ElementReference textInput;
+    private DotNetObjectReference<Test>? dotNetRef;
+    private int currIndex = 0;
+    private bool isFocused = true;
+    private char userLetter;
+    private char currChar;
+    private char prevChar;
+    private bool backspacePush = false;
+    private int backspaceCounter = 0;
+    private int backspaceTotalCount = 0;
+    private bool isActiveSession = false;
+    
+    // Lifecycle Methods
     protected override void OnInitialized() 
     {
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         dotNetRef = DotNetObjectReference.Create(this);
-        ProcessCheckTestInstance();
     }
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get first test instance and instantiate our currTestKey var
+        testInstance = await wordService.GetRandomWordsTest();
+
+        if(testInstance.Count > 0)
+        {
+            ProcessCheckTestInstance();
+        }
+
+        StateHasChanged();
+    } 
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -139,6 +155,60 @@
     {
         DisposeAsync().AsTask().GetAwaiter().GetResult();
     }
+
+    // Methods
+    // Timer
+    private void StartTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
+
+    private async Task UpdateTimerAsync(CancellationToken cancellationToken)
+    {
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            accurateTime = stopwatch.Elapsed.TotalSeconds;
+            elapsedTime = (int)stopwatch.Elapsed.TotalSeconds;
+
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(1000, cancellationToken);
+        }
+    }
+
+    private void PauseTimer()
+    {
+        if (stopwatch.IsRunning)
+        {
+            cancellationTokenSource?.Cancel();
+            stopwatch.Stop();
+        }
+    }
+
+    private void ResumeTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
+
+    private void ResetTimer()
+    {
+        if(!stopwatch.IsRunning)
+        {
+            stopwatch.Reset();
+        }
+    }
+
+    // Handling Focus / Blur
     private async Task OnBlur()
     {
         PauseTimer();
@@ -155,21 +225,24 @@
         }
         await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener", dotNetRef);
     }
+
     [JSInvokable("OnKeyUp")]
     public void OnKeyUp()
     {
         textInput.FocusAsync();
     }
+
     public async ValueTask DisposeAsync()
     {
         await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener");
         dotNetRef?.Dispose();
     }
 
+    // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
-        @* Console.WriteLine("Current index: " + currIndex); 
-        Console.WriteLine("Current character: " + currChar);  *@
+        Console.WriteLine("Current index: " + currIndex); 
+        Console.WriteLine("Current character: " + currChar); 
         StartTimer();
         if(!isActiveSession)
         {
@@ -183,28 +256,27 @@
         char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
         userLetter = lastTypedChar;
 
-        @* Console.WriteLine("You just typed: " + lastTypedChar); *@
-
-        // Handle backspace
-        if(e.Key == "Backspace")
+        // Keep count of non-alphabetical characters outside of space, shift, and backspace
+        if (e.Key == "Backspace")
         {
             if(currIndex > 0)
             {
                 currIndex--;
                 backspaceCounter++;
+                backspaceTotalCount++;
             }
             correctStatus[currIndex] = null;
             backspacePush = true;
-            @* Console.WriteLine("Current index is: " + currIndex); *@
+            Console.WriteLine("Current index is: " + currIndex);
         }
 
         // Handle alphabetical keys & space
         else if(legalChars.Contains(lastTypedChar) || lastTypedChar == ' ')
         {
             includedKeysPressed++;
-            @* Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed); *@
+            Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
 
-            if (currIndex < checkTestInstance.Count - 1)
+            if (currIndex < currTestKey.Count - 1)
             {
                 currIndex++;
             }
@@ -227,6 +299,10 @@
             backspaceCounter = 0;
         }
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
+        calcAccuracy();
+        if(elapsedTime > 0) {
+            calcSpeed();
+        }
         GetNextChar();
     }
 
@@ -234,89 +310,111 @@
     {
         if(backspacePush)
         {
-            currChar = checkTestInstance[includedKeysPressed - backspaceCounter];
-            @* Console.WriteLine("After the backspace, the new currChar is: " + currChar);  *@
+            currChar = currTestKey[includedKeysPressed - backspaceCounter];
+            Console.WriteLine("After the backspace, the new currChar is: " + currChar); 
         }
         else
         {
             if(legalChars.Contains(userLetter) || userLetter == ' ') 
             {
-                charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
+                charsTypedList.Add(new CharChecker{Letter = currChar, Time = accurateTime, Correct = correct, PushedLetter = userLetter});
             }
             prevChar = currChar;
-            currChar = checkTestInstance[includedKeysPressed];
-            if(includedKeysPressed == checkTestInstance.Count - 1)
+            currChar = currTestKey[includedKeysPressed];
+            if(includedKeysPressed == currTestKey.Count - 1)
             {
                 PauseTimer();
-            }
-            @* Console.WriteLine("Without backspace, the new currChar is: " + currChar); *@
+                ResetTimer();
+                accuracyList.Add(accuracy);
+                speedList.Add(speed);
+                prevAccuracy = accuracy;
+                prevSpeed = speed;
+                rountCount++;
+                StartNewTestInstance();
+            }   
+
+        } 
+    }
+
+    private async void StartNewTestInstance() 
+    {
+        calcTotalAccuracy();
+        calcTotalSpeed();
+        currTestKey = new();
+        charsTypedList = new();
+        correctStatus = new();
+        testInstance = new();
+        isActiveSession = false;
+        totalKeysPressed = 0;
+        includedKeysPressed = 0;
+        correctKeys = 0;
+        currIndex = 0;
+        elapsedTime = 0;
+        accurateTime = 0;
+        speed = 0;
+        accuracy = 0;
+
+        testInstance = await wordService.GetRandomWordsTest();
+
+        if(testInstance.Any())
+        {
+            ProcessCheckTestInstance();
+            StateHasChanged();
         }
+
+    }
+
+    // Calculations
+    private void calcAccuracy()
+    {
+        totalKeysPressed = includedKeysPressed + backspaceTotalCount;
+        accuracy = (double)correctKeys / (double)totalKeysPressed;
+    }
+
+    private void calcSpeed()
+    {
+        double elapsedTimeMins = stopwatch.Elapsed.TotalMilliseconds / 1000 / 60;
+        speed = (totalKeysPressed / 4.7) / elapsedTimeMins;
+    }
+
+    private void calcTotalAccuracy()
+    {
+        double total = 0;
+        foreach(double acc in accuracyList)
+        {
+            total += acc;
+        }
+        totalAccuracy = total / accuracyList.Count;
+    }
+
+    private void calcTotalSpeed()
+    {
+        double total = 0;
+        foreach(double spd in speedList)
+        {
+            total += spd;
+        }
+        totalSpeed = total / speedList.Count;
     }
 
     private void ProcessCheckTestInstance() 
     {
         int totalLength = 0;
+
         foreach(WordTestObject testObj in testInstance) 
         {
             foreach(char word in testObj.Chars) 
             {
-                checkTestInstance.Add(word);
+                currTestKey.Add(word);
                 totalLength++;
             }
-            checkTestInstance.Add(' ');
+            currTestKey.Add(' ');
             totalLength++;
         }
+
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
-        //Check Test Instance
-        //Console.WriteLine(String.Join(',',checkTestInstance));
-        //Set currChar
-        currChar = checkTestInstance[0];
+        currChar = currTestKey[0];
+
     }
 
-    //Timer 
-    private void StartTimer()
-    {
-        if (!stopwatch.IsRunning)
-        {
-            stopwatch.Start();
-            cancellationTokenSource = new CancellationTokenSource();
-            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
-        }
-    }
-
-    private async Task UpdateTimerAsync(CancellationToken cancellationToken)
-    {
-        while (!cancellationToken.IsCancellationRequested)
-        {
-           while (!cancellationToken.IsCancellationRequested)
-            {
-                accurateTime = stopwatch.Elapsed.TotalSeconds;
-                elapsedTime = (int)stopwatch.Elapsed.TotalSeconds;
-
-                await InvokeAsync(StateHasChanged);
-
-                await Task.Delay(1000 / 60, cancellationToken);
-            }
-
-        }
-    }
-
-    private void PauseTimer()
-    {
-        if (stopwatch.IsRunning)
-        {
-            cancellationTokenSource?.Cancel();
-            stopwatch.Stop();
-        }
-    }
-
-    private void ResumeTimer()
-    {
-        if (!stopwatch.IsRunning)
-        {
-            stopwatch.Start();
-            cancellationTokenSource = new CancellationTokenSource();
-            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
-        }
-    }
 }

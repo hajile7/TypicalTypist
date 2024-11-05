@@ -1,4 +1,5 @@
-﻿@using TypicalTypist.Models
+﻿@using System.Diagnostics
+@using TypicalTypist.Models
 @using TypicalTypist.Services
 
 @page "/"
@@ -9,11 +10,14 @@
 @* Start HTML *@
 
 <PageTitle>Home</PageTitle>
+<p>Time: @elapsedTime | Speed: @speed | Accuracy: @accuracy</p>
 
 <div class="typing-container">
     <div @ref="textInput"
     tabindex="0"
     @onkeyup="OnInput"
+    @onfocus="OnFocus"
+    @onblur="OnBlur"
     class="@(!isFocused ? "blurred" : "") no-focus-visible"
     >
     @if (testInstance?.Any() == true && correctStatus.Count > 0)
@@ -51,11 +55,22 @@
         }
     }
     </div>
+    @if(!isFocused){
+        <div class="focus-text">
+            Click Here or Push Any Key to Focus
+        </div>
+    }
 </div>
-
-
-
-
+<p>
+    Prev tests: @foreach(double spd in speedList) {
+        <span>@speedList.Count: @spd</span> 
+    }
+</p>
+<p>
+    Prev tests: @foreach(double acc in accuracyList) {
+        <span>@accuracyList.Count: @acc</span> 
+    }
+</p>
 @code 
 {
     // Variables
@@ -75,24 +90,46 @@
     // Key Counters
     private int includedKeysPressed = 0;
     private int correctKeys = 0;
+    private int totalKeysPressed = 0;
 
-    //Timer
+    // Timer
+    private Stopwatch stopwatch = new Stopwatch();
+    private Task? timerTask;
+    private CancellationTokenSource? cancellationTokenSource;
+    private double accurateTime;
+    private int elapsedTime;
+
+    // Calcs
+    List<double> accuracyList = [];
+    List<double> speedList = [];
+    double speed = 0;
+    double accuracy = 0;
+    double prevAccuracy = 0;
+    double prevSpeed = 0;
+    double totalAccuracy = 0;
+    double totalSpeed = 0;
+    int rountCount = 0;
 
     // Other
+    private ElementReference textInput;
+    private DotNetObjectReference<Home>? dotNetRef;
     private int currIndex = 0;
     private bool isFocused = true;
     private char userLetter;
     private char currChar;
     private char prevChar;
-    private ElementReference textInput;
     private bool backspacePush = false;
     private int backspaceCounter = 0;
+    private int backspaceTotalCount = 0;
+    private bool isActiveSession = false;
     
     // Lifecycle Methods
     protected override void OnInitialized() 
     {
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
+        dotNetRef = DotNetObjectReference.Create(this);
     }
+
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our currTestKey var
@@ -105,6 +142,7 @@
 
         StateHasChanged();
     } 
+
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         if(firstRender) {
@@ -113,13 +151,103 @@
         }
     }
 
+    public void Dispose()
+    {
+        DisposeAsync().AsTask().GetAwaiter().GetResult();
+    }
+
     // Methods
+    // Timer
+    private void StartTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
+
+    private async Task UpdateTimerAsync(CancellationToken cancellationToken)
+    {
+        while (!cancellationToken.IsCancellationRequested)
+        {
+            accurateTime = stopwatch.Elapsed.TotalSeconds;
+            elapsedTime = (int)stopwatch.Elapsed.TotalSeconds;
+
+            await InvokeAsync(StateHasChanged);
+
+            await Task.Delay(1000, cancellationToken);
+        }
+    }
+
+    private void PauseTimer()
+    {
+        if (stopwatch.IsRunning)
+        {
+            cancellationTokenSource?.Cancel();
+            stopwatch.Stop();
+        }
+    }
+
+    private void ResumeTimer()
+    {
+        if (!stopwatch.IsRunning)
+        {
+            stopwatch.Start();
+            cancellationTokenSource = new CancellationTokenSource();
+            timerTask = UpdateTimerAsync(cancellationTokenSource.Token);
+        }
+    }
+
+    private void ResetTimer()
+    {
+        if(!stopwatch.IsRunning)
+        {
+            stopwatch.Reset();
+        }
+    }
+
+    // Handling Focus / Blur
+    private async Task OnBlur()
+    {
+        PauseTimer();
+        isFocused = false;
+        await JSRuntime.InvokeVoidAsync("addGlobalKeyListener", dotNetRef);
+    }
+
+    private async Task OnFocus()
+    {
+        isFocused = true;
+        if(isActiveSession)
+        {
+            ResumeTimer();
+        }
+        await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener", dotNetRef);
+    }
+
+    [JSInvokable("OnKeyUp")]
+    public void OnKeyUp()
+    {
+        textInput.FocusAsync();
+    }
+
+    public async ValueTask DisposeAsync()
+    {
+        await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener");
+        dotNetRef?.Dispose();
+    }
+
     // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
         Console.WriteLine("Current index: " + currIndex); 
         Console.WriteLine("Current character: " + currChar); 
-
+        StartTimer();
+        if(!isActiveSession)
+        {
+            isActiveSession = true;
+        }
         if(backspacePush == true)
         {
             backspacePush = false;
@@ -135,6 +263,7 @@
             {
                 currIndex--;
                 backspaceCounter++;
+                backspaceTotalCount++;
             }
             correctStatus[currIndex] = null;
             backspacePush = true;
@@ -170,6 +299,10 @@
             backspaceCounter = 0;
         }
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
+        calcAccuracy();
+        if(elapsedTime > 0) {
+            calcSpeed();
+        }
         GetNextChar();
     }
 
@@ -184,12 +317,19 @@
         {
             if(legalChars.Contains(userLetter) || userLetter == ' ') 
             {
-                charsTypedList.Add(new CharChecker{Letter = currChar, Time = 0, Correct = correct, PushedLetter = userLetter});
+                charsTypedList.Add(new CharChecker{Letter = currChar, Time = accurateTime, Correct = correct, PushedLetter = userLetter});
             }
             prevChar = currChar;
             currChar = currTestKey[includedKeysPressed];
             if(includedKeysPressed == currTestKey.Count - 1)
             {
+                PauseTimer();
+                ResetTimer();
+                accuracyList.Add(accuracy);
+                speedList.Add(speed);
+                prevAccuracy = accuracy;
+                prevSpeed = speed;
+                rountCount++;
                 StartNewTestInstance();
             }   
 
@@ -198,13 +338,21 @@
 
     private async void StartNewTestInstance() 
     {
+        calcTotalAccuracy();
+        calcTotalSpeed();
         currTestKey = new();
         charsTypedList = new();
         correctStatus = new();
+        testInstance = new();
+        isActiveSession = false;
+        totalKeysPressed = 0;
         includedKeysPressed = 0;
         correctKeys = 0;
         currIndex = 0;
-        testInstance = new();
+        elapsedTime = 0;
+        accurateTime = 0;
+        speed = 0;
+        accuracy = 0;
 
         testInstance = await wordService.GetRandomWordsTest();
 
@@ -216,9 +364,39 @@
 
     }
 
-    // Timer
-
     // Calculations
+    private void calcAccuracy()
+    {
+        totalKeysPressed = includedKeysPressed + backspaceTotalCount;
+        accuracy = (double)correctKeys / (double)totalKeysPressed;
+    }
+
+    private void calcSpeed()
+    {
+        double elapsedTimeMins = stopwatch.Elapsed.TotalMilliseconds / 1000 / 60;
+        speed = (totalKeysPressed / 4.7) / elapsedTimeMins;
+    }
+
+    private void calcTotalAccuracy()
+    {
+        double total = 0;
+        foreach(double acc in accuracyList)
+        {
+            total += acc;
+        }
+        totalAccuracy = total / accuracyList.Count;
+    }
+
+    private void calcTotalSpeed()
+    {
+        double total = 0;
+        foreach(double spd in speedList)
+        {
+            total += spd;
+        }
+        totalSpeed = total / speedList.Count;
+    }
+
     private void ProcessCheckTestInstance() 
     {
         int totalLength = 0;
@@ -238,6 +416,5 @@
         currChar = currTestKey[0];
 
     }
-
 
 }
