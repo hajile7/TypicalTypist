@@ -1,0 +1,72 @@
+@using TypicalTypist.Models;
+@using TypicalTypist.Services;
+
+@page "/Register"
+
+@inject UserService userService;
+
+<PageTitle>Register</PageTitle>
+
+<div class="full-page-container">
+
+    @if(successMessage.Length > 0)
+    {
+        <p style="color: green;">@successMessage</p>
+    }
+
+    <EditForm Model="@newUser" OnValidSubmit="RegisterUser" class="centered-forms">
+        <DataAnnotationsValidator/>
+        <ValidationSummary/>
+
+        <div class="form-header">
+            Sign Up <i class="bi bi-person-plus"></i>
+        </div>
+
+        <div class="form-input">
+            <input placeholder="First Name" type="text" id="firstName" class="form-control" @bind-value="newUser.FirstName">
+        </div>
+
+        <div class="form-input">
+            <input placeholder="Last Name" type="text" id="lastName" class="form-control" @bind-value="newUser.LastName">
+        </div>
+
+        <div class="form-input">
+            <input placeholder="Username" type="text" id="userName" class="form-control" @bind-value="newUser.UserName">
+        </div>
+
+        <div class="form-input">
+            <input placeholder="Email" type="email" id="email" class="form-control" @bind-value="newUser.Email">
+        </div>
+
+        <div class="form-input">
+            <input placeholder="Password" type="password" id="password" class="form-control" @bind-value="newUser.Password">
+        </div>
+
+        <div class="form-input">
+            <input placeholder="Confirm Password" type="password" id="confirmPassword" class="form-control" @bind-value="newUser.ConfirmPassword">
+        </div>
+
+        <button type="sumbit" class="btn btn-outline-secondary" style="color: lightgray;">Register</button>
+
+    </EditForm>
+
+</div>
+
+@code 
+{
+    // Variables
+    private PostUserDTO newUser = new();
+    private string successMessage = string.Empty;
+
+    // Methods
+    private async Task RegisterUser()
+    {
+        if(await userService.PostUserAsync(newUser) == true)
+        {
+            successMessage = "Registration complete.";
+            this.newUser = new PostUserDTO();
+        }
+    }
+    
+}
+

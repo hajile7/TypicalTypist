@@ -1,0 +1,72 @@
+@using TypicalTypist.Models;
+@using TypicalTypist.Services;
+
+@page "/Login"
+
+@inject UserService userService;
+
+<PageTitle>Login</PageTitle>
+
+
+
+<div class="full-page-container">
+    
+    @if(loginCheck.Length > 0) 
+    {
+        <p style="color: red;">@loginCheck</p>
+    }
+
+    <EditForm Model="@loginModel" OnValidSubmit="UserLogin" class="centered-forms">
+
+            <div class="form-header">
+                Login <i class="bi bi-box-arrow-in-left"></i>
+            </div>
+
+            <div class="form-input">
+                <input placeholder="Username" type="text" class="form-control" @bind-value="loginModel.Username" />
+            </div>
+
+            <div class="form-input">
+                <input placeholder="Password" type="password" class="form-control" @bind-value="loginModel.Password" />
+            </div>
+
+            <button type="submit" class="btn btn-outline-secondary" style="color: lightgray;">Login</button>
+
+    </EditForm>
+
+</div>
+
+@if(userService.IsLoggedIn)
+{
+    <p>woo</p>
+    <p>@userService.activeUser.UserName</p>
+}
+
+@code {
+
+    private LoginModel loginModel = new();
+    private string loginCheck = string.Empty;
+
+    // Methods
+    private async void UserLogin() 
+        {
+            try
+            {
+                UserDTO result =  await userService.LoginAsync(loginModel);
+                userService.activeUser = result;
+                userService.IsLoggedIn = true;
+                this.loginModel = new LoginModel();
+                if(loginCheck.Length > 0)
+                {
+                    loginCheck = string.Empty;
+                }
+            }
+            catch(Exception ex)
+            {
+                loginCheck = ex.Message;
+            }
+            StateHasChanged();
+        }
+    
+}
+
