@@ -1,8 +1,20 @@
-﻿@inherits LayoutComponentBase
+﻿@using TypicalTypist.Services
+@inherits LayoutComponentBase
+@inject UserService userService
+
 <div class="page">
     <main>
         <div class="top-row px-4">
-            <a href="/test">Test</a><a href="/register">Register</a><a href="/login">Login</a>
+            <a href="/test">Test</a>
+            @if(!userService.IsLoggedIn) 
+            {
+                <a href="/register">Register</a>
+                <a href="/login">Login</a>
+            }
+            else
+            {
+                <a>Logout</a>
+            }
         </div>
             @Body
     </main>

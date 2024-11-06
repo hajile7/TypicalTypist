@@ -6,6 +6,7 @@
 
 @inject WordService wordService
 @inject IJSRuntime JSRuntime
+@inject UserService userService
 
 @* Start HTML *@
 
@@ -71,6 +72,12 @@
         <span>@accuracyList.Count: @acc</span> 
     }
 </p>
+@if(userService.IsLoggedIn)
+{
+    <p>
+        Welcome, @userService.activeUser.UserName
+    </p>
+}
 @code 
 {
     // Variables

@@ -1,9 +1,10 @@
-@using TypicalTypist.Models;
-@using TypicalTypist.Services;
+@using TypicalTypist.Models
+@using TypicalTypist.Services
 
 @page "/Register"
 
-@inject UserService userService;
+@inject UserService userService
+@inject NavigationManager navManager
 
 <PageTitle>Register</PageTitle>
 
@@ -57,6 +58,7 @@
     // Variables
     private PostUserDTO newUser = new();
     private string successMessage = string.Empty;
+    private LoginModel newLogin = new();
 
     // Methods
     private async Task RegisterUser()
@@ -64,7 +66,26 @@
         if(await userService.PostUserAsync(newUser) == true)
         {
             successMessage = "Registration complete.";
+            newLogin = new LoginModel { 
+                Username = newUser.UserName,
+                Password = newUser.Password
+            };
             this.newUser = new PostUserDTO();
+            try
+            {
+                UserDTO user = await userService.LoginAsync(newLogin);
+
+                if(user != null)
+                {
+                    userService.activeUser = user;
+                    userService.IsLoggedIn = true;
+                    navManager.NavigateTo("/");
+                }
+            }
+            catch(Exception ex)
+            {
+                Console.WriteLine($"Login failed: {ex.Message}");
+            }
         }
     }
     

@@ -1,9 +1,10 @@
-@using TypicalTypist.Models;
-@using TypicalTypist.Services;
+@using TypicalTypist.Models
+@using TypicalTypist.Services
 
 @page "/Login"
 
-@inject UserService userService;
+@inject UserService userService
+@inject NavigationManager navManager
 
 <PageTitle>Login</PageTitle>
 
@@ -66,6 +67,10 @@
                 loginCheck = ex.Message;
             }
             StateHasChanged();
+            if(userService.IsLoggedIn)
+            {
+                navManager.NavigateTo("/");
+            }
         }
     
 }
