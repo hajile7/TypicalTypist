@@ -10,11 +10,6 @@
 
 <div class="full-page-container">
 
-    @if(successMessage.Length > 0)
-    {
-        <p style="color: green;">@successMessage</p>
-    }
-
     <EditForm Model="@newUser" OnValidSubmit="RegisterUser" class="centered-forms">
         <DataAnnotationsValidator/>
         <ValidationSummary/>
@@ -57,7 +52,6 @@
 {
     // Variables
     private PostUserDTO newUser = new();
-    private string successMessage = string.Empty;
     private LoginModel newLogin = new();
 
     // Methods
@@ -65,7 +59,6 @@
     {
         if(await userService.PostUserAsync(newUser) == true)
         {
-            successMessage = "Registration complete.";
             newLogin = new LoginModel { 
                 Username = newUser.UserName,
                 Password = newUser.Password
@@ -74,7 +67,6 @@
             try
             {
                 UserDTO user = await userService.LoginAsync(newLogin);
-
                 if(user != null)
                 {
                     userService.activeUser = user;
