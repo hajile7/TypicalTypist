@@ -192,7 +192,7 @@
 
             await InvokeAsync(StateHasChanged);
 
-            await Task.Delay(1000, cancellationToken);
+            await Task.Delay(60, cancellationToken);
         }
     }
 
@@ -309,7 +309,6 @@
             includedKeysPressed = includedKeysPressed - backspaceCounter;
             backspaceCounter = 0;
         }
-        Console.WriteLine("Correct status is: " + correct);
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         calcAccuracy();
         if(elapsedTime > 0) {
@@ -362,6 +361,12 @@
         // Stat Calcs
         calcTotalAccuracy();
         calcTotalSpeed();
+        foreach(CharChecker check in charsTypedList)
+        {
+            Console.WriteLine(check.Letter);
+            Console.WriteLine(check.Correct);
+            Console.WriteLine(check.Time);
+        }
 
         if(userService.IsLoggedIn)
         {
@@ -385,6 +390,7 @@
                 userStats = new UserStatDTO();
             }
         }
+
         currTestKey = new();
         charsTypedList = new();
         correctStatus = new();
@@ -523,10 +529,6 @@
                     }
                 }
             }
-        }
-        foreach(UserBigraphStatDTO stat in bigraphStats)
-        {
-            Console.WriteLine("Bigraph: " + stat.Bigraph);
         }
     }
 
