@@ -6,6 +6,8 @@
 
 @inject WordService wordService
 @inject IJSRuntime JSRuntime
+@inject UserService userService
+@inject UserStatService userStatsService
 
 @* Start HTML *@
 
@@ -62,15 +64,21 @@
     }
 </div>
 <p>
-    Prev tests: @foreach(double spd in speedList) {
+    Prev test speed: @foreach(double spd in speedList) {
         <span>@speedList.Count: @spd</span> 
     }
 </p>
 <p>
-    Prev tests: @foreach(double acc in accuracyList) {
+    Prev test accuracy: @foreach(double acc in accuracyList) {
         <span>@accuracyList.Count: @acc</span> 
     }
 </p>
+@if(userService.IsLoggedIn)
+{
+    <p>
+        Welcome, @userService.activeUser.UserName
+    </p>
+}
 @code 
 {
     // Variables
@@ -78,10 +86,16 @@
     private HashSet<char> legalChars = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z',
                                               'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
                                               '1','2','3','4','5','6','7','8','9', '0', '.', ',', '\'', '"', '?', '!', '*', '=', '+', '-', '/', '\\', '<', 
-                                              '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|'};    
+                                              '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|', ' '};    
     private List<WordTestObject> testInstance = new();
     private List<CharChecker> charsTypedList = new();
     private List<char> currTestKey = new();
+
+    // Stat Lists
+    private List<BigraphData> bigraphDataList = new();
+    private List<UserBigraphStatDTO> bigraphStats = new();
+    private List<UserKeyStatDTO> keyStats = new();
+    private UserStatDTO userStats = new(); 
 
     // Correct Status
     private List<bool?> correctStatus = new List<bool?>();
@@ -100,19 +114,20 @@
     private int elapsedTime;
 
     // Calcs
-    List<double> accuracyList = [];
-    List<double> speedList = [];
-    double speed = 0;
-    double accuracy = 0;
-    double prevAccuracy = 0;
-    double prevSpeed = 0;
-    double totalAccuracy = 0;
-    double totalSpeed = 0;
+    List<decimal> accuracyList = [];
+    List<decimal> speedList = [];
+    decimal speed = 0;
+    decimal accuracy = 0;
+    decimal prevAccuracy = 0;
+    decimal prevSpeed = 0;
+    decimal totalAccuracy = 0;
+    decimal totalSpeed = 0;
     int rountCount = 0;
 
     // Other
     private ElementReference textInput;
     private DotNetObjectReference<Test>? dotNetRef;
+    private UserTypingTestDTO previousTest = new();
     private int currIndex = 0;
     private bool isFocused = true;
     private char userLetter;
@@ -241,8 +256,6 @@
     // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
-        Console.WriteLine("Current index: " + currIndex); 
-        Console.WriteLine("Current character: " + currChar); 
         StartTimer();
         if(!isActiveSession)
         {
@@ -267,14 +280,12 @@
             }
             correctStatus[currIndex] = null;
             backspacePush = true;
-            Console.WriteLine("Current index is: " + currIndex);
         }
 
         // Handle alphabetical keys & space
-        else if(legalChars.Contains(lastTypedChar) || lastTypedChar == ' ')
+        else if(legalChars.Contains(lastTypedChar))
         {
             includedKeysPressed++;
-            Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
 
             if (currIndex < currTestKey.Count - 1)
             {
@@ -298,6 +309,7 @@
             includedKeysPressed = includedKeysPressed - backspaceCounter;
             backspaceCounter = 0;
         }
+        Console.WriteLine("Correct status is: " + correct);
         JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         calcAccuracy();
         if(elapsedTime > 0) {
@@ -315,7 +327,7 @@
         }
         else
         {
-            if(legalChars.Contains(userLetter) || userLetter == ' ') 
+            if(legalChars.Contains(userLetter)) 
             {
                 charsTypedList.Add(new CharChecker{Letter = currChar, Time = accurateTime, Correct = correct, PushedLetter = userLetter});
             }
@@ -325,6 +337,15 @@
             {
                 PauseTimer();
                 ResetTimer();
+                if(userService.IsLoggedIn)
+                {
+                    previousTest.UserId = userService.activeUser.UserId;
+                    previousTest.CharCount = currTestKey.Count;
+                    previousTest.IncorrectCount = charsTypedList.Count(c => !c.Correct);
+                    previousTest.Mode = "random";
+                    previousTest.Speed = speed;
+                    previousTest.Accuracy = accuracy * 100;
+                }
                 accuracyList.Add(accuracy);
                 speedList.Add(speed);
                 prevAccuracy = accuracy;
@@ -338,12 +359,37 @@
 
     private async void StartNewTestInstance() 
     {
+        // Stat Calcs
         calcTotalAccuracy();
         calcTotalSpeed();
+
+        if(userService.IsLoggedIn)
+        {
+            GenerateUserBigraphStatDTO();
+            GenerateKeyStats();
+            GenerateUserStats();
+            if (await userStatsService.PostTest(previousTest) == true)
+            {
+                previousTest = new UserTypingTestDTO();
+            }
+            if (await userStatsService.PostBigraphStats(bigraphStats) == true)
+            {
+                bigraphStats = new List<UserBigraphStatDTO>();
+            }
+            if (await userStatsService.PostKeyStats(keyStats) == true)
+            {
+                keyStats = new List<UserKeyStatDTO>();
+            }
+            if (await userStatsService.PostStats(userStats) == true)
+            {
+                userStats = new UserStatDTO();
+            }
+        }
         currTestKey = new();
         charsTypedList = new();
         correctStatus = new();
         testInstance = new();
+        bigraphDataList = new();
         isActiveSession = false;
         totalKeysPressed = 0;
         includedKeysPressed = 0;
@@ -368,29 +414,29 @@
     private void calcAccuracy()
     {
         totalKeysPressed = includedKeysPressed + backspaceTotalCount;
-        accuracy = (double)correctKeys / (double)totalKeysPressed;
+        accuracy = (decimal)correctKeys / (decimal)totalKeysPressed;
     }
 
     private void calcSpeed()
     {
-        double elapsedTimeMins = stopwatch.Elapsed.TotalMilliseconds / 1000 / 60;
-        speed = (totalKeysPressed / 4.7) / elapsedTimeMins;
+        decimal elapsedTimeMins = (decimal)stopwatch.Elapsed.TotalMilliseconds / 1000 / 60;
+        speed = (decimal)(totalKeysPressed / 4.7) / elapsedTimeMins;
     }
 
     private void calcTotalAccuracy()
     {
-        double total = 0;
-        foreach(double acc in accuracyList)
+        decimal total = 0;
+        foreach(decimal acc in accuracyList)
         {
             total += acc;
         }
-        totalAccuracy = total / accuracyList.Count;
+        totalAccuracy = (decimal)total / accuracyList.Count;
     }
 
     private void calcTotalSpeed()
     {
-        double total = 0;
-        foreach(double spd in speedList)
+        decimal total = 0;
+        foreach(decimal spd in speedList)
         {
             total += spd;
         }
@@ -415,6 +461,144 @@
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
         currChar = currTestKey[0];
 
+    }
+
+    // Stat Generation Methods
+    private void GenerateUserBigraphStatDTO() 
+    {
+        if(charsTypedList.Count >= 2)
+        {
+            // Fill bigraphDataList
+            for(int i = charsTypedList.Count - 1; i >= 1; i--)
+            {
+                int incorrectCount = 0;
+                int correctCount = 0;
+                string newBigraph = charsTypedList[i - 1].Letter.ToString() + charsTypedList[i].Letter.ToString();
+                if(charsTypedList[i - 1].Correct == false || charsTypedList[i].Correct == false)
+                {
+                    incorrectCount++;
+                }
+                else
+                {
+                    correctCount++;
+                }
+                bigraphDataList.Add(new BigraphData
+                {
+                    Bigraph = newBigraph,
+                    Speed = (decimal)(charsTypedList[i].Time - charsTypedList[i - 1].Time),
+                    IncorrectCount = incorrectCount,
+                    CorrectCount = correctCount
+                });
+                incorrectCount = 0;
+                correctCount = 0;
+            }
+            foreach(BigraphData data in bigraphDataList)
+            {
+                // Handle first instance
+                if(!bigraphStats.Any(s => s.Bigraph == data.Bigraph) || bigraphStats.Count == 0)
+                {
+                    bigraphStats.Add(new UserBigraphStatDTO
+                    {
+                        UserId = userService.activeUser.UserId,
+                        Bigraph = data.Bigraph,
+                        Speed = data.Speed,
+                        CorrCount = data.CorrectCount,
+                        Accuracy = data.CorrectCount * 100,
+                        Quantity = 1
+                    });
+                }
+                // Handle all ensuing instances
+                else
+                {
+                    int index = bigraphStats.FindIndex(s => s.Bigraph == data.Bigraph);
+                    if(index >= 0)
+                    {
+                        bigraphStats[index].Quantity++;
+                        if(data.CorrectCount == 1)
+                        {
+                            bigraphStats[index].CorrCount++;
+                        }
+                        bigraphStats[index].Speed = (bigraphStats[index].Speed + data.Speed) / bigraphStats[index].Quantity;
+                        bigraphStats[index].Accuracy = ((bigraphStats[index].CorrCount) / bigraphStats[index].Quantity) * 100;
+                    }
+                }
+            }
+        }
+        foreach(UserBigraphStatDTO stat in bigraphStats)
+        {
+            Console.WriteLine("Bigraph: " + stat.Bigraph);
+        }
+    }
+
+    private void GenerateKeyStats()
+    {
+        var frequencyMap = charsTypedList.Aggregate(new Dictionary<string, UserKeyStatFull>(), (acc, current) =>
+        {
+            string charKey = current.Letter.ToString();
+
+            // Initialize key's stat if new
+            if (!acc.ContainsKey(charKey))
+            {
+                acc[charKey] = new UserKeyStatFull
+                {
+                    Key = charKey,
+                    Frequency = 0,
+                    CorrectCount = 0,
+                    TotalSpeed = 0,
+                    BigraphCount = 0
+                };
+            }
+
+            // Handle case where it's not new
+            acc[charKey].Frequency++;
+            if (current.Correct)
+            {
+                acc[charKey].CorrectCount++;
+            }
+
+            // Update bigraph data
+            foreach (var bigraphData in bigraphDataList)
+            {
+                if (bigraphData.Bigraph[1].ToString() == charKey)
+                {
+                    acc[charKey].TotalSpeed += bigraphData.Speed;
+                    acc[charKey].BigraphCount++;
+                }
+            }
+
+            return acc;
+        });
+
+        // Convert frequencyMap to a list of frequency data with calculated accuracy and speed
+        var frequencyArr = frequencyMap.Values.Select(charData => new
+        {
+            Char = charData.Key,
+            Frequency = charData.Frequency,
+            Accuracy = charData.Frequency > 0 ? (decimal)charData.CorrectCount / (decimal)charData.Frequency * 100 : 0,
+            Speed = charData.BigraphCount > 0 ? charData.TotalSpeed / (decimal)charData.BigraphCount : 0
+        }).ToList();
+
+        // Populate keyStats with final values
+        foreach (var k in frequencyArr)
+        {
+            keyStats.Add(new UserKeyStatDTO
+            {
+                UserId = userService.activeUser.UserId,
+                Key = k.Char,
+                TotalTyped = k.Frequency,
+                Accuracy = k.Accuracy,
+                Speed = k.Speed
+            });
+        }
+    }
+
+    private void GenerateUserStats()
+    {
+        userStats.UserId = userService.activeUser.UserId;
+        userStats.CharsTyped = charsTypedList.Count;
+        userStats.TimeTyped = elapsedTime;
+        userStats.Accuracy = prevAccuracy * 100;
+        userStats.WPM = prevSpeed;
     }
 
 }

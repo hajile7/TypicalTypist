@@ -10,3 +10,4 @@ namespace TypicalTypist.Models
         public int? Quantity { get; set; }
     }
 }
+
