@@ -256,8 +256,6 @@
     // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
-        Console.WriteLine("Current index: " + currIndex); 
-        Console.WriteLine("Current character: " + currChar); 
         StartTimer();
         if(!isActiveSession)
         {
@@ -282,14 +280,12 @@
             }
             correctStatus[currIndex] = null;
             backspacePush = true;
-            Console.WriteLine("Current index is: " + currIndex);
         }
 
         // Handle alphabetical keys & space
         else if(legalChars.Contains(lastTypedChar))
         {
             includedKeysPressed++;
-            Console.WriteLine("IncludedKeysPressed has been incremented to: " + includedKeysPressed);
 
             if (currIndex < currTestKey.Count - 1)
             {
@@ -342,10 +338,9 @@
                 ResetTimer();
                 if(userService.IsLoggedIn)
                 {
-                    //Will have to come back and make sure date is working and decide how to handle mode
                     previousTest.UserId = userService.activeUser.UserId;
                     previousTest.CharCount = currTestKey.Count;
-                    previousTest.IncorrectCount = charsTypedList.Select(c => c.Correct == false).ToList().Count;
+                    previousTest.IncorrectCount = charsTypedList.Count(c => !c.Correct);
                     previousTest.Mode = "random";
                     previousTest.Speed = speed;
                     previousTest.Accuracy = accuracy * 100;
@@ -357,7 +352,6 @@
                 rountCount++;
                 StartNewTestInstance();
             }   
-
         } 
     }
 
@@ -410,6 +404,7 @@
         {
             ProcessCheckTestInstance();
             StateHasChanged();
+            await JSRuntime.InvokeVoidAsync("scrollTypingContainer");
         }
 
     }
@@ -499,7 +494,7 @@
             foreach(BigraphData data in bigraphDataList)
             {
                 // Handle first instance
-                if(bigraphStats.Select(s => s.Bigraph == data.Bigraph).ToList().Count == 0 || bigraphStats.Count == 0)
+                if(!bigraphStats.Any(s => s.Bigraph == data.Bigraph) || bigraphStats.Count == 0)
                 {
                     bigraphStats.Add(new UserBigraphStatDTO
                     {
@@ -507,7 +502,7 @@
                         Bigraph = data.Bigraph,
                         Speed = data.Speed,
                         CorrCount = data.CorrectCount,
-                        Accuracy = data.CorrectCount * 100, // Why did I do this again??
+                        Accuracy = data.CorrectCount * 100,
                         Quantity = 1
                     });
                 }
@@ -596,7 +591,7 @@
     {
         userStats.UserId = userService.activeUser.UserId;
         userStats.CharsTyped = charsTypedList.Count;
-        userStats.TimeTyped = (int)Math.Floor(accurateTime);
+        userStats.TimeTyped = elapsedTime;
         userStats.Accuracy = prevAccuracy * 100;
         userStats.WPM = prevSpeed;
     }
