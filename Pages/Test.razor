@@ -1,4 +1,4 @@
-@using System.Diagnostics
+@* @using System.Diagnostics
 @using TypicalTypist.Models
 @using TypicalTypist.Services
 
@@ -7,11 +7,11 @@
 @inject WordService wordService
 @inject IJSRuntime JSRuntime
 @inject UserService userService
-@inject UserStatService userStatsService
+@inject UserStatService userStatsService *@
 
 @* Start HTML *@
 
-<PageTitle>Home</PageTitle>
+@* <PageTitle>Home</PageTitle>
 <p>Time: @elapsedTime | Speed: @speed | Accuracy: @accuracy</p>
 
 <div class="typing-container">
@@ -603,4 +603,4 @@
         userStats.WPM = prevSpeed;
     }
 
-}
+} *@

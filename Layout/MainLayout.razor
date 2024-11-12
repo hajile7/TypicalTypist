@@ -5,16 +5,52 @@
 <div class="page">
     <main>
         <div class="top-row px-4">
-            <a href="/test">Test</a>
-            @if(!userService.IsLoggedIn) 
-            {
-                <a href="/register">Register</a>
-                <a href="/login">Login</a>
-            }
-            else
-            {
-                <a>Logout</a>
-            }
+            <nav class="navbar navbar-expand">
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#">TypicalTypist <i class="bi bi-chat-dots img-up-shift"></i></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#userDropdown" 
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    @if(userService.IsLoggedIn)
+                    {
+                        <div class="collapse navbar-collapse" id="userDropdown">
+                            <ul class="navbar-nav me-auto mb-0">
+                                <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    @userService.activeUser.UserName
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="dropdown-item" href="/profile">Profile <i class="bi bi-person-circle"></i></a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/settings">Settings <i class="bi bi-gear"></i></a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="/" @onclick="userService.Logout">Logout <i class="bi bi-box-arrow-right"></i></a></li>
+                                </ul>
+                                </li>
+                            </ul>
+                            <div>
+                                <a class="nav-link" href="/" @onclick="userService.Logout">Logout <i class="bi bi-box-arrow-right"></i></a>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+                        <ul class="navbar-nav me-auto mb-0">
+                            <li class="nav-item">
+                                <a class="nav-link" href="/settings"><i class="bi bi-gear"></i></a>
+                            </li>
+                        </ul>
+                        <div class="nav-item">
+                            <a class="nav-link lone-link" href="/login">Login <i class="bi bi-box-arrow-in-left"></i></a>
+                        </div>
+                        <span style="cursor: default;">&nbsp;/&nbsp;</span>
+                        <div class="nav-item">
+                            <a class="nav-link lone-link" href="/register">Register <i class="bi bi-person-plus"></i></a>
+                        </div>
+                    }
+                </div>
+            </nav>
         </div>
             @Body
     </main>

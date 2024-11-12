@@ -37,5 +37,14 @@ namespace TypicalTypist.Services
                 throw new Exception("An unknown error has occured");
             }
         }
+
+        public void Logout()
+        {
+            if(IsLoggedIn)
+            {
+                activeUser = new();
+                IsLoggedIn = false;
+            }
+        }
     }
 }
