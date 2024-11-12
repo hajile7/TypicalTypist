@@ -1,3 +1,11 @@
+.home-full-page-container[b-1shve68b2a] {
+    height: 60vh;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column;
+}
+
 .typing-container[b-1shve68b2a] {
     width: 80%;
     height: 150px;
@@ -61,10 +69,75 @@
     color: white;
 }
 
+.settings-bar[b-1shve68b2a] {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid white;
+    background-color: rgb(37, 37, 37);
+    padding: .25rem .5rem .25rem .5rem;
+    flex-direction: row;
+}
+
+.settings-icon[b-1shve68b2a] {
+    font-size: 1.5rem;
+    display:flex;
+}
+
+.settings-icon-fire[b-1shve68b2a] {
+    font-size: 1.1rem;
+    position: relative;
+    display:flex;
+}
+
+.settings-divider[b-1shve68b2a] {
+    position: relative;
+    color: darkgray;
+    display:flex;
+}
+
+.settings-text[b-1shve68b2a] {
+    font-size: .8rem;
+    font-weight: bold;
+    position: relative;
+    display:flex;
+}
+
+.settings-text-plain[b-1shve68b2a] {
+    font-size: .8rem;
+    position: relative;
+    display:flex;
+}
+
+.stats-section[b-1shve68b2a] {
+    justify-items: center;
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    padding: 1rem .5rem 1rem .5rem;
+    background-color: rgb(37, 37, 37);
+    border-radius: 1rem;
+    border: 1px solid white;
+}
+
+.btn-plain-text[b-1shve68b2a] {
+    background: none;
+    border: none;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-plain-text:hover[b-1shve68b2a] {
+    color: aqua;
+}
+
 .cursor[b-1shve68b2a] {
     display: inline-block;
-    width: 1px; 
-    background-color: white;
+    width: 2px; 
+    background-color: aqua;
     height: 1em;
     animation: blink-b-1shve68b2a 1s step-end infinite;
     position: absolute;

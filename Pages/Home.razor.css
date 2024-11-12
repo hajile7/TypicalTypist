@@ -1,3 +1,11 @@
+.home-full-page-container {
+    height: 60vh;
+    display: flex;
+    align-items: center; 
+    justify-content: center; 
+    flex-direction: column;
+}
+
 .typing-container {
     width: 80%;
     height: 150px;
@@ -61,10 +69,75 @@
     color: white;
 }
 
+.settings-bar {
+    width: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    border: 1px solid white;
+    background-color: rgb(37, 37, 37);
+    padding: .25rem .5rem .25rem .5rem;
+    flex-direction: row;
+}
+
+.settings-icon {
+    font-size: 1.5rem;
+    display:flex;
+}
+
+.settings-icon-fire {
+    font-size: 1.1rem;
+    position: relative;
+    display:flex;
+}
+
+.settings-divider {
+    position: relative;
+    color: darkgray;
+    display:flex;
+}
+
+.settings-text {
+    font-size: .8rem;
+    font-weight: bold;
+    position: relative;
+    display:flex;
+}
+
+.settings-text-plain {
+    font-size: .8rem;
+    position: relative;
+    display:flex;
+}
+
+.stats-section {
+    justify-items: center;
+    margin-bottom: 2.5rem;
+    margin-top: 2.5rem;
+    padding: 1rem .5rem 1rem .5rem;
+    background-color: rgb(37, 37, 37);
+    border-radius: 1rem;
+    border: 1px solid white;
+}
+
+.btn-plain-text {
+    background: none;
+    border: none;
+    padding: 0;
+    color: white;
+    cursor: pointer;
+}
+
+.btn-plain-text:hover {
+    color: aqua;
+}
+
 .cursor {
     display: inline-block;
-    width: 1px; 
-    background-color: white;
+    width: 2px; 
+    background-color: aqua;
     height: 1em;
     animation: blink 1s step-end infinite;
     position: absolute;

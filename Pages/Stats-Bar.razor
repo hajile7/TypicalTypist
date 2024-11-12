@@ -1,0 +1,37 @@
+@page "/stats-bar"
+
+<div class="wrapper">
+    <span class="stats-span" style="text-align: left;">
+        @Title
+        @if (Title == "Overall")
+        {
+            <span> (@currRoundCount)</span>
+        }
+        <span class="icon"><i class="bi bi-arrow-right"></i></span>
+    </span>
+    <span>Accuracy:&ensp;</span>
+    <span class="stats-span" style="text-align: center;">
+        @((Accuracy * 100).ToString("F2") + "%")
+    </span>
+    <span>Speed:&ensp;</span>
+    <span class="stats-span" style="text-align: right;">
+        @(Speed == 0 || Speed > 350 ? placeholderSpeed : Speed.ToString("F2") + " wpm")
+    </span>
+</div>
+
+@code 
+{
+    [Parameter]
+    public string Title { get; set; } = string.Empty;
+
+    [Parameter]
+    public decimal Accuracy { get; set; }
+
+    [Parameter]
+    public decimal Speed { get; set; }
+
+    [Parameter]
+    public int currRoundCount { get; set; } = 0;
+
+    string placeholderSpeed = "000.00 wpm";
+}

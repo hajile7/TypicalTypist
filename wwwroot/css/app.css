@@ -124,6 +124,20 @@ code {
     padding: 0;
 }
 
+.icon{
+    float: right;
+    margin-right: 3ch;
+}
+
+.stats-span {
+    display: inline-block;
+    text-align: center;
+    width: 18ch;  
+    min-width: 10ch;
+    padding-bottom: .125rem;  
+    padding-top: .125rem;
+}
+
 @media(max-width: 830px) {
     .form-input {
         width: 50%;

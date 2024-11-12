@@ -5,10 +5,6 @@
       "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js"
     },
     {
-      "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\27b6u4w195.gz",
-      "PackagePath": "staticwebassets\\_framework\\blazor.webassembly.js.gz"
-    },
-    {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\scopedcss\\bundle\\TypicalTypist.styles.css",
       "PackagePath": "staticwebassets\\TypicalTypist.styles.css"
     },
@@ -43,6 +39,10 @@
     {
       "Id": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\wwwroot\\sample-data\\weather.json",
       "PackagePath": "staticwebassets\\sample-data\\weather.json"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TypicalTypist.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
     },
     {
       "Id": "obj\\Debug\\net8.0\\staticwebassets\\msbuild.TypicalTypist.Microsoft.AspNetCore.StaticWebAssets.props",

@@ -12,73 +12,97 @@
 @* Start HTML *@
 
 <PageTitle>Home</PageTitle>
-<p>Time: @elapsedTime | Speed: @speed | Accuracy: @accuracy</p>
 
-<div class="typing-container">
-    <div @ref="textInput"
-    tabindex="0"
-    @onkeyup="OnInput"
-    @onfocus="OnFocus"
-    @onblur="OnBlur"
-    class="@(!isFocused ? "blurred" : "") no-focus-visible"
-    >
-    @if (testInstance?.Any() == true && correctStatus.Count > 0)
-    {
-        @foreach (var tuple in testInstance.Select((word, index) => (word, index)))
+<div class="home-full-page-container">
+    <div class="settings-bar">
+        <span><i class="bi bi-alphabet settings-icon"></i></span>
+        <span class="settings-text">caps</span>
+        <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
+        <span><i class="bi bi-123 settings-icon"></i></span>
+        <span class="settings-text">numbers</span>
+        <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
+        <span><i class="bi bi-question settings-icon"></i></span>
+        <span class="settings-text">symbols</span>
+        <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
+        <span><i class="bi bi-fire settings-icon-fire"></i></span>
+        <span class="settings-text">chaos</span>
+        <span><i class="bi bi-grip-vertical settings-divider"></i></span>
+        <span><i class="bi bi-stars settings-icon-fire"></i></span>
+        <span class="settings-text">zen</span>
+        <span><i class="bi bi-grip-vertical settings-divider"></i></span>
+        <span class="settings-text-plain">&nbsp;25</span>
+        <span class="settings-text-plain">&nbsp;50</span>
+        <span class="settings-text-plain">&nbsp;75</span>
+        <span class="settings-text-plain">&nbsp;100</span>
+    </div>
+    <div class="stats-section">
+        <button class="btn-plain-text"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#scoreSpan" 
+            aria-expanded="true"
+            aria-controls="scoreSpan"
+            >
+            @elapsedTime
+        </button>
+        <div class="collapse show" id="scoreSpan">
+            <Stats_Bar Title="Overall" Accuracy="totalAccuracy" Speed="totalSpeed" currRoundCount="roundCount"></Stats_Bar>
+            <Stats_Bar Title="Previous" Accuracy="prevAccuracy" Speed="prevSpeed"></Stats_Bar>
+            <Stats_Bar Title="Current" Accuracy="accuracy" Speed="speed"></Stats_Bar>
+        </div>
+    </div>
+
+    <div class="typing-container">
+        <div @ref="textInput"
+        tabindex="0"
+        @onkeyup="OnInput"
+        @onfocus="OnFocus"
+        @onblur="OnBlur"
+        class="@(!isFocused ? "blurred" : "") no-focus-visible"
+        >
+        @if (testInstance?.Any() == true && correctStatus.Count > 0)
         {
-            <span class="word">
-                @foreach (var tuple2 in tuple.word.Chars.Select((Chars, index) => (Chars, index)))
-                {
-                    @if ((tuple2.index + tuple.word.StartIndex == currIndex) && isFocused && (correctStatus.Count > tuple2.index + tuple.word.StartIndex))
+            @foreach (var tuple in testInstance.Select((word, index) => (word, index)))
+            {
+                <span class="word">
+                    @foreach (var tuple2 in tuple.word.Chars.Select((Chars, index) => (Chars, index)))
                     {
-                        <span class="cursor"></span>
+                        @if ((tuple2.index + tuple.word.StartIndex == currIndex) && isFocused && (correctStatus.Count > tuple2.index + tuple.word.StartIndex))
+                        {
+                            <span class="cursor"></span>
+                        }
+                        <span style="display: inline-block;"
+                            class="@(tuple2.index + tuple.word.StartIndex < correctStatus.Count
+                            ? (correctStatus[tuple2.index + tuple.word.StartIndex] == true ? "correct"
+                                : (correctStatus[tuple2.index + tuple.word.StartIndex] == false ? "incorrect" : "neutral"))
+                            : "neutral")">
+                            @tuple2.Chars
+                        </span>
                     }
-                    <span style="display: inline-block;"
-                        class="@(tuple2.index + tuple.word.StartIndex < correctStatus.Count
-                        ? (correctStatus[tuple2.index + tuple.word.StartIndex] == true ? "correct"
-                            : (correctStatus[tuple2.index + tuple.word.StartIndex] == false ? "incorrect" : "neutral"))
-                        : "neutral")">
-                        @tuple2.Chars
+                </span>
+                @if (tuple.index < testInstance.Count() - 1)
+                {
+                    <span
+                        class="space @(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
+                        : (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : "neutral"))">
+                        @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
+                        {
+                            <span class="cursor"></span>
+                        }
+                        &#8901;
                     </span>
                 }
-            </span>
-            @if (tuple.index < testInstance.Count() - 1)
-            {
-                <span
-                    class="space @(correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == true ? "correct" 
-                    : (correctStatus[tuple.word.StartIndex + tuple.word.Chars.Count] == false ? "incorrect" : "neutral"))">
-                    @if (tuple.word.StartIndex + tuple.word.Chars.Count == currIndex && isFocused)
-                    {
-                        <span class="cursor"></span>
-                    }
-                    &#8901;
-                </span>
             }
         }
-    }
-    </div>
-    @if(!isFocused){
-        <div class="focus-text">
-            Click Here or Push Any Key to Focus
         </div>
-    }
+        @if(!isFocused){
+            <div class="focus-text">
+                Click Here or Push Any Key to Focus
+            </div>
+        }
+    </div>
 </div>
-<p>
-    Prev tests: @foreach(double spd in speedList) {
-        <span>@speedList.Count: @spd</span> 
-    }
-</p>
-<p>
-    Prev tests: @foreach(double acc in accuracyList) {
-        <span>@accuracyList.Count: @acc</span> 
-    }
-</p>
-@if(userService.IsLoggedIn)
-{
-    <p>
-        Welcome, @userService.activeUser.UserName
-    </p>
-}
+
 @code 
 {
     // Variables
@@ -122,7 +146,7 @@
     decimal prevSpeed = 0;
     decimal totalAccuracy = 0;
     decimal totalSpeed = 0;
-    int rountCount = 0;
+    int roundCount = 0;
 
     // Other
     private ElementReference textInput;
@@ -349,7 +373,7 @@
                 speedList.Add(speed);
                 prevAccuracy = accuracy;
                 prevSpeed = speed;
-                rountCount++;
+                roundCount++;
                 StartNewTestInstance();
             }   
         } 
@@ -413,7 +437,10 @@
     private void calcAccuracy()
     {
         totalKeysPressed = includedKeysPressed + backspaceTotalCount;
-        accuracy = (decimal)correctKeys / (decimal)totalKeysPressed;
+        if(totalKeysPressed > 0)
+        {
+            accuracy = (decimal)correctKeys / (decimal)totalKeysPressed;
+        }
     }
 
     private void calcSpeed()
