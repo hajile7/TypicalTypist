@@ -214,7 +214,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our currTestKey var
-        testInstance = await wordService.GetChaoticTest(testSize);
+        testInstance = await wordService.GetRandomWordsTest(testSize);
 
         if(testInstance.Count > 0)
         {
@@ -515,6 +515,24 @@
     {
         int totalLength = 0;
 
+        // Handle case where user generates new test prior to finishing current test
+        if(currTestKey.Count > 0)
+        {
+            currTestKey = new();
+            charsTypedList = new();
+            correctStatus = new();
+            bigraphDataList = new();
+            isActiveSession = false;
+            totalKeysPressed = 0;
+            includedKeysPressed = 0;
+            correctKeys = 0;
+            currIndex = 0;
+            elapsedTime = 0;
+            accurateTime = 0;
+            speed = 0;
+            accuracy = 0;
+        }
+
         foreach(WordTestObject testObj in testInstance) 
         {
             foreach(char word in testObj.Chars) 
@@ -528,7 +546,6 @@
 
         correctStatus = new List<bool?>(Enumerable.Repeat((bool?)null, totalLength));
         currChar = currTestKey[0];
-
     }
 
     // Stat Generation Methods
@@ -671,15 +688,15 @@
         capsToggle = !capsToggle;
         if(capsToggle)
         {
-            testInstance = await wordService.GetRandomCapsTest(testSize);   
+            List<WordTestObject> result = await wordService.GetRandomCapsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
-
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private async void ToggleNums()
@@ -687,47 +704,43 @@
         numToggle = !numToggle;
         if(numToggle)
         {
-            testInstance = await wordService.GetRandomWordsAndNumsTest(testSize);
+            List<WordTestObject> result = await wordService.GetRandomWordsAndNumsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
-
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private async void ToggleSymbols()
     {
-        symbolToggle = !symbolToggle;
-        if(symbolToggle)
-        {
-            testInstance = await wordService.GetRandomWordsAndSymbolsTest(testSize);
+        List<WordTestObject> result = await wordService.GetRandomWordsAndSymbolsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
-
-            StateHasChanged();
-            await textInput.FocusAsync();
-        }
     }
     private async void ToggleChaos()
     {
         chaosToggle = !chaosToggle;
         if(chaosToggle)
         {
-            testInstance = await wordService.GetChaoticTest(testSize);
+            List<WordTestObject> result = await wordService.GetChaoticTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
-
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private void ToggleZen()
@@ -755,15 +768,16 @@
         {
             twentyfiveToggle = !twentyfiveToggle;
             testSize = 25;
-            testInstance = await wordService.GetRandomWordsTest(testSize);
+            List<WordTestObject> result = await wordService.GetRandomWordsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
 
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private async void ToggleFifty()
@@ -787,15 +801,16 @@
         {
             fiftyToggle = !fiftyToggle;
             testSize = 50;
-            testInstance = await wordService.GetRandomWordsTest(testSize);
+            List<WordTestObject> result = await wordService.GetRandomWordsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
 
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private async void ToggleSeventyfive()
@@ -819,15 +834,16 @@
         {
             seventyfiveToggle = !seventyfiveToggle;
             testSize = 75;
-            testInstance = await wordService.GetRandomWordsTest(testSize);
+            List<WordTestObject> result = await wordService.GetRandomWordsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
 
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     private async void ToggleOnehundred()
@@ -851,15 +867,16 @@
         {
             onehundredToggle = !onehundredToggle;
             testSize = 100;
-            testInstance = await wordService.GetRandomWordsTest(testSize);
+            List<WordTestObject> result = await wordService.GetRandomWordsTest(testSize);
 
-            if(testInstance.Count > 0)
+            if(result != null)
             {
+                testInstance = result;
                 ProcessCheckTestInstance();
+                StateHasChanged();
+                await textInput.FocusAsync();
             }
 
-            StateHasChanged();
-            await textInput.FocusAsync();
         }
     }
     
