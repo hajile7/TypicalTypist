@@ -9,8 +9,8 @@ main {
 }
 
 .top-row {
-    background-color: rgb(61, 61, 61);
-    border-bottom: 1px solid #d6d5d5;
+    background-color: rgb(37, 37, 37);
+    border-bottom: 1px solid rgb(14, 14, 14);
     margin-bottom: 1rem;
     a {
         color: white;
@@ -19,7 +19,7 @@ main {
 
 .dropdown-menu {
     background-color: rgb(37, 37, 37);
-    border: 1px solid white;
+    border: 1px solid rgb(14, 14, 14);
 }
 .dropdown-menu ::deep a {
     color: white;

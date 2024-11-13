@@ -15,33 +15,62 @@
 
 <div class="home-full-page-container">
     <div class="settings-bar">
-        <span><i class="bi bi-alphabet settings-icon"></i></span>
-        <span class="settings-text">caps</span>
+
+        <span class="@(!capsToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleCaps">
+            <i class="bi bi-alphabet-uppercase settings-icon"></i>&nbsp;&nbsp;caps
+        </span>
+
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
-        <span><i class="bi bi-123 settings-icon"></i></span>
-        <span class="settings-text">numbers</span>
+
+        <span class="@(!numToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleNums">
+            <i class="bi bi-123 settings-icon"></i>&nbsp;&nbsp;numbers
+        </span>
+
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
-        <span><i class="bi bi-question settings-icon"></i></span>
-        <span class="settings-text">symbols</span>
+
+        <span class="@(!symbolToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleSymbols">
+            <i class="bi bi-question settings-icon"></i>&nbsp;&nbsp;symbols
+        </span>
+
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
-        <span><i class="bi bi-fire settings-icon-fire"></i></span>
-        <span class="settings-text">chaos</span>
+
+        <span class="@(!chaosToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleChaos">
+            <i class="bi bi-tornado settings-icons-fire"></i>&nbsp;&nbsp;chaos
+        </span>
+
+        <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
+
+        <span class="@(!zenToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleZen">
+            <i class="bi bi-tropical-storm settings-icons-fire"></i>&nbsp;&nbsp;zen
+        </span>
+
         <span><i class="bi bi-grip-vertical settings-divider"></i></span>
-        <span><i class="bi bi-stars settings-icon-fire"></i></span>
-        <span class="settings-text">zen</span>
-        <span><i class="bi bi-grip-vertical settings-divider"></i></span>
-        <span class="settings-text-plain">&nbsp;25</span>
-        <span class="settings-text-plain">&nbsp;50</span>
-        <span class="settings-text-plain">&nbsp;75</span>
-        <span class="settings-text-plain">&nbsp;100</span>
+
+        <span class="@(!twentyfiveToggle ? "settings-text-plain" : "settings-text-plain-active")" @onclick="ToggleTwentyfive">
+            &nbsp;25
+        </span>
+
+        <span class="@(!fiftyToggle ? "settings-text-plain" : "settings-text-plain-active")" @onclick="ToggleFifty">
+            &nbsp;50
+        </span>
+
+        <span class="@(!seventyfiveToggle ? "settings-text-plain" : "settings-text-plain-active")" @onclick="ToggleSeventyfive">
+            &nbsp;75
+        </span>
+
+        <span class="@(!onehundredToggle ? "settings-text-plain" : "settings-text-plain-active")" @onclick="ToggleOnehundred">
+            &nbsp;100
+        </span>
+
     </div>
-    <div class="stats-section">
+    <div class="@(!isCollapsed ? "stats-section" : "stats-section-no-border")">
         <button class="btn-plain-text"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#scoreSpan" 
             aria-expanded="true"
             aria-controls="scoreSpan"
+            @onclick="ToggleOnCollapse"
             >
             @elapsedTime
         </button>
@@ -148,6 +177,17 @@
     decimal totalSpeed = 0;
     int roundCount = 0;
 
+    // Settings
+    private bool capsToggle = false;
+    private bool numToggle = false;
+    private bool symbolToggle = false;
+    private bool chaosToggle = false;
+    private bool zenToggle = false;
+    private bool twentyfiveToggle = false;
+    private bool fiftyToggle = false;
+    private bool seventyfiveToggle = false;
+    private bool onehundredToggle = false;
+
     // Other
     private ElementReference textInput;
     private DotNetObjectReference<Home>? dotNetRef;
@@ -161,6 +201,7 @@
     private int backspaceCounter = 0;
     private int backspaceTotalCount = 0;
     private bool isActiveSession = false;
+    private bool isCollapsed = false;
     
     // Lifecycle Methods
     protected override void OnInitialized() 
@@ -623,4 +664,46 @@
         userStats.WPM = prevSpeed;
     }
 
+    // Settings
+    private void ToggleCaps()
+    {
+        capsToggle = !capsToggle;
+    }
+    private void ToggleNums()
+    {
+        numToggle = !numToggle;
+    }
+    private void ToggleSymbols()
+    {
+        symbolToggle = !symbolToggle;
+    }
+    private void ToggleChaos()
+    {
+        chaosToggle = !chaosToggle;
+    }
+    private void ToggleZen()
+    {
+        zenToggle = !zenToggle;
+    }
+    private void ToggleTwentyfive()
+    {
+        twentyfiveToggle = !twentyfiveToggle;
+    }
+    private void ToggleFifty()
+    {
+        fiftyToggle = !fiftyToggle;
+    }
+    private void ToggleSeventyfive()
+    {
+        seventyfiveToggle = !seventyfiveToggle;
+    }
+    private void ToggleOnehundred()
+    {
+        onehundredToggle = !onehundredToggle;
+    }
+    // Other
+    private void ToggleOnCollapse()
+    {
+        isCollapsed = !isCollapsed;
+    }
 }
