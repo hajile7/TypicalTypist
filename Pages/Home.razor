@@ -184,9 +184,10 @@
     private bool chaosToggle = false;
     private bool zenToggle = false;
     private bool twentyfiveToggle = false;
-    private bool fiftyToggle = false;
+    private bool fiftyToggle = true;
     private bool seventyfiveToggle = false;
     private bool onehundredToggle = false;
+    private int testSize = 50;
 
     // Other
     private ElementReference textInput;
@@ -213,7 +214,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our currTestKey var
-        testInstance = await wordService.GetRandomWordsTest();
+        testInstance = await wordService.GetRandomWordsTest(testSize);
 
         if(testInstance.Count > 0)
         {
@@ -463,7 +464,7 @@
         speed = 0;
         accuracy = 0;
 
-        testInstance = await wordService.GetRandomWordsTest();
+        testInstance = await wordService.GetRandomWordsTest(testSize);
 
         if(testInstance.Any())
         {
@@ -685,22 +686,123 @@
     {
         zenToggle = !zenToggle;
     }
-    private void ToggleTwentyfive()
+    private async void ToggleTwentyfive()
     {
-        twentyfiveToggle = !twentyfiveToggle;
+        if(fiftyToggle) 
+        {
+            fiftyToggle = false;
+        }
+        if(seventyfiveToggle) 
+        {
+            seventyfiveToggle = false;
+        }
+        if(onehundredToggle) 
+        {
+            onehundredToggle = false;
+        }
+        if(!twentyfiveToggle)
+        {
+            twentyfiveToggle = !twentyfiveToggle;
+            testSize = 25;
+            testInstance = await wordService.GetRandomWordsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleFifty()
+    private async void ToggleFifty()
     {
-        fiftyToggle = !fiftyToggle;
+        if(twentyfiveToggle) 
+        {
+            twentyfiveToggle = false;
+        }
+        if(seventyfiveToggle)  
+        {
+            seventyfiveToggle = false;
+        }
+        if(onehundredToggle) 
+        {
+            onehundredToggle = false;
+        }
+        if(!fiftyToggle)
+        {
+            fiftyToggle = !fiftyToggle;
+            testSize = 50;
+            testInstance = await wordService.GetRandomWordsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleSeventyfive()
+    private async void ToggleSeventyfive()
     {
-        seventyfiveToggle = !seventyfiveToggle;
+        if(twentyfiveToggle) 
+        {
+            twentyfiveToggle = false;
+        }
+        if(fiftyToggle) 
+        {
+            fiftyToggle = false;
+        }
+        if(onehundredToggle) 
+        {
+            onehundredToggle = false;
+        }
+        if(!seventyfiveToggle)
+        {
+            seventyfiveToggle = !seventyfiveToggle;
+            testSize = 75;
+            testInstance = await wordService.GetRandomWordsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleOnehundred()
+    private async void ToggleOnehundred()
     {
-        onehundredToggle = !onehundredToggle;
+        if(twentyfiveToggle) 
+        {
+            twentyfiveToggle = false;
+        }
+        if(fiftyToggle) 
+        {
+            fiftyToggle = false;
+        }
+        if(seventyfiveToggle) 
+        {
+            seventyfiveToggle = false;
+        }
+        if(!onehundredToggle)
+        {
+            onehundredToggle = !onehundredToggle;
+            testSize = 100;
+            testInstance = await wordService.GetRandomWordsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
+    
     // Other
     private void ToggleOnCollapse()
     {

@@ -37,11 +37,11 @@ main[b-g5qp50siej] {
 }
 
 .nav-link:hover[b-g5qp50siej] {
-    color: aqua;
+    color: rgb(241, 38, 241);
 }
 
 .navbar-brand:hover[b-g5qp50siej] {
-    color: aqua;
+    color: rgb(241, 38, 241);
 }
 .img-up-shift[b-g5qp50siej] {
     position: relative;
@@ -227,6 +227,8 @@ main[b-g5qp50siej] {
     color: white;
 }
 
+/* Settings */
+
 .settings-bar[b-1shve68b2a] {
     width: 60%;
     display: flex;
@@ -266,7 +268,7 @@ main[b-g5qp50siej] {
 }
 
 .settings-text:hover[b-1shve68b2a] {
-    color: rgb(0, 255, 255, .5);
+    color: rgb(241, 38, 241, .5);
 }
 
 .settings-text-active[b-1shve68b2a] {
@@ -274,12 +276,12 @@ main[b-g5qp50siej] {
     position: relative;
     display:flex;
     align-items: center;
-    color: aqua;
+    color: rgb(241, 38, 241);
     cursor: pointer;
 }
 
 .settings-text-active:hover[b-1shve68b2a] {
-    color: rgb(0, 255, 255, .5);
+    color: rgb(241, 38, 241, .5);
 }
 
 .settings-text-plain[b-1shve68b2a] {
@@ -290,20 +292,22 @@ main[b-g5qp50siej] {
 }
 
 .settings-text-plain:hover[b-1shve68b2a] {
-    color: rgb(0, 255, 255, .5);
+    color: rgb(241, 38, 241, .5);
 }
 
 .settings-text-plain-active[b-1shve68b2a] {
     font-size: .8rem;
     position: relative;
     display:flex;
-    color: aqua;
+    color: rgb(241, 38, 241);
     cursor: pointer;
 }
 
 .settings-text-plain-active:hover[b-1shve68b2a] {
-    color: rgb(0, 255, 255, .5);
+    color: rgbrgb(241, 38, 241, .5);
 }
+
+/* Stats */
 
 .stats-section[b-1shve68b2a] {
     justify-items: center;
@@ -331,13 +335,15 @@ main[b-g5qp50siej] {
 }
 
 .btn-plain-text:hover[b-1shve68b2a] {
-    color: aqua;
+    color: rgb(241, 38, 241);
 }
+
+/* Cursor & Media Queries */
 
 .cursor[b-1shve68b2a] {
     display: inline-block;
     width: 2px; 
-    background-color: aqua;
+    background-color: white;
     height: 1em;
     animation: blink-b-1shve68b2a 1s step-end infinite;
     position: absolute;
@@ -351,6 +357,39 @@ main[b-g5qp50siej] {
     }
     50% {
       opacity: 0;  
+    }
+}
+
+@media(max-height: 700px)
+{
+    .home-full-page-container[b-1shve68b2a] {
+        height: 70vh;
+    }
+}
+
+@media(max-height: 580px)
+{
+    .stats-section[b-1shve68b2a] {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    .stats-section-no-border[b-1shve68b2a] {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+}
+
+@media(max-width: 1100px)
+{
+    .settings-bar[b-1shve68b2a] {
+        width: 80%;
+    }
+}
+
+@media(max-width: 800px)
+{
+    .settings-bar[b-1shve68b2a] {
+        width: 98%;
     }
 }
 /* /Pages/Test.razor.rz.scp.css */
