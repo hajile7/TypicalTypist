@@ -29,13 +29,13 @@
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
 
         <span class="@(!symbolToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleSymbols">
-            <i class="bi bi-question settings-icon"></i>&nbsp;&nbsp;symbols
+            <i class="bi bi-question settings-icon"></i>&nbsp;symbols
         </span>
 
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
 
         <span class="@(!chaosToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleChaos">
-            <i class="bi bi-tornado settings-icons-fire"></i>&nbsp;&nbsp;chaos
+            <i class="bi bi-tornado settings-icons-fire"></i>&nbsp;&nbsp;chaotic
         </span>
 
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
@@ -214,7 +214,7 @@
     protected override async Task OnInitializedAsync()
     {
         // Get first test instance and instantiate our currTestKey var
-        testInstance = await wordService.GetRandomWordsTest(testSize);
+        testInstance = await wordService.GetChaoticTest(testSize);
 
         if(testInstance.Count > 0)
         {
@@ -666,21 +666,69 @@
     }
 
     // Settings
-    private void ToggleCaps()
+    private async void ToggleCaps()
     {
         capsToggle = !capsToggle;
+        if(capsToggle)
+        {
+            testInstance = await wordService.GetRandomCapsTest(testSize);   
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleNums()
+    private async void ToggleNums()
     {
         numToggle = !numToggle;
+        if(numToggle)
+        {
+            testInstance = await wordService.GetRandomWordsAndNumsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleSymbols()
+    private async void ToggleSymbols()
     {
         symbolToggle = !symbolToggle;
+        if(symbolToggle)
+        {
+            testInstance = await wordService.GetRandomWordsAndSymbolsTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
-    private void ToggleChaos()
+    private async void ToggleChaos()
     {
         chaosToggle = !chaosToggle;
+        if(chaosToggle)
+        {
+            testInstance = await wordService.GetChaoticTest(testSize);
+
+            if(testInstance.Count > 0)
+            {
+                ProcessCheckTestInstance();
+            }
+
+            StateHasChanged();
+            await textInput.FocusAsync();
+        }
     }
     private void ToggleZen()
     {
@@ -692,14 +740,17 @@
         {
             fiftyToggle = false;
         }
+
         if(seventyfiveToggle) 
         {
             seventyfiveToggle = false;
         }
+
         if(onehundredToggle) 
         {
             onehundredToggle = false;
         }
+
         if(!twentyfiveToggle)
         {
             twentyfiveToggle = !twentyfiveToggle;
@@ -721,14 +772,17 @@
         {
             twentyfiveToggle = false;
         }
+          
         if(seventyfiveToggle)  
         {
             seventyfiveToggle = false;
         }
+
         if(onehundredToggle) 
         {
             onehundredToggle = false;
         }
+
         if(!fiftyToggle)
         {
             fiftyToggle = !fiftyToggle;
@@ -750,14 +804,17 @@
         {
             twentyfiveToggle = false;
         }
+
         if(fiftyToggle) 
         {
             fiftyToggle = false;
         }
+
         if(onehundredToggle) 
         {
             onehundredToggle = false;
         }
+
         if(!seventyfiveToggle)
         {
             seventyfiveToggle = !seventyfiveToggle;
@@ -779,14 +836,17 @@
         {
             twentyfiveToggle = false;
         }
+
         if(fiftyToggle) 
         {
             fiftyToggle = false;
         }
+
         if(seventyfiveToggle) 
         {
             seventyfiveToggle = false;
         }
+
         if(!onehundredToggle)
         {
             onehundredToggle = !onehundredToggle;
