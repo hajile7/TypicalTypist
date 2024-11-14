@@ -14,44 +14,50 @@ namespace TypicalTypist.Services
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomCapsTest(int y) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCaps/{y}") 
+        public async Task<List<WordTestObject>> GetRandomWordsAndNumsTest(int y) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomNums/{y}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomWordsAndNumsTest(int z) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomNums/{z}") 
+        public async Task<List<WordTestObject>> GetRandomWordsAndSymbolsTest(int z) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomSymbols/{z}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomWordsAndSymbolsTest(int ax) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomSymbols/{ax}") 
+        public async Task<List<WordTestObject>> GetRandomWordsNumsAndSymbolsTest(int ax) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomNumsAndSymbols/{ax}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomCapsAndNumsTest(int ay) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsNums/{ay}") 
+        public async Task<List<WordTestObject>> GetRandomCapsTest(int ay) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCaps/{ay}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomCapsAndSymbolsTest(int az) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsSymbols/{az}") 
+        public async Task<List<WordTestObject>> GetRandomCapsAndNumsTest(int az) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsNums/{az}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetRandomCapsNumsAndSymbolsTest(int bx) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsNumsAndSymbols/{bx}") 
+        public async Task<List<WordTestObject>> GetRandomCapsAndSymbolsTest(int bx) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsSymbols/{bx}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
 
-        public async Task<List<WordTestObject>> GetChaoticTest(int by) {
-            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/Chaotic/{by}") 
+        public async Task<List<WordTestObject>> GetRandomCapsNumsAndSymbolsTest(int by) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/RandomCapsNumsAndSymbols/{by}") 
+            ?? throw new InvalidOperationException("The response from the API was null.");
+            return result;
+        }
+
+        public async Task<List<WordTestObject>> GetChaoticTest(int bz) {
+            List<WordTestObject> result = await httpClient.GetFromJsonAsync<List<WordTestObject>>($"{url}/api/Words/Chaotic/{bz}") 
             ?? throw new InvalidOperationException("The response from the API was null.");
             return result;
         }
