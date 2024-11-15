@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aIxvAulRetc7iRbqcwpgmYaiJdTIt0d2oY7EW8aweTM=",
+  "Hash": "XDe8qtCxlADmfMJeMZu4+OH0ae3LJz+PCTaRao4gv5s=",
   "Source": "TypicalTypist",
   "BasePath": "/",
   "Mode": "Root",
@@ -31,8 +31,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "manifest",
-      "Fingerprint": "5qon5oj7k2",
-      "Integrity": "E65h7TN2YEvdmVBR8ASexUfDrVeG1fs5EVfNxWTYlMk=",
+      "Fingerprint": "5tvcckma23",
+      "Integrity": "CWhJljzIS/sTwd8ZIGxXU8JNaePYkXyK2rkP06GBvUA=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\blazor.boot.json"
@@ -4273,8 +4273,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "symbol",
-      "Fingerprint": "epc86vk795",
-      "Integrity": "UpSXBE20bUsETnnMe1a/DoOJqsDrSiqtOwFxs6qAxM4=",
+      "Fingerprint": "w1fu4075uw",
+      "Integrity": "tNvKon7Ck9cnxXqq627Afop4EvRJpOoZk3U6AcQDjOI=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "obj\\Debug\\net8.0\\TypicalTypist.pdb"
@@ -4294,8 +4294,8 @@
       "RelatedAsset": "",
       "AssetTraitName": "WasmResource",
       "AssetTraitValue": "runtime",
-      "Fingerprint": "huwtbyv06m",
-      "Integrity": "ie6JHB7LGt0XkhFplGOD3+SDC8Zxe0XVY0Sgk5KNRbs=",
+      "Fingerprint": "m1qvmnr1vt",
+      "Integrity": "mhf3yCmpv0Zthjp0w74ppEGB15YIue249kv/jIH2jNE=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\webcil\\TypicalTypist.wasm"
@@ -6044,7 +6044,7 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Threading.ThreadPool.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-huwtbyv06m.gz",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-m1qvmnr1vt.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\",
@@ -6058,8 +6058,8 @@
       "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\TypicalTypist.wasm",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "l8wgqelmn3",
-      "Integrity": "y9YrklNn1tLtNfD4xvCFCxxbxksmCdrIhTuKtGyyDbc=",
+      "Fingerprint": "hwn0nabqvb",
+      "Integrity": "/3eEfqK7eazqa+9n1Lu+/Xh7ezLxevE8+sQ8S9mj87k=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\TypicalTypist.wasm"
@@ -8270,7 +8270,7 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\Microsoft.CSharp.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5qon5oj7k2.gz",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5tvcckma23.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\",
@@ -8284,8 +8284,8 @@
       "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "gkrswr5hjg",
-      "Integrity": "kHaIA+gzneYBAB+6BB9+RYKSPzT1fWz8qEGXXuaW3Vc=",
+      "Fingerprint": "mtoxph3627",
+      "Integrity": "6kgu0dzngxNj4E9h13L1Q54pqgCt63DWWstEw/Y8wAI=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\blazor.boot.json"
@@ -8606,7 +8606,7 @@
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\System.Reflection.Primitives.wasm"
     },
     {
-      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-epc86vk795.gz",
+      "Identity": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-w1fu4075uw.gz",
       "SourceId": "TypicalTypist",
       "SourceType": "Computed",
       "ContentRoot": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\",
@@ -8620,8 +8620,8 @@
       "RelatedAsset": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\TypicalTypist.pdb",
       "AssetTraitName": "Content-Encoding",
       "AssetTraitValue": "gzip",
-      "Fingerprint": "uekyqfemgv",
-      "Integrity": "Kg7lc9ZZZBTDn8105qTn0nHN3/Dq7k/4CGHpeYe2mzI=",
+      "Fingerprint": "54xytc3ogt",
+      "Integrity": "2wZ5rZQyP63MbZa+2C5xxlX5e7dQAI11f2CXwZPgYU0=",
       "CopyToOutputDirectory": "PreserveNewest",
       "CopyToPublishDirectory": "Never",
       "OriginalItemSpec": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\bin\\Debug\\net8.0\\wwwroot\\_framework\\TypicalTypist.pdb"
@@ -8857,11 +8857,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"E65h7TN2YEvdmVBR8ASexUfDrVeG1fs5EVfNxWTYlMk=\""
+          "Value": "\"CWhJljzIS/sTwd8ZIGxXU8JNaePYkXyK2rkP06GBvUA=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 16:13:13 GMT"
+          "Value": "Fri, 15 Nov 2024 16:46:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8871,18 +8871,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-E65h7TN2YEvdmVBR8ASexUfDrVeG1fs5EVfNxWTYlMk="
+          "Value": "sha256-CWhJljzIS/sTwd8ZIGxXU8JNaePYkXyK2rkP06GBvUA="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5qon5oj7k2.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5tvcckma23.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000115074799"
+          "Quality": "0.000115061558"
         }
       ],
       "ResponseHeaders": [
@@ -8892,15 +8892,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8689"
+          "Value": "8690"
         },
         {
           "Name": "ETag",
-          "Value": "\"kHaIA+gzneYBAB+6BB9+RYKSPzT1fWz8qEGXXuaW3Vc=\""
+          "Value": "\"6kgu0dzngxNj4E9h13L1Q54pqgCt63DWWstEw/Y8wAI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:45:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8920,19 +8920,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"E65h7TN2YEvdmVBR8ASexUfDrVeG1fs5EVfNxWTYlMk=\""
+          "Value": "W/\"CWhJljzIS/sTwd8ZIGxXU8JNaePYkXyK2rkP06GBvUA=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-E65h7TN2YEvdmVBR8ASexUfDrVeG1fs5EVfNxWTYlMk="
+          "Value": "sha256-CWhJljzIS/sTwd8ZIGxXU8JNaePYkXyK2rkP06GBvUA="
         }
       ]
     },
     {
       "Route": "_framework/blazor.boot.json.gz",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5qon5oj7k2.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\xn2wyoo9mm-5tvcckma23.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -8941,7 +8941,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "8689"
+          "Value": "8690"
         },
         {
           "Name": "Content-Type",
@@ -8949,11 +8949,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"kHaIA+gzneYBAB+6BB9+RYKSPzT1fWz8qEGXXuaW3Vc=\""
+          "Value": "\"6kgu0dzngxNj4E9h13L1Q54pqgCt63DWWstEw/Y8wAI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:45:28 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -8971,7 +8971,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-kHaIA+gzneYBAB+6BB9+RYKSPzT1fWz8qEGXXuaW3Vc="
+          "Value": "sha256-6kgu0dzngxNj4E9h13L1Q54pqgCt63DWWstEw/Y8wAI="
         }
       ]
     },
@@ -36523,7 +36523,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "54200"
+          "Value": "54236"
         },
         {
           "Name": "Content-Type",
@@ -36531,11 +36531,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"UpSXBE20bUsETnnMe1a/DoOJqsDrSiqtOwFxs6qAxM4=\""
+          "Value": "\"tNvKon7Ck9cnxXqq627Afop4EvRJpOoZk3U6AcQDjOI=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:46:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36545,18 +36545,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UpSXBE20bUsETnnMe1a/DoOJqsDrSiqtOwFxs6qAxM4="
+          "Value": "sha256-tNvKon7Ck9cnxXqq627Afop4EvRJpOoZk3U6AcQDjOI="
         }
       ]
     },
     {
       "Route": "_framework/TypicalTypist.pdb",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-epc86vk795.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-w1fu4075uw.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000025922182"
+          "Quality": "0.000025860508"
         }
       ],
       "ResponseHeaders": [
@@ -36566,15 +36566,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "38576"
+          "Value": "38668"
         },
         {
           "Name": "ETag",
-          "Value": "\"Kg7lc9ZZZBTDn8105qTn0nHN3/Dq7k/4CGHpeYe2mzI=\""
+          "Value": "\"2wZ5rZQyP63MbZa+2C5xxlX5e7dQAI11f2CXwZPgYU0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:22:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36594,19 +36594,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"UpSXBE20bUsETnnMe1a/DoOJqsDrSiqtOwFxs6qAxM4=\""
+          "Value": "W/\"tNvKon7Ck9cnxXqq627Afop4EvRJpOoZk3U6AcQDjOI=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-UpSXBE20bUsETnnMe1a/DoOJqsDrSiqtOwFxs6qAxM4="
+          "Value": "sha256-tNvKon7Ck9cnxXqq627Afop4EvRJpOoZk3U6AcQDjOI="
         }
       ]
     },
     {
       "Route": "_framework/TypicalTypist.pdb.gz",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-epc86vk795.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\zwkj01191g-w1fu4075uw.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36615,7 +36615,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "38576"
+          "Value": "38668"
         },
         {
           "Name": "Content-Type",
@@ -36623,11 +36623,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"Kg7lc9ZZZBTDn8105qTn0nHN3/Dq7k/4CGHpeYe2mzI=\""
+          "Value": "\"2wZ5rZQyP63MbZa+2C5xxlX5e7dQAI11f2CXwZPgYU0=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:22:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36645,7 +36645,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-Kg7lc9ZZZBTDn8105qTn0nHN3/Dq7k/4CGHpeYe2mzI="
+          "Value": "sha256-2wZ5rZQyP63MbZa+2C5xxlX5e7dQAI11f2CXwZPgYU0="
         }
       ]
     },
@@ -36660,7 +36660,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "87829"
+          "Value": "88341"
         },
         {
           "Name": "Content-Type",
@@ -36668,11 +36668,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"ie6JHB7LGt0XkhFplGOD3+SDC8Zxe0XVY0Sgk5KNRbs=\""
+          "Value": "\"mhf3yCmpv0Zthjp0w74ppEGB15YIue249kv/jIH2jNE=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:46:17 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36682,18 +36682,18 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ie6JHB7LGt0XkhFplGOD3+SDC8Zxe0XVY0Sgk5KNRbs="
+          "Value": "sha256-mhf3yCmpv0Zthjp0w74ppEGB15YIue249kv/jIH2jNE="
         }
       ]
     },
     {
       "Route": "_framework/TypicalTypist.wasm",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-huwtbyv06m.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-m1qvmnr1vt.gz",
       "Selectors": [
         {
           "Name": "Content-Encoding",
           "Value": "gzip",
-          "Quality": "0.000029919517"
+          "Quality": "0.000029662148"
         }
       ],
       "ResponseHeaders": [
@@ -36703,15 +36703,15 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "33422"
+          "Value": "33712"
         },
         {
           "Name": "ETag",
-          "Value": "\"y9YrklNn1tLtNfD4xvCFCxxbxksmCdrIhTuKtGyyDbc=\""
+          "Value": "\"/3eEfqK7eazqa+9n1Lu+/Xh7ezLxevE8+sQ8S9mj87k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:22:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36731,19 +36731,19 @@
         },
         {
           "Name": "ETag",
-          "Value": "W/\"ie6JHB7LGt0XkhFplGOD3+SDC8Zxe0XVY0Sgk5KNRbs=\""
+          "Value": "W/\"mhf3yCmpv0Zthjp0w74ppEGB15YIue249kv/jIH2jNE=\""
         }
       ],
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-ie6JHB7LGt0XkhFplGOD3+SDC8Zxe0XVY0Sgk5KNRbs="
+          "Value": "sha256-mhf3yCmpv0Zthjp0w74ppEGB15YIue249kv/jIH2jNE="
         }
       ]
     },
     {
       "Route": "_framework/TypicalTypist.wasm.gz",
-      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-huwtbyv06m.gz",
+      "AssetFile": "C:\\Users\\Eli\\source\\repos\\My stuff\\TypicalTypist\\TypicalTypistFrontend\\obj\\Debug\\net8.0\\compressed\\fqcju906w1-m1qvmnr1vt.gz",
       "Selectors": [],
       "ResponseHeaders": [
         {
@@ -36752,7 +36752,7 @@
         },
         {
           "Name": "Content-Length",
-          "Value": "33422"
+          "Value": "33712"
         },
         {
           "Name": "Content-Type",
@@ -36760,11 +36760,11 @@
         },
         {
           "Name": "ETag",
-          "Value": "\"y9YrklNn1tLtNfD4xvCFCxxbxksmCdrIhTuKtGyyDbc=\""
+          "Value": "\"/3eEfqK7eazqa+9n1Lu+/Xh7ezLxevE8+sQ8S9mj87k=\""
         },
         {
           "Name": "Last-Modified",
-          "Value": "Fri, 15 Nov 2024 00:14:53 GMT"
+          "Value": "Fri, 15 Nov 2024 16:22:10 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -36782,7 +36782,7 @@
       "EndpointProperties": [
         {
           "Name": "integrity",
-          "Value": "sha256-y9YrklNn1tLtNfD4xvCFCxxbxksmCdrIhTuKtGyyDbc="
+          "Value": "sha256-/3eEfqK7eazqa+9n1Lu+/Xh7ezLxevE8+sQ8S9mj87k="
         }
       ]
     },

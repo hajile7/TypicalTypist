@@ -930,8 +930,13 @@
     }
 
     // Other
-    private void ToggleOnCollapse()
+    private async void ToggleOnCollapse()
     {
+        isSwitchingSettings = true;
         isCollapsed = !isCollapsed;
+        await textInput.FocusAsync();
+        await Task.Delay(150);
+        isSwitchingSettings = false;
+
     }
 }
