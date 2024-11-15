@@ -208,12 +208,17 @@ main[b-g5qp50siej] {
     color: red;
 }
 
+.no-focus-visible[b-1shve68b2a] {
+    padding-left: .5rem;
+}
+
 .no-focus-visible:focus-visible[b-1shve68b2a] {
     outline: none;
 }
 
 .blurred[b-1shve68b2a] {
     filter: blur(.35rem);
+    padding-left: .5rem;
 }
 
 .focus-text[b-1shve68b2a] {
@@ -305,6 +310,10 @@ main[b-g5qp50siej] {
 
 .settings-text-plain-active:hover[b-1shve68b2a] {
     color: rgbrgb(241, 38, 241, .5);
+}
+
+.zen[b-1shve68b2a] {
+    display: none;
 }
 
 /* Stats */

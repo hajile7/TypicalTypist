@@ -120,8 +120,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName></AssetTraitName>
       <AssetTraitValue></AssetTraitValue>
-      <Fingerprint>x6n27kifye</Fingerprint>
-      <Integrity>FwcHOoO6KDfln9VQ5Hdct/zMEJ3akqDAP3jeGw6p2j0=</Integrity>
+      <Fingerprint>8g1mbxudf9</Fingerprint>
+      <Integrity>2N9IkI8Wrk0dPETnAahvbJPd0mkxlcccu0HpLqDy+xg=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\jshelpers.js'))</OriginalItemSpec>
@@ -156,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>uidnrbu2pa</Fingerprint>
-      <Integrity>Ngsr8IC1gPt6MLrMKtndPxR8q6+Ru5/kvY7hhOUSWFI=</Integrity>
+      <Fingerprint>qxjhupchqe</Fingerprint>
+      <Integrity>LmFQNMAjfvgpkKMwXHkLR84RID95W3RiFh9rLYPAPEs=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\TypicalTypist.styles.css'))</OriginalItemSpec>

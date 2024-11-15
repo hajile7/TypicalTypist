@@ -14,6 +14,24 @@ window.removeGlobalKeyListener = function () {
     }
 };
 
+window.addEscKeyListener = function (dotNetObject) {
+    if (!window.escKeyListener) {
+        window.escKeyListener = (event) => {
+            if (event.key === "Escape") { 
+                dotNetObject.invokeMethodAsync('OnEscKeyUp');
+            }
+        };
+        window.addEventListener('keyup', window.escKeyListener);
+    }
+};
+
+window.removeEscKeyListener = function () {
+    if (window.escKeyListener) {
+        window.removeEventListener('keyup', window.escKeyListener);
+        window.escKeyListener = null;
+    }
+};
+
 function scrollTypingContainer() {
     setTimeout(() => {
         const typingContainer = document.querySelector('.typing-container');

@@ -14,7 +14,7 @@
 <PageTitle>Home</PageTitle>
 
 <div class="home-full-page-container">
-    <div class="settings-bar">
+    <div class="@(zenToggle ? "zen" : "settings-bar")">
 
         <span class="@(!capsToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleCaps">
             <i class="bi bi-alphabet-uppercase settings-icon"></i>&nbsp;&nbsp;caps
@@ -63,7 +63,11 @@
         </span>
 
     </div>
-    <div class="@(!isCollapsed ? "stats-section" : "stats-section-no-border")">
+    <div class="@(
+        isCollapsed 
+            ? (zenToggle ? "stats-section-no-border zen" : "stats-section-no-border") 
+            : (zenToggle ? "stats-section zen" : "stats-section")
+    )">
         <button class="btn-plain-text"
             type="button"
             data-bs-toggle="collapse"
@@ -233,11 +237,6 @@
         }
     }
 
-    public void Dispose()
-    {
-        DisposeAsync().AsTask().GetAwaiter().GetResult();
-    }
-
     // Methods
     // Timer
     private void StartTimer()
@@ -321,24 +320,32 @@
     public async ValueTask DisposeAsync()
     {
         await JSRuntime.InvokeVoidAsync("removeGlobalKeyListener");
+        await JSRuntime.InvokeVoidAsync("removeEscKeyListener");
         dotNetRef?.Dispose();
     }
 
     // Handling Input
     private void OnInput(KeyboardEventArgs e)
     {
-        StartTimer();
-        if(!isActiveSession)
+        char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
+        userLetter = lastTypedChar;
+
+        if(legalChars.Contains(userLetter)) 
         {
-            isActiveSession = true;
+            StartTimer();
+
+            if(!isActiveSession)
+            {
+                isActiveSession = true;
+            }
         }
+
         if(backspacePush == true)
         {
             backspacePush = false;
         }
 
-        char lastTypedChar = e.Key.Length == 1 ? e.Key[0] : '\0';
-        userLetter = lastTypedChar;
+        
 
         // Keep count of non-alphabetical characters outside of space, shift, and backspace
         if (e.Key == "Backspace")
@@ -719,9 +726,24 @@
         HandleTestInstance();
     }
     
-    private void ToggleZen()
+    private async void ToggleZen()
     {
-        zenToggle = !zenToggle;
+        if(!zenToggle) 
+        {
+            isSwitchingSettings = true;
+            zenToggle = true;
+            await textInput.FocusAsync();
+            await JSRuntime.InvokeVoidAsync("addEscKeyListener", dotNetRef);
+            await Task.Delay(150);
+            isSwitchingSettings = false;
+        }
+    }
+
+    [JSInvokable("OnEscKeyUp")]
+    public async void OnEscKeyUp()
+    {
+        zenToggle = false;
+        await JSRuntime.InvokeVoidAsync("removeEscKeyListener", dotNetRef);
     }
     
     // Test Size

@@ -50,12 +50,17 @@
     color: red;
 }
 
+.no-focus-visible {
+    padding-left: .5rem;
+}
+
 .no-focus-visible:focus-visible {
     outline: none;
 }
 
 .blurred {
     filter: blur(.35rem);
+    padding-left: .5rem;
 }
 
 .focus-text {
@@ -147,6 +152,10 @@
 
 .settings-text-plain-active:hover {
     color: rgbrgb(241, 38, 241, .5);
+}
+
+.zen {
+    display: none;
 }
 
 /* Stats */
