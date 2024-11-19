@@ -3,8 +3,31 @@
 
 @page "/profile"
 
+@inject UserService userService
+
 <PageTitle>Profile</PageTitle>
 
-<p>
-    This is the profile page.
-</p>
+<div class="full-profile-page">
+
+    <div class="profile-bar">
+        @userService.activeUser.UserName
+    </div>
+
+    <div class="profile-bar">
+        key stats
+    </div>
+
+    <div class="profile-bar">
+        bigraph stats
+    </div>
+
+    <div class="prev-tests">
+        previous tests
+    </div>
+
+</div>
+
+@code
+{
+
+}

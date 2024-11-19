@@ -1,0 +1,36 @@
+.profile-bar[b-9g411fme9d] {
+    width: 90%;
+    height: 20%;
+    border: 1px solid rgb(14, 14, 14);
+    background-color: rgb(37, 37, 37);
+    border-radius: 1rem;
+    padding: .25rem .5rem .25rem .5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
+
+.full-profile-page[b-9g411fme9d] {
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.prev-tests[b-9g411fme9d] {
+    width: 50%;
+    height: 40%;
+    border: 1px solid rgb(14, 14, 14);
+    background-color: rgb(37, 37, 37);
+    border-radius: 1rem;
+    padding: .25rem .5rem .25rem .5rem;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin-bottom: 1rem;
+}
