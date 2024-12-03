@@ -14,7 +14,6 @@
     <div class="section-title">
         User Stats
     </div>
-
     <div class="profile-bar">
         <div class="user-stat">
             <span class="user-username">@userService.activeUser.UserName</span>
@@ -72,7 +71,13 @@
         Previous Tests
     </div>
     <div class="prev-tests">
-        previous tests
+        @foreach(UserTypingTestDTO test in userTypingTests)
+        {
+            <div class="user-test">
+                @test.Date.ToShortDateString() | @test.CharCount (@test.IncorrectCount) | @test.Speed wpm | 
+                @test.Accuracy%
+            </div>
+        }
     </div>
 
 </div>
@@ -82,10 +87,12 @@
     //Variables
     List<UserBigraphStatDTO> userBigraphStats = new();
     List<UserKeyStatDTO> userKeyStats = new();
+    List<UserTypingTestDTO> userTypingTests = new();
     UserStats userStats = new();
     protected async override Task OnInitializedAsync()
     {
         userStats = await userStatService.GetStats(userService.activeUser.UserId);
         userKeyStats = await userStatService.GetKeyStats(userService.activeUser.UserId);
+        userTypingTests = await userStatService.GetPreviousTests(userService.activeUser.UserId);
     }
 }
