@@ -10,40 +10,67 @@
 
 <div class="full-profile-page">
 
+    @* Basic Stat Section *@
+    <div class="section-title">
+        User Stats
+    </div>
+
     <div class="profile-bar">
         <div class="user-stat">
             <span class="user-username">@userService.activeUser.UserName</span>
             <br>
-            <span class="user-joined">Joined @userService.activeUser.Joined.ToShortDateString()</span>
+            <span class="joined-text">Joined @userService.activeUser.Joined.ToShortDateString()</span>
         </div>
         <div class="user-stat">
-            Time Spent Typing<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TimeTyped</span>
+            <span class="opaque-text">Time Spent Typing</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TimeTyped</span>
         </div>
         <div class="user-stat">
-            Total Keys Typed<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.CharsTyped</span>
+            <span class="opaque-text">Total Keys Typed</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.CharsTyped</span>
         </div>
         <div class="user-stat">
-            Average Speed (wpm)<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Wpm</span>
+            <span class="opaque-text">Average Accuracy</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Accuracy%</span>
         </div>
         <div class="user-stat">
-            Top Speed (wpm)<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TopWpm</span>
+            <span class="opaque-text">Average Speed (wpm)</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Wpm</span>
         </div>
         <div class="user-stat">
-            Average Accuracy<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Accuracy%</span>
-        </div>
-        <div class="user-stat">
-            Top Accuracy<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TopAccuracy%</span>
+            <span class="opaque-text">Top Speed (wpm)</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TopWpm</span>
         </div>
     </div>
 
-    <div class="profile-bar">
-        key stats
+    @* Key Stat Section *@
+    <div class="section-title">
+        Key Stats
+    </div>
+    <div class="profile-key-bar">
+        @foreach(UserKeyStatDTO key in userKeyStats)
+        {
+            <div class="user-key-stat">
+                <span class="opaque-text">
+                    <u>@if(key.Key == " "){<span>&nbsp;</span>}@key.Key (@key.TotalTyped)</u>
+                </span>
+                <br>
+                <span class="user-stat-lg-text">
+                    @key.Accuracy%<br>
+                    @key.Speed<span> ms</span>
+                </span>
+            </div>
+        }
+    </div>
+
+    @* Bigraph Stat Section *@
+    <div class="section-title">
+        Bigraph Stats
     </div>
 
     <div class="profile-bar">
         bigraph stats
     </div>
 
+    @* Previous Tests Section *@
+    <div class="section-title">
+        Previous Tests
+    </div>
     <div class="prev-tests">
         previous tests
     </div>
@@ -59,6 +86,6 @@
     protected async override Task OnInitializedAsync()
     {
         userStats = await userStatService.GetStats(userService.activeUser.UserId);
-        
+        userKeyStats = await userStatService.GetKeyStats(userService.activeUser.UserId);
     }
 }

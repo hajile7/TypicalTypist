@@ -41,5 +41,31 @@ namespace TypicalTypist.Services
                 throw new Exception("An unknown error has occured");
             }
         }
+        public async Task<List<UserKeyStatDTO>> GetKeyStats(int userId)
+        {
+            var response = await httpClient.GetFromJsonAsync<List<UserKeyStatDTO>>($"{url}/api/UserStats/UserKeys?userId={userId}");
+            if(response != null)
+            {
+                var result = response;
+                return result ?? throw new Exception("An unknown error has occured");
+            }
+            else
+            {
+                throw new Exception("An unknown error has occured");
+            }
+        }
+        public async Task<List<UserBigraphStat>> GetBigraphStats(int userId)
+        {
+            var response = await httpClient.GetFromJsonAsync<List<UserBigraphStat>>($"{url}/api/UserStats/UserBigraphs?userId={userId}");
+            if(response != null)
+            {
+                var result = response;
+                return result ?? throw new Exception("An unknown error has occured");
+            }
+            else
+            {
+                throw new Exception("An unknown error has occured");
+            }
+        }
     }
 }
