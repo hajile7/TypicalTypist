@@ -7,7 +7,7 @@
     padding: .25rem .5rem .25rem .5rem;
     display: flex;
     justify-content: space-evenly;
-    align-content: center;
+    /* align-content: center; */
     align-items: center;
     flex-direction: row;
     margin-bottom: 1rem;
@@ -33,4 +33,25 @@
     align-items: center;
     flex-direction: row;
     margin-bottom: 1rem;
+}
+
+.user-stat[b-9g411fme9d] {
+    text-align: center;
+}
+
+.user-username[b-9g411fme9d] {
+    font-size: 1.5rem;
+}
+
+.user-joined[b-9g411fme9d] {
+    opacity: .85;
+}
+
+.user-stat-hr[b-9g411fme9d] {
+    margin: 0;
+    margin-bottom: 5px;
+}
+
+.user-stat-lg-text[b-9g411fme9d] {
+    font-size: 1.1rem;
 }

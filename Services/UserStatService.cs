@@ -28,5 +28,18 @@ namespace TypicalTypist.Services
             var response = await httpClient.PostAsJsonAsync($"{url}/api/UserStats/stats", userStats);
             return response.IsSuccessStatusCode;
         }
+        public async Task<UserStats> GetStats(int userId)
+        {
+            var response = await httpClient.GetFromJsonAsync<UserStats>($"{url}/api/UserStats/UserStats?userId={userId}");
+            if(response != null)
+            {
+                var result = response;
+                return result ?? throw new Exception("An unknown error has occured");
+            }
+            else
+            {
+                throw new Exception("An unknown error has occured");
+            }
+        }
     }
 }

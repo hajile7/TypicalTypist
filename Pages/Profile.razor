@@ -4,13 +4,36 @@
 @page "/profile"
 
 @inject UserService userService
+@inject UserStatService userStatService
 
 <PageTitle>Profile</PageTitle>
 
 <div class="full-profile-page">
 
     <div class="profile-bar">
-        @userService.activeUser.UserName
+        <div class="user-stat">
+            <span class="user-username">@userService.activeUser.UserName</span>
+            <br>
+            <span class="user-joined">Joined @userService.activeUser.Joined.ToShortDateString()</span>
+        </div>
+        <div class="user-stat">
+            Time Spent Typing<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TimeTyped</span>
+        </div>
+        <div class="user-stat">
+            Total Keys Typed<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.CharsTyped</span>
+        </div>
+        <div class="user-stat">
+            Average Speed (wpm)<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Wpm</span>
+        </div>
+        <div class="user-stat">
+            Top Speed (wpm)<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TopWpm</span>
+        </div>
+        <div class="user-stat">
+            Average Accuracy<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.Accuracy%</span>
+        </div>
+        <div class="user-stat">
+            Top Accuracy<hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TopAccuracy%</span>
+        </div>
     </div>
 
     <div class="profile-bar">
@@ -29,5 +52,13 @@
 
 @code
 {
-
+    //Variables
+    List<UserBigraphStatDTO> userBigraphStats = new();
+    List<UserKeyStatDTO> userKeyStats = new();
+    UserStats userStats = new();
+    protected async override Task OnInitializedAsync()
+    {
+        userStats = await userStatService.GetStats(userService.activeUser.UserId);
+        
+    }
 }

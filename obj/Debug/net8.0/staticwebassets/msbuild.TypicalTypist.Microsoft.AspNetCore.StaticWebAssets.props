@@ -156,8 +156,8 @@
       <RelatedAsset></RelatedAsset>
       <AssetTraitName>ScopedCss</AssetTraitName>
       <AssetTraitValue>ApplicationBundle</AssetTraitValue>
-      <Fingerprint>3no4na0i75</Fingerprint>
-      <Integrity>v7R2wdu6FWEZqqhE9v1zoidyLmHP7pqeNw+Lz6UmmrI=</Integrity>
+      <Fingerprint>ywdoatbeo9</Fingerprint>
+      <Integrity>cmovZjy/sCpX+8Asswv8aDQCzcm9L0JWNiMpsSz5DVY=</Integrity>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
       <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\TypicalTypist.styles.css'))</OriginalItemSpec>
