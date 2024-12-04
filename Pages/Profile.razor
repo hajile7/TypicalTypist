@@ -5,6 +5,9 @@
 
 @inject UserService userService
 @inject UserStatService userStatService
+@inject IJSRuntime JSRuntime
+
+@implements IAsyncDisposable
 
 <PageTitle>Profile</PageTitle>
 
@@ -59,10 +62,40 @@
 
     @* Bigraph Stat Section *@
     <div class="section-title">
-        Bigraph Stats
+        Bigraph Stats [<span data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="click"
+        data-bs-title="Choose Bigraph" class="bigraph-selector" data-bs-custom-class="custom-popover" 
+        data-bs-html="true">
+            @currentBigraph
+        </span>]
     </div>
-    <div class="profile-bar">
-        bigraph stats
+    <div class="profile-key-bar">
+        @foreach(UserBigraphStat bigraphStat in userBigraphStats)
+        {
+            @if(bigraphStat.StartingKey == currentBigraph || bigraphStat.Bigraph[1].ToString() == currentBigraph)
+            {
+                <div class="user-key-stat">
+                    <span class="opaque-text">
+                        @if(bigraphStat.Bigraph != bigraphStat.StartingKey + " " && bigraphStat.Bigraph != " " + bigraphStat.Bigraph[1])
+                        {
+                            <u>@bigraphStat.Bigraph (@bigraphStat.TotalTyped)</u>
+                        }
+                        else if(bigraphStat.Bigraph == bigraphStat.StartingKey + " ")
+                        {
+                            <u>@bigraphStat.StartingKey &nbsp;(@bigraphStat.TotalTyped)</u>
+                        }
+                        else
+                        {
+                            <u>&nbsp;@bigraphStat.Bigraph[1] (@bigraphStat.TotalTyped)</u>
+                        }
+                    </span>
+                    <br>
+                    <span class="user-stat-lg-text">
+                        @bigraphStat.Accuracy%<br>
+                        @bigraphStat.Speed<span> ms</span>
+                    </span>
+                </div>
+            }
+        }
     </div>
 
     @* Previous Tests Section *@
@@ -98,14 +131,44 @@
 @code
 {
     //Variables
-    List<UserBigraphStatDTO> userBigraphStats = new();
+    List<UserBigraphStat> userBigraphStats = new();
     List<UserKeyStatDTO> userKeyStats = new();
     List<UserTypingTestDTO> userTypingTests = new();
     UserStats userStats = new();
+    private DotNetObjectReference<Profile>? _dotNetRef;
+    string currentBigraph { get; set; } = "a";
     protected async override Task OnInitializedAsync()
     {
         userStats = await userStatService.GetStats(userService.activeUser.UserId);
         userKeyStats = await userStatService.GetKeyStats(userService.activeUser.UserId);
         userTypingTests = await userStatService.GetPreviousTests(userService.activeUser.UserId);
+        userBigraphStats = await userStatService.GetBigraphStats(userService.activeUser.UserId);
+    }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (firstRender)
+        {
+            _dotNetRef = DotNetObjectReference.Create(this);
+            await JSRuntime.InvokeVoidAsync("registerProfilePage", _dotNetRef);
+            await JSRuntime.InvokeVoidAsync("initializePopover");
+        }
+    }
+
+    public ValueTask DisposeAsync()
+    {
+        if (_dotNetRef is not null)
+        {
+            _dotNetRef.Dispose();
+        }
+        return ValueTask.CompletedTask;
+    }
+
+    [JSInvokable]
+    public void HandlePopoverOption(string option)
+    {
+       currentBigraph = option;
+       StateHasChanged();
+       Console.WriteLine("The current bigraph is " + currentBigraph); 
     }
 }

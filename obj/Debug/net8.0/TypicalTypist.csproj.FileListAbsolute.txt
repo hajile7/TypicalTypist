@@ -2057,9 +2057,9 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\87gs4mqhag-tptq2av103.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\u2ib1klvvw-lfu7j35m59.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\x5k4wcrfby-oyz0vx2fzb.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-7isf9wdvur.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-idzaq2h8h2.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-81fl6lms47.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-mgcwcxqb31.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-zrcug6maq5.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-jkbxyaivbx.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.build.endpoints.json

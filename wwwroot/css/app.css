@@ -144,3 +144,20 @@ code {
     }  
 }
 
+/* Bootstrap Component Styling */
+
+.custom-popover .popover-header {
+    border: 1px solid white;
+    background-color: black;
+}
+
+.custom-popover .popover-body {
+    border: 1px solid white;
+    background-color: black;
+    color: white;
+    span:hover {
+        cursor: pointer;
+        color: rgb(241, 38, 241);
+    }
+}
+

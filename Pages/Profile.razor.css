@@ -99,6 +99,14 @@
     font-weight: bold;
 }
 
+.bigraph-selector {
+    cursor: pointer;
+}
+
+.bigraph-selector:hover {
+    color: rgb(241, 38, 241);
+}
+
 @media(max-width: 735px)
 {
     .user-username {

@@ -1,3 +1,65 @@
+let profilePageInstance;
+
+function initializePopover() {
+    const popoverTriggerList = document.querySelectorAll('[data-bs-toggle="popover"]');
+    popoverTriggerList.forEach(function (popoverTriggerEl) {
+        const content = `
+            <div id='popoverContent'>
+                <span class='popover-option' data-option='a'>A </span>
+                <span class='popover-option' data-option='b'>B </span>
+                <span class='popover-option' data-option='c'>C </span>
+                <span class='popover-option' data-option='d'>D </span>
+                <span class='popover-option' data-option='e'>E </span>
+                <span class='popover-option' data-option='f'>F </span>
+                <span class='popover-option' data-option='g'>G </span>
+                <span class='popover-option' data-option='h'>H </span>
+                <span class='popover-option' data-option='i'>I </span>
+                <span class='popover-option' data-option='j'>J </span>
+                <span class='popover-option' data-option='k'>K </span>
+                <span class='popover-option' data-option='l'>L </span>
+                <span class='popover-option' data-option='m'>M </span>
+                <span class='popover-option' data-option='n'>N </span>
+                <span class='popover-option' data-option='o'>O </span>
+                <span class='popover-option' data-option='p'>P </span>
+                <span class='popover-option' data-option='q'>Q </span>
+                <span class='popover-option' data-option='r'>R </span>
+                <span class='popover-option' data-option='s'>S </span>
+                <span class='popover-option' data-option='t'>T </span>
+                <span class='popover-option' data-option='u'>U </span>
+                <span class='popover-option' data-option='v'>V </span>
+                <span class='popover-option' data-option='w'>W </span>
+                <span class='popover-option' data-option='x'>X </span>
+                <span class='popover-option' data-option='y'>Y </span>
+                <span class='popover-option' data-option='z'>Z </span>
+            </div>
+        `;
+
+        const popoverInstance = new bootstrap.Popover(popoverTriggerEl, {
+            html: true,
+            content: content,
+        });
+
+        popoverTriggerEl.addEventListener('shown.bs.popover', function () {
+            const popoverElement = document.querySelector('.popover');
+            if (popoverElement) {
+                popoverElement.addEventListener('click', function (event) {
+                    const target = event.target;
+                    if (target && target.classList.contains('popover-option')) {
+                        const selectedOption = target.getAttribute('data-option');
+                        console.log('Selected option:', selectedOption);
+
+                        if (profilePageInstance) {
+                            profilePageInstance.invokeMethodAsync('HandlePopoverOption', selectedOption);
+                        } else {
+                            console.error('Profile page instance not registered.');
+                        }
+                    }
+                });
+            }
+        });
+    });
+}
+
 window.addGlobalKeyListener = function (dotNetObject) {
     if (!window.globalKeyListener) {
         window.globalKeyListener = (event) => {
@@ -60,4 +122,12 @@ function addSpacePreventListener() {
             event.stopPropagation();
         }
     }, { capture: true });
+}
+
+function registerProfilePage(dotNetRef) {
+    profilePageInstance = dotNetRef;
+}
+
+function unregisterProfilePage() {
+    profilePageInstance = null;
 }
