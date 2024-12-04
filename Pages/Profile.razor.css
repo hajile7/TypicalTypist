@@ -86,8 +86,12 @@
     background-color: rgb(61,61,61);
 }
 
-.user-test {
-    padding-bottom: 1rem;
+.test-table {
+    width: 90%;
+}
+
+.test-table-row-header {
+    border-bottom: 1px solid rgb(255,255,255,.5);
 }
 
 .section-title {
@@ -121,4 +125,7 @@
         font-size: 1.25rem;
     }
     
+    .test-table {
+        font-size: .75rem;
+    }
 }

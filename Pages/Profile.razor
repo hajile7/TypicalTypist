@@ -61,7 +61,6 @@
     <div class="section-title">
         Bigraph Stats
     </div>
-
     <div class="profile-bar">
         bigraph stats
     </div>
@@ -71,13 +70,27 @@
         Previous Tests
     </div>
     <div class="prev-tests">
-        @foreach(UserTypingTestDTO test in userTypingTests)
-        {
-            <div class="user-test">
-                @test.Date.ToShortDateString() | @test.CharCount (@test.IncorrectCount) | @test.Speed wpm | 
-                @test.Accuracy%
-            </div>
-        }
+        <table class="test-table">
+            <tr class="test-table-row-header">
+                <th>Date</th>
+                <th>Mode</th>
+                <th>Char. Count</th>
+                <th>Speed (wpm)</th>
+                <th>Accuracy</th>
+            </tr>
+            <br>
+            @foreach(UserTypingTestDTO test in userTypingTests)
+            {
+                <tr class="test-table-row">
+                    <td>@test.Date.ToShortDateString()</td>
+                    <td>@test.Mode</td>
+                    <td>@test.CharCount (@test.IncorrectCount)</td>
+                    <td>@test.Speed</td>
+                    <td>@test.Accuracy%</td>
+                </tr>
+                <br>
+            }
+        </table>
     </div>
 
 </div>
