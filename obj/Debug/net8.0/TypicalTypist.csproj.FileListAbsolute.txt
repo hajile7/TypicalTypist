@@ -2057,9 +2057,6 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\87gs4mqhag-tptq2av103.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\u2ib1klvvw-lfu7j35m59.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\x5k4wcrfby-oyz0vx2fzb.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-yjnziyjcwb.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-cvxju3pk0p.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-pxtyg1xle7.gz
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.build.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.development.json
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\staticwebassets.build.endpoints.json
@@ -2074,3 +2071,6 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\refint\TypicalTypist.dll
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\TypicalTypist.pdb
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\ref\TypicalTypist.dll
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-zo4o0hbbh1.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-k6eb2wsqzk.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-fyyzz20c70.gz

@@ -142,6 +142,17 @@
     color: rgb(241, 38, 241);
 }
 
+.key-selector[b-9g411fme9d] {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transform: translateY(3px);
+}
+
+.key-selector:hover[b-9g411fme9d] {
+    color: rgb(241, 38, 241);
+}
+
 @media(max-width: 735px)
 {
     .user-username[b-9g411fme9d] {

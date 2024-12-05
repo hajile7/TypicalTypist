@@ -259,7 +259,7 @@
 
             await InvokeAsync(StateHasChanged);
 
-            await Task.Delay(1000, cancellationToken);
+            await Task.Delay(10, cancellationToken);
         }
     }
 
@@ -429,6 +429,11 @@
                 prevAccuracy = accuracy;
                 prevSpeed = speed;
                 roundCount++;
+                foreach(CharChecker checker in charsTypedList)
+                {
+                    Console.WriteLine("Letter typed: " + checker.PushedLetter);
+                    Console.WriteLine("At time: " + checker.Time);
+                }
                 StartNewTestInstance();
             }   
         } 
@@ -620,6 +625,7 @@
 
     private void GenerateKeyStats()
     {
+        @* ripped from an older iteration of this project... want to change *@
         var frequencyMap = charsTypedList.Aggregate(new Dictionary<string, UserKeyStatFull>(), (acc, current) =>
         {
             string charKey = current.Letter.ToString();
