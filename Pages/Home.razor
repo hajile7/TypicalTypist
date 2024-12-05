@@ -171,6 +171,7 @@
     private int elapsedTime;
 
     // Calcs
+    const decimal avgWord = 4.7m;
     List<decimal> accuracyList = [];
     List<decimal> speedList = [];
     decimal speed = 0;
@@ -419,7 +420,7 @@
                     previousTest.UserId = userService.activeUser.UserId;
                     previousTest.CharCount = currTestKey.Count;
                     previousTest.IncorrectCount = charsTypedList.Count(c => !c.Correct);
-                    previousTest.Mode = "random";
+                    previousTest.Mode = DetermineMode();
                     previousTest.Speed = speed;
                     previousTest.Accuracy = accuracy * 100;
                 }
@@ -492,7 +493,7 @@
     private void calcSpeed()
     {
         decimal elapsedTimeMins = (decimal)stopwatch.Elapsed.TotalMilliseconds / 1000 / 60;
-        speed = (decimal)(totalKeysPressed / 4.7) / elapsedTimeMins;
+        speed = (totalKeysPressed / avgWord) / elapsedTimeMins;
     }
 
     private void calcTotalAccuracy()
@@ -738,6 +739,43 @@
             await Task.Delay(150);
             isSwitchingSettings = false;
         }
+    }
+
+    private string DetermineMode()
+    {
+        if(capsToggle)
+        {
+            if(numToggle)
+            {
+                if(symbolToggle)
+                {
+                    return "Rand NS(" + testSize + ")";
+                }
+                else return "Rand N(" + testSize + ")";
+            }
+            if(symbolToggle)
+            {
+                return "Rand S(" + testSize + ")";
+            }
+            else return "Rand(" + testSize + ")";
+        }
+        else if(numToggle)
+        {
+            if(symbolToggle)
+            {
+                return "rand NS(" + testSize + ")";
+            }
+            else return "rand N(" + testSize + ")";
+        }
+        else if(symbolToggle)
+        {
+            return "rand S(" + testSize + ")";
+        }
+        else if(chaosToggle)
+        {
+            return "chaotic(" + testSize + ")";
+        }
+        else return "rand(" + testSize + ")";
     }
 
     [JSInvokable("OnEscKeyUp")]

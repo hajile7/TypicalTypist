@@ -15,14 +15,10 @@
 
     @* Basic Stat Section *@
     <div class="section-title">
-        User Stats
+        <span>@userService.activeUser.UserName</span>
+        <span class="joined-text">Member Since @userService.activeUser.Joined.ToShortDateString()</span>
     </div>
     <div class="profile-bar">
-        <div class="user-stat">
-            <span class="user-username">@userService.activeUser.UserName</span>
-            <br>
-            <span class="joined-text">Joined @userService.activeUser.Joined.ToShortDateString()</span>
-        </div>
         <div class="user-stat">
             <span class="opaque-text">Time Spent Typing</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TimeTyped</span>
         </div>
@@ -52,7 +48,7 @@
                     <u>@if(key.Key == " "){<span>&nbsp;</span>}@key.Key (@key.TotalTyped)</u>
                 </span>
                 <br>
-                <span class="user-stat-lg-text">
+                <span class="user-key-stat-lg-text">
                     @key.Accuracy%<br>
                     @key.Speed<span> ms</span>
                 </span>
@@ -62,11 +58,11 @@
 
     @* Bigraph Stat Section *@
     <div class="section-title">
-        Bigraph Stats [<span data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="click"
+        <span>Bigraph Stats [<span tabindex="0" data-bs-toggle="popover" data-bs-placement="top" data-bs-trigger="focus"
         data-bs-title="Choose Bigraph" class="bigraph-selector" data-bs-custom-class="custom-popover" 
-        data-bs-html="true">
+        >
             @currentBigraph
-        </span>]
+        </span>]</span>
     </div>
     <div class="profile-key-bar">
         @foreach(UserBigraphStat bigraphStat in userBigraphStats)
@@ -89,7 +85,7 @@
                         }
                     </span>
                     <br>
-                    <span class="user-stat-lg-text">
+                    <span class="user-key-stat-lg-text">
                         @bigraphStat.Accuracy%<br>
                         @bigraphStat.Speed<span> ms</span>
                     </span>
@@ -99,7 +95,7 @@
     </div>
 
     @* Previous Tests Section *@
-    <div class="section-title">
+    <div class="tests-title">
         Previous Tests
     </div>
     <div class="prev-tests">
@@ -112,14 +108,14 @@
                 <th>Accuracy</th>
             </tr>
             <br>
-            @foreach(UserTypingTestDTO test in userTypingTests)
+            @for(int i = userTypingTests.Count - 1; i >= 0; i--)
             {
                 <tr class="test-table-row">
-                    <td>@test.Date.ToShortDateString()</td>
-                    <td>@test.Mode</td>
-                    <td>@test.CharCount (@test.IncorrectCount)</td>
-                    <td>@test.Speed</td>
-                    <td>@test.Accuracy%</td>
+                    <td>@userTypingTests[i].Date.ToShortDateString()</td>
+                    <td>@userTypingTests[i].Mode</td>
+                    <td>@userTypingTests[i].CharCount (@userTypingTests[i].IncorrectCount)</td>
+                    <td>@userTypingTests[i].Speed</td>
+                    <td>@userTypingTests[i].Accuracy%</td>
                 </tr>
                 <br>
             }
