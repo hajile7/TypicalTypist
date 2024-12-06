@@ -148,16 +148,30 @@ code {
 
 .custom-popover .popover-header {
     border: 1px solid white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95);
+    color: white;
+    font-size: 1.2rem;
 }
 
 .custom-popover .popover-body {
     border: 1px solid white;
-    background-color: black;
+    background-color: rgba(0, 0, 0, 0.95);
     color: white;
+    font-size: 1rem;
     span:hover {
         cursor: pointer;
         color: rgb(241, 38, 241);
+    }
+    
+}
+
+@media(max-width: 735px) {
+    .custom-popover .popover-header {
+        font-size: 1rem;
+    }
+
+    .custom-popover .popover-body {
+        font-size: .9rem;
     }
 }
 

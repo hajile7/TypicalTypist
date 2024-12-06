@@ -2071,6 +2071,6 @@ C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\refint\TypicalTypist.dll
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\TypicalTypist.pdb
 C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\ref\TypicalTypist.dll
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-zo4o0hbbh1.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-k6eb2wsqzk.gz
-C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-fyyzz20c70.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\fqcju906w1-pxivlzs4r6.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\zwkj01191g-sw2crowf2m.gz
+C:\Users\Eli\source\repos\My stuff\TypicalTypist\TypicalTypistFrontend\obj\Debug\net8.0\compressed\xn2wyoo9mm-xnm0p25z2s.gz

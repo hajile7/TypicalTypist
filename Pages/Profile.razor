@@ -20,7 +20,7 @@
     </div>
     <div class="profile-bar">
         <div class="user-stat">
-            <span class="opaque-text">Time Spent Typing</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.TimeTyped</span>
+            <span class="opaque-text">Time Spent Typing</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@GetTimeString()</span>
         </div>
         <div class="user-stat">
             <span class="opaque-text">Total Keys Typed</span><hr class="user-stat-hr"><span class="user-stat-lg-text">@userStats.CharsTyped</span>
@@ -204,6 +204,25 @@
        Console.WriteLine("The current bigraph is " + currentBigraph); 
     }
 
+    private string GetTimeString()
+    {
+        if(userStats.TimeTyped < 60)
+        {
+            return userStats.TimeTyped + "s";
+        }
+        else if(userStats.TimeTyped < 3600)
+        {
+            return (userStats.TimeTyped / 60) + "m " + (userStats.TimeTyped % 60) + "s";
+        }
+        else 
+        {
+            string hours = (userStats.TimeTyped / 3600) + "h ";
+            string minutes = (userStats.TimeTyped % 3600 / 60) + "m ";
+            string seconds = (userStats.TimeTyped % 3600 % 60) + "s";
+
+            return hours + minutes + seconds;
+        }
+    }
     private void ToggleKeyView()
     {
         viewLetters = !viewLetters;

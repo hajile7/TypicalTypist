@@ -47,7 +47,6 @@ function initializePopover() {
                     const target = event.target;
                     if (target && target.classList.contains('popover-option')) {
                         const selectedOption = target.getAttribute('data-bs-option');
-                        console.log('Selected option:', selectedOption);
 
                         if (profilePageInstance) {
                             profilePageInstance.invokeMethodAsync('HandlePopoverOption', selectedOption);
@@ -118,7 +117,6 @@ function scrollTypingContainer() {
 function addSpacePreventListener() {
     document.addEventListener('keydown', function(event) {
         if (event.key === ' ' && document.activeElement === document.querySelector('.no-focus-visible')) {
-            console.log('Space scroll prevented');
             event.preventDefault();
             event.stopPropagation();
         }

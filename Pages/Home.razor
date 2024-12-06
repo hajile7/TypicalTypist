@@ -401,7 +401,6 @@
         if(backspacePush)
         {
             currChar = currTestKey[includedKeysPressed - backspaceCounter];
-            Console.WriteLine("After the backspace, the new currChar is: " + currChar); 
         }
         else
         {
@@ -429,11 +428,6 @@
                 prevAccuracy = accuracy;
                 prevSpeed = speed;
                 roundCount++;
-                foreach(CharChecker checker in charsTypedList)
-                {
-                    Console.WriteLine("Letter typed: " + checker.PushedLetter);
-                    Console.WriteLine("At time: " + checker.Time);
-                }
                 StartNewTestInstance();
             }   
         } 
@@ -675,7 +669,6 @@
         // Populate keyStats with final values
         foreach (var k in frequencyArr)
         {
-            Console.WriteLine(k);
             keyStats.Add(new UserKeyStatDTO
             {
                 UserId = userService.activeUser.UserId,
