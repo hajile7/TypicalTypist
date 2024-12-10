@@ -42,6 +42,7 @@ main {
 .navbar-brand:hover {
     color: rgb(241, 38, 241);
 }
+
 .img-up-shift {
     position: relative;
     top: -10px;

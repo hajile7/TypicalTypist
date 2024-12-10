@@ -41,7 +41,9 @@
         <span><i class="bi bi-three-dots-vertical settings-divider"></i></span>
 
         <span class="@(!zenToggle ? "settings-text" : "settings-text-active")" @onclick="ToggleZen">
-            <i class="bi bi-tropical-storm settings-icons-fire"></i>&nbsp;&nbsp;zen
+            <span data-bs-toggle="tooltip" data-bs-title="Push esc to exit zen mode">
+                <i class="bi bi-tropical-storm settings-icons-fire"></i>&nbsp;&nbsp;zen
+            </span>
         </span>
 
         <span><i class="bi bi-grip-vertical settings-divider"></i></span>
@@ -234,6 +236,7 @@
     {
         if(firstRender) {
             await JSRuntime.InvokeVoidAsync("addSpacePreventListener");
+            await JSRuntime.InvokeVoidAsync("initializeTooltips");
             await textInput.FocusAsync();
         }
     }
@@ -439,7 +442,7 @@
         calcTotalAccuracy();
         calcTotalSpeed();
 
-        if(userService.IsLoggedIn)
+        if(userService.IsLoggedIn && !chaosToggle)
         {
             GenerateUserBigraphStatDTO();
             GenerateKeyStats();

@@ -23,8 +23,6 @@
                                 <ul class="dropdown-menu">
                                     <li><a class="dropdown-item" href="/profile">Profile <i class="bi bi-person-circle"></i></a></li>
                                     <li><hr class="dropdown-divider"></li>
-                                    <li><a class="dropdown-item" href="/settings">Settings <i class="bi bi-gear"></i></a></li>
-                                    <li><hr class="dropdown-divider"></li>
                                     <li><a class="dropdown-item" href="/" @onclick="userService.Logout">Logout <i class="bi bi-box-arrow-right"></i></a></li>
                                 </ul>
                                 </li>
@@ -36,18 +34,15 @@
                     }
                     else
                     {
-                        <ul class="navbar-nav me-auto mb-0">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/settings"><i class="bi bi-gear"></i></a>
-                            </li>
-                        </ul>
-                        <div class="nav-item">
-                            <a class="nav-link lone-link" href="/login">Login <i class="bi bi-box-arrow-in-left"></i></a>
-                        </div>
-                        <span style="cursor: default;">&nbsp;/&nbsp;</span>
-                        <div class="nav-item">
-                            <a class="nav-link lone-link" href="/register">Register <i class="bi bi-person-plus"></i></a>
-                        </div>
+                        <span style="display: flex; flex-direction: row;">
+                            <div class="nav-item">
+                                <a class="nav-link lone-link" href="/login">Login <i class="bi bi-box-arrow-in-left"></i></a>
+                            </div>
+                            <span style="cursor: default; padding-top: 8px;">&nbsp;/&nbsp;</span>
+                            <div class="nav-item">
+                                <a class="nav-link lone-link" href="/register">Register <i class="bi bi-person-plus"></i></a>
+                            </div>
+                        </span>
                     }
                 </div>
             </nav>

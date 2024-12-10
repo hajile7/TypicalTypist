@@ -162,7 +162,6 @@ code {
         cursor: pointer;
         color: rgb(241, 38, 241);
     }
-    
 }
 
 @media(max-width: 735px) {
@@ -173,5 +172,17 @@ code {
     .custom-popover .popover-body {
         font-size: .9rem;
     }
+
+    .stats-span {
+        width: 16ch;
+    }
 }
+
+@media(max-width: 677px) {
+    .stats-span {
+        width: 15ch;
+    }
+}
+
+
 
