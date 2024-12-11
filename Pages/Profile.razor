@@ -13,6 +13,8 @@
 
 <div class="full-profile-page">
 
+    @if(!firstView)
+    {
     @* Basic Stat Section *@
     <div class="section-title">
         <span>@userService.activeUser.UserName</span>
@@ -151,6 +153,13 @@
             }
         </table>
     </div>
+    }
+    else
+    {
+        <div style="margin-bottom: 10rem;">
+            Please come back here after completing your first test!
+        </div>
+    }
 
 </div>
 
@@ -164,6 +173,7 @@
     private DotNetObjectReference<Profile>? _dotNetRef;
     string currentBigraph { get; set; } = "a";
     private bool viewLetters = true;
+    private bool firstView = false;
     private HashSet<char> lettersView = new() {'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'};
     private HashSet<char> symbolsView = new() {'1','2','3','4','5','6','7','8','9', '0', '.', ',', '\'', '"', '?', '!', '*', '=', '+', '-', '/', '\\', '<', 
                                               '>', '(', ')', '{', '}', '[', ']', '^', '~', '%', '$', '#', '@', '`', '&', '|', ' '};
@@ -171,10 +181,17 @@
     // Methods
     protected async override Task OnInitializedAsync()
     {
-        userStats = await userStatService.GetStats(userService.activeUser.UserId);
-        userKeyStats = await userStatService.GetKeyStats(userService.activeUser.UserId);
-        userTypingTests = await userStatService.GetPreviousTests(userService.activeUser.UserId);
-        userBigraphStats = await userStatService.GetBigraphStats(userService.activeUser.UserId);
+        try
+        {
+            userStats = await userStatService.GetStats(userService.activeUser.UserId);
+            userKeyStats = await userStatService.GetKeyStats(userService.activeUser.UserId);
+            userTypingTests = await userStatService.GetPreviousTests(userService.activeUser.UserId);
+            userBigraphStats = await userStatService.GetBigraphStats(userService.activeUser.UserId);
+        }
+        catch
+        {
+            firstView = true;
+        }
     }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
