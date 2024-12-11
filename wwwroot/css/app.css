@@ -138,6 +138,14 @@ code {
     padding-top: .125rem;
 }
 
+.form-control:focus {
+    color: #212529;
+    background-color: #fff;
+    border-color: rgb(241, 38, 241);
+    outline: 0;
+    box-shadow: 0 0 0 .2rem rgba(241, 38, 241, .15);
+}
+
 @media(max-width: 830px) {
     .form-input {
         width: 50%;

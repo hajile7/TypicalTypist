@@ -12,6 +12,12 @@
 
     <EditForm Model="@loginModel" OnValidSubmit="UserLogin" class="centered-forms">
 
+        @if(errorMessage != "")
+        {
+            <div style="color:red; margin-bottom: 1rem;">
+                &#x2022; @errorMessage
+            </div>
+        }
         <div class="form-header">
             Login <i class="bi bi-box-arrow-in-left"></i>
         </div>
@@ -33,6 +39,7 @@
 @code {
 
     private LoginModel loginModel = new();
+    private string errorMessage = "";
 
     // Methods
     private async void UserLogin() 
@@ -48,6 +55,7 @@
         catch(Exception ex)
         {
             Console.WriteLine("Login failed: " + ex.Message); 
+            errorMessage = ex.Message;
         }
 
         StateHasChanged();
