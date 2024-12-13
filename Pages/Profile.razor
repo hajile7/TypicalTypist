@@ -218,7 +218,6 @@
     {
        currentBigraph = option;
        StateHasChanged();
-       Console.WriteLine("The current bigraph is " + currentBigraph); 
     }
 
     private string GetTimeString()
@@ -243,7 +242,6 @@
     private void ToggleKeyView()
     {
         viewLetters = !viewLetters;
-        Console.WriteLine(viewLetters);
         StateHasChanged();
     }
 }
